@@ -71,8 +71,7 @@
 @media only screen and (min-width:768px) {
     .Product-Title>.Title {
         float: left;
-        margin-top: 62px;
-        width: 496px;
+        margin-top: 60px;
         height: 60px;
         font-family: 'Nunito Sans', sans-serif;
         font-size: 42px;
