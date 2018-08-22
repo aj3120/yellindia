@@ -1,52 +1,72 @@
-
 .List-Items {
     display: grid;
     grid-row-gap: 40px;
     grid-column-gap: 40px;
     position: relative;
 }
-.Quick-View{
-    position:absolute;
+
+.Quick-View {
+    position: absolute;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-@media only screen and (min-width:1920px){
-    .List-Items{
+
+@media only screen and (min-width:1920px) {
+    .List-Items {
         grid-template-columns: auto auto auto auto auto;
-
-    }
-}    
-@media only screen and (min-width:1440px) and (max-width:1920px){
-    .List-Items{
-        grid-template-columns: auto auto auto auto;
-
-    }
-}  
-@media only screen and (min-width:1080px) and (max-width:1430px){
-    .List-Items{
-        grid-template-columns: auto auto auto;
-
     }
 }
-@media only screen and (min-width:870px) and (max-width:1080px){
-    .List-Items{
-        grid-template-columns: auto auto;
 
+@media only screen and (min-width:1440px) and (max-width:1920px) {
+    .List-Items {
+        grid-template-columns: auto auto auto auto;
     }
-}    
-@media only screen and (min-width:700px) and (max-width:870px){
-    .List-Items{
-        grid-template-columns: auto auto;
+}
 
+@media only screen and (min-width:1080px) and (max-width:1440px) {
+    .List-Items {
+        grid-template-columns: auto auto auto;
     }
-}    
+}
+
+@media only screen and (min-width:870px) and (max-width:1080px) {
+    .List-Items {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media only screen and (min-width:700px) and (max-width:870px) {
+    .List-Items {
+        grid-template-columns: auto auto;
+    }
+}
+.Item-Container{
+    position:relative;
+    height: 447px;
+    box-sizing: border-box;
+}
 .Item {
+    box-sizing: border-box;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
-    height: 447px;
+    height:100%;
+    width:100%;
     border-radius: 4px;
     background-color: #ffffff;
     box-shadow: 0 1px 4px 0 rgba(38, 50, 56, 0.38);
 }
+
+.Quick-View {
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+    top: 35%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    
+}
+
 
 .Product-Content {
     display: flex;

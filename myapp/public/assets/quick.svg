@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="50" viewBox="0 0 180 50">
+    <g fill="none" fill-rule="evenodd">
+        <path fill="#141416" d="M0 0h180v50H0z"/>
+        <text fill="#FFF" font-family="AvenirNext-DemiBold, Avenir Next" font-size="12" font-weight="500" letter-spacing="2">
+            <tspan x="43.988" y="28">QUICK VIEW</tspan>
+        </text>
+    </g>
+</svg>

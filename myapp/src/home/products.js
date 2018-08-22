@@ -21,8 +21,9 @@ class Products extends Component {
   listItems=()=>{
           var productList=this.props.home_products.map((product)=>(
                                                           <Item id={product.id} name={product.name}
-                                                         brand={product.brand} price={product.price} image={product.image}/>
+                                                         brand={product.brand} price={product.price} image={product.image} callQuickPage={this.props.callQuickPage}/>
                                                           ));
+          
           return(productList)
         }
   render() {
