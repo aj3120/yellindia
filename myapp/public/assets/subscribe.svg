@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="40" viewBox="0 0 180 40">
+    <g fill="none" fill-rule="evenodd">
+        <rect width="180" height="40" fill="#FFF" rx="4"/>
+        <text fill="#33333A" font-family="NunitoSans-Regular, Nunito Sans" font-size="12" letter-spacing="2">
+            <tspan x="48.136" y="22">SHOW MEN</tspan>
+        </text>
+    </g>
+</svg>

@@ -1,0 +1,270 @@
+@font-face {
+    font-family: 'AvenirNext';
+    src: url(../fonts/AvenirNext-Regular.ttf);
+}
+.Home{
+    position:relative;
+}
+.Carousel-Image div {
+    object-fit: contain;
+}
+
+.Carousel-Image {
+    position: relative;
+}
+
+.Products {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (min-width:1010px) {
+    .About-Content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .About-Image {
+        width: 42%;
+    }
+    .About-Description {
+        width: 55%;
+    }
+}
+
+@media only screen and (min-width:1380px) {
+    .Carousel-Title {
+        font-size: 60px;
+    }
+}
+
+@media only screen and (min-width:1280px)and (max-width:1380px) {
+    .Carousel-Title {
+        font-size: 50px;
+    }
+}
+
+@media only screen and (min-width:1010px)and (max-width:1280px) {
+    .Carousel-Title {
+        font-size: 40px;
+    }
+}
+
+@media only screen and (min-width:768px)and (max-width:1010px) {
+    .Carousel-Title {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width:1010px) {
+    .About-Content {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .About-Description {
+        margin-top: 10px;
+        height: 400px;
+    }
+}
+
+@media only screen and (min-width:768px) {
+    .Product-Title>.Title {
+        float: left;
+        margin-top: 60px;
+        height: 60px;
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 42px;
+        font-weight: bold;
+        line-height: 1.43;
+        text-align: center;
+        color: #33333a;
+        margin-bottom: 28px;
+    }
+    .Product-Title>.Filter {
+        margin-right: 10px;
+    }
+    .Product-Title>.Filter, .Product-Title>.Sort {
+        float: right;
+        margin-top: 90px;
+        width: 53px;
+        height: 16px;
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1;
+        letter-spacing: normal;
+        text-align: center;
+        color: #78909c;
+    }
+    .Search-Box {
+        display: none;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .Carousel-Image {
+        display: none;
+    }
+    .About {
+        display: none;
+    }
+    .Product-Title .Title {
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 25px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #78909c;
+        margin-top: 20px;
+    }
+    .Search-Box {
+        position: relative;
+    }
+    .Search-Box img {
+        position: absolute;
+        top: 32px;
+        left: 7px;
+    }
+    .Search-Box input {
+        margin: 20px 0px;
+        box-sizing: border-box;
+        padding-left: 25px;
+        color: #78909c;
+        font-family: 'Nunito Sans', sans-serif;
+        width: 100%;
+        height: 40px;
+        background-color: #ffffff;
+        border: solid 1px rgba(38, 50, 56, 0.12);
+    }
+    .Sort, .Filter {
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.14;
+        letter-spacing: normal;
+        float:right;
+        margin-left:24px;
+        margin-bottom:36px;
+        margin-top:16px;
+        color: #78909c;
+    }
+}
+
+@media only screen and (min-width:200px) and (max-width:500px) {
+    .Product-Title .Title {
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #78909c
+    }
+}
+
+.Carousel-Title {
+    position: absolute;
+    z-index: 10;
+    font-weight: 600;
+    color: #ffffff;
+    left: 63%;
+    bottom: 18%;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.Carousel-Button {
+    position: absolute;
+    z-index: 10;
+    height: 160px;
+    font-size: 60px;
+    font-weight: 600;
+    color: #ffffff;
+    left: 63.2%;
+    bottom: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Nunito Sans', sans-serif;
+    width: 93px;
+    height: 35px;
+    background-color: #33333a;
+    object-fit: contain;
+}
+
+.Carousel-Button img {
+    position: absolute;
+    width: 83px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.About-Title {
+    font-family: 'Roboto', sans-serif;
+    height: 60px;
+    font-size: 42px;
+    font-weight: normal;
+    text-align: center;
+    color: #33333a;
+    margin: auto;
+    margin-bottom: 28px;
+}
+
+.About {
+    width: 80%;
+    margin: auto;
+    margin-top: 90px;
+}
+
+.About-Image img {
+    width: 100%;
+}
+
+.About-Description {
+    margin-left: 2%;
+    font-family: 'AvenirNext';
+    font-size: 18px;
+    font-weight: normal;
+    color: #030303;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.days-created, .countries, .mattertribe {
+    font-size: 12px;
+    font-weight: normal;
+    color: #33333a;
+}
+.QuickViewPage-Container{
+    position:absolute;
+    width:100%;
+    height: 100%;
+    color:white;
+    top:0px;
+    background-color:rgba(0, 0, 0, 0.8);
+    z-index: 15;
+
+}
+.QuickViewPage img{
+    cursor: pointer;
+}
+.QuickViewPage{
+    position:fixed;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    color:white;
+    background-color:white;
+    width:80%;
+
+}
