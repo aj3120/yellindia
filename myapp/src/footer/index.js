@@ -54,8 +54,8 @@ class Footer extends Component {
                             </div>
                         </div>
                         <div className="Subscribe-Images">
-                            <img src="" />
-                            <img src="" />
+                            {/* <img src="" alt="fb"/>
+                            <img src="" alt="twitter"/> */}
                         </div>
                     </div>
                 </div>

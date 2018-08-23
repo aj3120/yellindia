@@ -1,6 +1,20 @@
 import React, { Component } from 'react';
-
+import { push } from 'react-router-redux';
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
+const mapStateToProps=(state)=>{
+    return({count:state.cart_products_reducer.cart_products.length})
+}
+const mapDispatchToProps=(dispatch)=>{
+    return({action:bindActionCreators({push},dispatch)})
+}
 class MenuBar extends Component {
+    goCart=()=>{
+        this.props.action.push('/cart');
+    }
+    goHome=()=>{
+        this.props.action.push('/');
+    }
     render() {
         return (
 
@@ -12,7 +26,7 @@ class MenuBar extends Component {
                         <div></div>
                     </div>
                     <div className="Menu-Left">
-                        <div className="Logo">
+                        <div className="Logo" onClick={this.goHome}>
                             <img src="assets/group-2.svg" alt="logo" />
                         </div>
                         <div className="Shop">
@@ -40,7 +54,13 @@ class MenuBar extends Component {
                         <div className="Wishlist">
                             <img src="assets/shape.svg" alt="wishlist" />
                         </div>
-                        <div className="Cart-List">
+                        <div className="Cart-List" >
+                            <div className="Cart-Count"  onClick={this.goCart}>
+                            <div className="Count" >
+                            {this.props.count}
+                            </div>
+                            
+                            </div>
                             <img src="assets/cart.svg" alt="cart" />
                         </div>
                     </div>
@@ -50,4 +70,4 @@ class MenuBar extends Component {
     }
 
 }
-export default MenuBar
+export default connect(mapStateToProps,mapDispatchToProps)(MenuBar)

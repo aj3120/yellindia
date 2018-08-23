@@ -9,9 +9,9 @@ import { ConnectedRouter } from "react-router-redux";
 
 ReactDOM.render(
     <Provider store={store}>
-            {/* <ConnectedRouter history={history}> */}
+            <ConnectedRouter history={history} >
                  <App />
-             {/* </ConnectedRouter> */}
+             </ConnectedRouter>
     </Provider>,
     document.getElementById('root'));
 registerServiceWorker();
