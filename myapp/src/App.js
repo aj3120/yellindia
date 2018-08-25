@@ -11,7 +11,12 @@ import cartProductsRequest from './services/cartProductRequest';
 import { bindActionCreators } from 'redux';
 import {allProductsAction} from './actions/all_products_action'
 import {connect} from 'react-redux'
-import {cartProductsAction} from './actions/cart_products_action'
+import {cartProductsAction} from './actions/cart_products_action';
+import Shipping from './checkout/shipping';
+import Payment from './checkout/payment';
+import Review from './checkout/review';
+import Thanks from './checkout/thanks';
+
 const mapStateToProps=(state)=>{
       return({all_products:state.all_products_reducer.all_products,cart_products:state.cart_products_reducer.cart_products});
 }
@@ -35,6 +40,10 @@ class App extends Component {
             <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/cart" component={Cart} />
+            <Route path="/shipping" component={Shipping}/>
+            <Route path="/payment" component={Payment}/>   
+            <Route path="/review" component={Review}/>
+            <Route path="/thanks" component={Thanks}/>
             </Switch>
             <Footer/>
         </div>

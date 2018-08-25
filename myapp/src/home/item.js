@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./item.css"
+import {push} from 'react-router-redux';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { productCount } from '../actions/product_count';
@@ -9,7 +10,7 @@ const mapStateToProps=(state)=>{
 
 }
 const mapDispatchToProps=(dispatch)=>{
-  return ({ action: bindActionCreators({ productCount }, dispatch) })
+  return ({ action: bindActionCreators({ productCount,push}, dispatch) })
 }
 class Item extends Component {
   constructor(props) {
@@ -53,8 +54,9 @@ class Item extends Component {
       }    );
       this.props.action.productCount(cart_products_new)
       cartUpdateRequest(cart_products_new)
+      
     }
-    
+    this.props.action.push('/cart')
   }
   
   render() {

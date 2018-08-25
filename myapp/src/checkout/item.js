@@ -3,14 +3,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { productCount } from '../actions/product_count';
 import cartUpdateRequest from '../services/cartUpdateRequest';
-import './cart-item.css';
 const mapStateToProps = (state) => {
     return ({ all_products: state.all_products_reducer.all_products, cart_products: state.cart_products_reducer.cart_products })
 }
 const mapDispatchToProps = (dispatch) => {
     return ({ action: bindActionCreators({ productCount }, dispatch) })
 }
-class CartItem extends Component {
+class CheckoutItem extends Component {
     decrement = () => {
         let cart_products_new = this.props.cart_products.map((product) => {
             if (product.id === this.props.id && parseInt(product.count,10) > 1) {
@@ -54,18 +53,18 @@ class CartItem extends Component {
     render() {
         return (
             <div>
-                <div className="Cart-Item">
-                    <div className="Cart-Image">
+                <div className="Cart-Item-Checkout">
+                    <div className="Checkout-Image">
                         <img src={this.props.all_products.id[this.props.id].image} alt="product" />
                     </div>
-                    <div className="Cart-Details">
-                        <div className="Cart-Name">
+                    <div className="Checkout-Details">
+                        <div className="Checkout-Name">
                             {this.props.all_products.id[this.props.id].name}
                         </div>
-                        <div className="Cart-Brand">
+                        <div className="Checkout-Brand">
                             {this.props.all_products.id[this.props.id].brand}
                         </div>
-                        <div className="Cart-Quandity">
+                        <div className="Checkout-Quandity">
                             <div>Qty</div>
                             <div className="Decrement" onClick={this.decrement}>
                                 <img src="assets/decrement.svg" alt="decrement" />
@@ -77,18 +76,18 @@ class CartItem extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="Cart-Options">
-                        <div className="Cart-Remove" onClick={this.remove}>
+                    <div className="Checkout-Options">
+                        <div className="Checkout-Remove" onClick={this.remove}>
                             <img src="assets/remove.svg" alt="remove" />
                         </div>
-                        <div className="Cart-Price">
+                        <div className="Checkout-Price">
                             ${this.props.all_products.id[this.props.id].price}
                         </div>
 
                     </div>
                 </div>
-                <div className="Cart-Mobile-Extras">
-                      <div className="Cart-Quandity">
+                <div className="Checkout-Mobile-Extras">
+                      <div className="Checkout-Quandity">
                             <div>Qty</div>
                             <div className="Decrement" onClick={this.decrement}>
                                 <img src="assets/decrement.svg" alt="decrement" />
@@ -99,7 +98,7 @@ class CartItem extends Component {
                                 <img src="assets/increment.svg" alt="increment" />
                             </div>
                         </div>
-                        <div className="Cart-Price">
+                        <div className="Checkout-Price">
                             ${this.props.all_products.id[this.props.id].price}
                         </div>
 
@@ -111,4 +110,4 @@ class CartItem extends Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CartItem);
+export default connect(mapStateToProps, mapDispatchToProps)(CheckoutItem);

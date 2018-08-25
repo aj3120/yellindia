@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="124" height="40" viewBox="0 0 124 40">
+    <defs>
+        <filter id="a" width="105.8%" height="119.4%" x="-2.9%" y="-6.9%" filterUnits="objectBoundingBox">
+            <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1"/>
+            <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd" filter="url(#a)" transform="translate(2 1)">
+        <path fill="#FFF" d="M0 0h120v36H0z"/>
+        <text fill="#151A25" font-family="AvenirNext-Medium, Avenir Next" font-size="18" font-weight="400" transform="translate(8 6)">
+            <tspan x="21.46" y="18">Facebook</tspan>
+        </text>
+        <path fill="#3B5998" fill-rule="nonzero" d="M18.767 7.647v3.229h-1.92c-.701 0-1.174.147-1.419.44-.245.294-.367.734-.367 1.321v2.312h3.584l-.477 3.62H15.06v9.283h-3.743V18.57H8.2v-3.62h3.118v-2.667c0-1.516.424-2.693 1.272-3.528.848-.836 1.978-1.254 3.388-1.254 1.199 0 2.129.049 2.789.147z"/>
+    </g>
+</svg>
