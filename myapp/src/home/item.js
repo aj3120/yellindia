@@ -73,8 +73,8 @@ class Item extends Component {
     return (
       <div className="Item-Container">
         <div id={this.props.id} className="Item" onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} style={ItemStyle}>
-          <div id={this.props.id} className="Quick-View" style={QuickStyle} onClick={() => this.props.callQuickPage(this.props.id)}>
-            <img src="assets/quick.svg" height="50px" width="180px" alt="quickview"/>
+          <div id={this.props.id} className="Quick-View" onClick={() => this.props.callQuickPage(this.props.id)}>
+            <img src="assets/quick.svg"  alt="quickview"/>
           </div>
           <div className="Product-Image">
             <img src={this.props.image} height="263px" alt="product"/>

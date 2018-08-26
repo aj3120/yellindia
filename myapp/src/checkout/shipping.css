@@ -18,3 +18,9 @@
 
     width: 49%;
 }
+.Shipping-Login{
+    display:flex;
+    flex-direction:column;
+    align-items: space-around;
+    margin:auto;
+}

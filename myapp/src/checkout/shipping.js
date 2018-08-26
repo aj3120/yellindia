@@ -8,6 +8,7 @@ import CheckoutItem from './item';
 import './shopping-cart.css';
 import './status.css';
 import Status from './status1';
+import SocialLogin from '../social-login';
 const mapStateToProps = (state) => {
     return ({cart_products: state.cart_products_reducer.cart_products })
 }
@@ -33,6 +34,10 @@ class Shipping extends Component {
         <div className="Shipping-Content">
             <div className="Shipping-Content-Left">
             <Status/>
+            <div className="Shipping-Login">
+            Login-With
+            <SocialLogin/>
+            </div>
             </div>
             <div className="Shipping-Content-Right" >
                 <div className="Shipping-Items">

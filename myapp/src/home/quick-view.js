@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './home.css';
+import './quickview.css'
 
 class QuickView extends Component {
   render() {
