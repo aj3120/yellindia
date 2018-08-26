@@ -1,25 +1,128 @@
-.QuickViewPage-Container{
-    position:absolute;
-    width:100%;
+.QuickViewPage-Container {
+    position: absolute;
+    width: 100%;
     height: 100%;
-    color:white;
-    top:0px;
-    background-color:rgba(0, 0, 0, 0.8);
+    color: black;
+    top: 0px;
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 15;
-
 }
 
-.QuickViewPage img{
+.QuickViewPage img {
     cursor: pointer;
 }
-.QuickViewPage{
-    position:fixed;
-    top: 50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-    color:white;
-    background-color:white;
-    width:80%;
-    height:80%;
 
+.QuickViewPage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    background-color: white;
+    width: 80%;
+    height: 80%;
+}
+
+.Product-Image-Container {
+    width: 80%;
+    height: 80%;
+}
+
+.image-gallery {
+    height: 100%;
+    width: 100%;
+}
+
+.image-gallery-image {
+    width: 80%;
+    height: 80%
+}
+
+.image-gallery-thumbnail-inner img {
+    height: 68px;
+    width: 68px;
+}
+
+.QuickViewPage-Heading {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'AvenirNext', sans-serif;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.22;
+    letter-spacing: normal;
+    color: #030303;
+}
+
+.QuickView-Left {
+    float: left;
+    width: 48%;
+}
+
+.QuickView-Right {
+    float: right;
+    width: 48%;
+}
+
+.QuickView-Name {
+    font-size: 24px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: #030303;
+}
+
+.QuickView-Price {
+    font-size: 24px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: #0928bf;
+}
+
+.QuickView-Descriptions p {
+    margin-top: 10px;
+    width: 90%;
+    height: 60px;
+    font-size: 12px;
+    overflow: hidden;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: justify;
+    color: #666666;
+}
+
+.QuickView-Sizes {
+    display: flex;
+    align-items: center;
+    
+    
+}
+
+.Sizes {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Sizes div {
+    width: 44px;
+    height: 40px;
+    border-radius: 2px;
+    border: solid 1px #90a4ae;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.Sizes>div:visited{
+    background-color: #263238;
 }

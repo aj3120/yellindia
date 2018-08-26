@@ -1,20 +1,80 @@
-.Payment-Content {
-    width: 80%;
-    margin: auto;
+@media only screen and (min-width:768px) {
+    .Payment-Content {
+        width: 80%;
+        margin: auto;
+    }
+    .Payment-Content-Right {
+        width: 49%;
+        float: right;
+        background-color: #f8fafb;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        padding-bottom: 27px;
+    }
+    .Payment-Content-Left {
+        height: 700px;
+        float: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 49%;
+    }
+    .Shopping-Cart-Dropdown {
+        display: none;
+    }
+    .Checkout-Status-Container {
+        float: left;
+        width: 49%;
+        margin-top: 20px;
+    }
+
+    
 }
 
-.Payment-Content-Right {
-    width: 49%;
-    float: right;
-    background-color: #f8fafb;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    padding-bottom: 27px;
-}
-
-.Payment-Content-Left {
-    margin-top: 20px;
-    float: left;
-
-    width: 49%;
+@media only screen and (max-width:768px) {
+    .Payment-Content {
+        width: 80%;
+        margin: auto;
+    }
+    .Payment-Content-Right {
+        display: none;
+        width: 100%;
+        float: left;
+        background-color: #f8fafb;
+        margin-top: 2px;
+        margin-bottom: 30px;
+        padding-bottom: 27px;
+    }
+    .Payment-Content-Left {
+        margin-top: 20px;
+        height: 700px;
+        float: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .Checkout-Status-Container {
+        float: left;
+        width: 95%;
+        margin-top: 20px;
+    }
+    .Shopping-Cart-Dropdown {
+        cursor: pointer;
+        width: 95%;
+        float: left;
+        height: 48px;
+        margin-top:10px; 
+        border-radius: 2px;
+        background-color: #f7f9f9;
+        box-shadow: 0 1px 3px 0 rgba(38, 50, 56, 0.32);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left:10px;
+        padding-right: 10px;
+        font-size: 16px;
+        font-weight: 600;
+         color: #2196f3;
+    }
 }
