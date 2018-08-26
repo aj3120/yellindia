@@ -12,8 +12,7 @@ class Thanks extends Component {
    
     render() {
      return(
-        
-      {}
+        <h3>Thanks</h3>
      )
     }
 }
