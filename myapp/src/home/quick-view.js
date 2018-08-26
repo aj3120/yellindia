@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './home.css';
+import './quickview.css'
 
 class QuickView extends Component {
   render() {
@@ -8,7 +9,7 @@ class QuickView extends Component {
             <div className="QuickViewPage">
             asdasdsad
             asdasdsadasda
-            <img src="assets/close.png" onClick={()=>this.props.callClosePage()}/>
+            <img src="assets/close.png" onClick={()=>this.props.callClosePage()} alt="close"/>
             asdasd ::: {this.props.id}
             </div>
       </div>

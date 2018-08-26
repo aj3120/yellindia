@@ -1,0 +1,20 @@
+.Payment-Content {
+    width: 80%;
+    margin: auto;
+}
+
+.Payment-Content-Right {
+    width: 49%;
+    float: right;
+    background-color: #f8fafb;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 27px;
+}
+
+.Payment-Content-Left {
+    margin-top: 20px;
+    float: left;
+
+    width: 49%;
+}

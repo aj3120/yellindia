@@ -1,0 +1,19 @@
+.Review-Content {
+    width: 80%;
+    margin: auto;
+}
+
+.Review-Content-Right {
+    width: 49%;
+    float: left;
+    background-color: #f8fafb;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 27px;
+}
+
+.Review-Content-Left {
+    margin:auto;
+    margin-top: 20px;
+    width:80%;
+}

@@ -55,18 +55,33 @@
     background-color: #ffffff;
     box-shadow: 0 1px 4px 0 rgba(38, 50, 56, 0.38);
 }
+.Item {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height:100%;
+    width:100%;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 4px 0 rgba(38, 50, 56, 0.38);
+}
 
 .Quick-View {
     position: absolute;
     cursor: pointer;
     z-index: 10;
-    top: 35%;
+    top: 32%;
     left:50%;
     transform: translate(-50%, -50%);
     position: absolute;
+    transition: opacity 0.3s ease-in;
+    opacity: 0; 
     
 }
-
+.Item:hover .Quick-View{
+    opacity: 1;
+}
 
 .Product-Content {
     display: flex;

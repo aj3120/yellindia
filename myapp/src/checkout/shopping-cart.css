@@ -1,0 +1,89 @@
+
+
+.Checkout-Image img {
+    height: 80%;
+    width: 80%;
+    margin-top: 10%;
+}
+
+.Checkout-Image {
+    height: 116px;
+    width: 116px;
+}
+
+.Checkout-Remove img {
+    width: 24.3px;
+    height: 24.3px;
+}
+
+.Checkout-Options {
+    margin-bottom: 25px;
+    margin-top: 15px;
+}
+
+.Checkout-Name {
+    width: 230px;
+    height: 36px;
+    font-family: 'NunitoSans', sans-serif;
+    font-size: 16px;
+    font-weight: 00;
+    ;
+    line-height: 1.13;
+    color: #263238;
+}
+
+.Checkout-Quandity {
+    width: 150px;
+}
+
+.Checkout-Brand {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.Decrement img, .Increment img {
+    width: 32px;
+}
+/* 
+.Checkout-Details {
+    width: 280px;
+} */
+
+.Shopping-Cart {
+    height: 32px;
+    font-family: 'NunitoSans', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #1b2125;
+}
+
+.Checkout-Count {
+    width: 24px;
+    height: 24px;
+    border-radius: 100px;
+    background-color: #0095f8;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Shipping-Items {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.Divider-Line2 {
+    width: 80%;
+    height: 1px;
+    border: solid 1px #e4eaee;
+    background-color: #e4eaee;
+    margin: 16px auto;
+}
