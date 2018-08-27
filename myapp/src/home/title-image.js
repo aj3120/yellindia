@@ -17,7 +17,7 @@ class TitleImage extends Component {
                 <img src="assets/2.jpeg" alt="Pic1" />
             </div>
             <div>
-                <img src="assets/1.jpeg" alt="Pic2" />
+                <img src="assets/1.jpg" alt="Pic2" />
             </div>
             <div>
                 <img src="assets/4.jpeg"  alt="Pic3" />

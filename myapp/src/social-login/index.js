@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import { GoogleLogin } from 'react-google-login';
 import { connect } from 'react-redux';
-import { bindActionCreators } from '../../../../../../../.cache/typescript/2.9/node_modules/redux';
+import { bindActionCreators } from 'redux';
 import { loginAction } from '../actions/login-action'
 const mapStateToProps = (state) => {
 
