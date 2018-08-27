@@ -21,7 +21,7 @@ class CartItem extends Component {
             }
         })
         this.props.action.productCount(cart_products_new)
-        cartUpdateRequest({ cart_products_new })
+        cartUpdateRequest(cart_products_new)
     }
     increment = () => {
         let cart_products_new = this.props.cart_products.map((product) => {
@@ -68,18 +68,18 @@ class CartItem extends Component {
                         <div className="Cart-Quandity">
                             <div>Qty</div>
                             <div className="Decrement" onClick={this.decrement}>
-                                <img src="assets/decrement.svg" alt="decrement" />
+                                <img src="/assets/decrement.svg" alt="decrement" />
                             </div >
                             <div>{this.props.count}</div>
               
                             <div className="Increment" onClick={this.increment}>
-                                <img src="assets/increment.svg" alt="increment" />
+                                <img src="/assets/increment.svg" alt="increment" />
                             </div>
                         </div>
                     </div>
                     <div className="Cart-Options">
                         <div className="Cart-Remove" onClick={this.remove}>
-                            <img src="assets/remove.svg" alt="remove" />
+                            <img src="/assets/remove.svg" alt="remove" />
                         </div>
                         <div className="Cart-Price">
                             ${this.props.all_products.id[this.props.id].price}
@@ -91,12 +91,12 @@ class CartItem extends Component {
                       <div className="Cart-Quandity">
                             <div>Qty</div>
                             <div className="Decrement" onClick={this.decrement}>
-                                <img src="assets/decrement.svg" alt="decrement" />
+                                <img src="/assets/decrement.svg" alt="decrement" />
                             </div >
                             <div>{this.props.count}</div>
               
                             <div className="Increment" onClick={this.increment}>
-                                <img src="assets/increment.svg" alt="increment" />
+                                <img src="/assets/increment.svg" alt="increment" />
                             </div>
                         </div>
                         <div className="Cart-Price">

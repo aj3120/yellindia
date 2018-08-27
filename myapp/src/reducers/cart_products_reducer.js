@@ -1,4 +1,4 @@
-const cart_products_reducer = (state = { cart_products: null }, action) => {
+const cart_products_reducer = (state = { cart_products: [] }, action) => {
     switch (action.type) {
           case "SHOW_CART_PRODUCTS":
                 return ({ ...state, cart_products: action.data });

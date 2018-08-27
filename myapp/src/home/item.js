@@ -58,14 +58,16 @@ class Item extends Component {
     }
     this.props.action.push('/cart')
   }
-  
+  loadProductDetails=()=>{
+    this.props.action.push(`/product/${this.props.id}`)
+  }
   render() {
     if (this.state.dispQuick === 'block') {
       var ItemStyle = { position:'relative',left:'-5%',top:'-5%',height:'110%',width:'110%',boxShadow: '0 10px 40px 0 rgba(0, 0, 0, 0.1)'}
     }
     return (
-      <div className="Item-Container">
-        <div id={this.props.id} className="Item" onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} style={ItemStyle}>
+      <div className="Item-Container" onClick={this.loadProductDetails}>
+        <div id={this.props.id} className="Item" onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} style={ItemStyle} >
           <div id={this.props.id} className="Quick-View" onClick={() => this.props.callQuickPage(this.props.id)}>
             <img src="assets/quick.svg"  alt="quickview"/>
           </div>

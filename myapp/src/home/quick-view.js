@@ -7,7 +7,7 @@ import StarRatings from 'react-star-ratings';
 import { productCount } from '../actions/product_count';
 import cartUpdateRequest from '../services/cartUpdateRequest';
 import { push } from 'react-router-redux';
-import './quickview.css';
+
 const mapStateToProps = (state) => {
   return ({ all_products: state.all_products_reducer.all_products, cart_products: state.cart_products_reducer.cart_products })
 }
@@ -66,9 +66,11 @@ class QuickView extends Component {
 
 
   }
-
+  changeToProductDetail=()=>{
+    this.props.action.push(`/product/${this.props.id}`)
+  }
   render() {
-    if (this.props.id !== null) {
+    if(this.props.all_products!==null){
       const images = [
         {
           original: this.props.all_products.id[this.props.id].image,
@@ -87,14 +89,7 @@ class QuickView extends Component {
 
       let showThumb=window.innerWidth<=768?false:true;
       return (
-        <div className="QuickViewPage-Container" style={{ display: this.props.disp }}>
-          <div className="QuickViewPage">
-            <div className="QuickViewPage-Heading">
-              <div className="QuickViewPage-Heading-Content">{this.props.all_products.id[this.props.id].name}</div>
-              <div>
-                <img src="assets/close.png" onClick={() => this.props.callClosePage()} alt="close" />
-              </div>
-            </div>
+      
             <div className="QuickViewPage-Content">
               <div className="QuickView-Left">
                 <div className="Product-Image-Container">
@@ -148,12 +143,12 @@ class QuickView extends Component {
                   <div className="QickView-Quandity-Label">Qty</div>
                   <div className="QuickView-Inc-And-Dec">
                     <div className="QuickView-Decrement" onClick={this.decrement}>
-                      <img src="assets/decrement.svg" alt="decrement" />
+                      <img src="/assets/decrement.svg" alt="decrement" />
                     </div >
                     <div>{this.state.count}</div>
 
                     <div className="QuickView-Increment" onClick={this.increment}>
-                      <img src="assets/increment.svg" alt="increment" />
+                      <img src="/assets/increment.svg" alt="increment" />
                     </div>
                   </div>
                 </div>
@@ -163,17 +158,14 @@ class QuickView extends Component {
 
 
               </div>
-              <div className="QuickView-Bottom">
-                <img src="assets/view_product.svg" alt="products" />
+              <div className="QuickView-Bottom" onClick={this.changeToProductDetail} style={{display:this.props.productDetailButtonShow}}>
+                <img src="/assets/view_product.svg" alt="products" />
               </div>
             </div>
 
-          </div>
-
-        </div>
       );
     }
-    else {
+    else{
       return null
     }
   }

@@ -67,18 +67,18 @@ class CheckoutItem extends Component {
                         <div className="Checkout-Quandity">
                             <div>Qty</div>
                             <div className="Checkout-Decrement" onClick={this.decrement}>
-                                <img src="assets/decrement.svg" alt="decrement" />
+                                <img src="/assets/decrement.svg" alt="decrement" />
                             </div >
                             <div>{this.props.count}</div>
               
                             <div className="Checkout-Increment" onClick={this.increment}>
-                                <img src="assets/increment.svg" alt="increment" />
+                                <img src="/assets/increment.svg" alt="increment" />
                             </div>
                         </div>
                     </div>
                     <div className="Checkout-Options">
                         <div className="Checkout-Remove" onClick={this.remove}>
-                            <img src="assets/remove.svg" alt="remove" />
+                            <img src="/assets/remove.svg" alt="remove" />
                         </div>
                         <div className="Checkout-Price">
                             ${this.props.all_products.id[this.props.id].price}
@@ -90,12 +90,12 @@ class CheckoutItem extends Component {
                       <div className="Checkout-Quandity">
                             <div>Qty</div>
                             <div className="Decrement" onClick={this.decrement}>
-                                <img src="assets/decrement.svg" alt="decrement" />
+                                <img src="/assets/decrement.svg" alt="decrement" />
                             </div >
                             <div>{this.props.count}</div>
               
                             <div className="Increment" onClick={this.increment}>
-                                <img src="assets/increment.svg" alt="increment" />
+                                <img src="/assets/increment.svg" alt="increment" />
                             </div>
                         </div>
                         <div className="Checkout-Price">

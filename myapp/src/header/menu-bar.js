@@ -48,7 +48,7 @@ class MenuBar extends Component {
                     </div>
                     <div className="Menu-Left">
                         <div className="Logo" onClick={this.goHome}>
-                            <img src="assets/group-2.svg" alt="logo" />
+                            <img src="/assets/group-2.svg" alt="logo" />
                         </div>
                         <div className="Shop">
                             <p>SHOP</p>
@@ -82,10 +82,10 @@ class MenuBar extends Component {
                         </div>
                         </div>
                         <div className="Search">
-                            <img src="assets/shape_2.svg" alt="search" />
+                            <img src="/assets/shape_2.svg" alt="search" />
                         </div>
                         <div className="Wishlist">
-                            <img src="assets/shape.svg" alt="wishlist" />
+                            <img src="/assets/shape.svg" alt="wishlist" />
                         </div>
                         <div className="Cart-List" >
                             <div className="Cart-Count"  onClick={this.goCart}>
@@ -94,7 +94,7 @@ class MenuBar extends Component {
                             </div>
                             
                             </div>
-                            <img src="assets/cart.svg" alt="cart" />
+                            <img src="/assets/cart.svg" alt="cart" />
                         </div>
                     </div>
                 </div>
