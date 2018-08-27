@@ -66,12 +66,12 @@ class CheckoutItem extends Component {
                         </div>
                         <div className="Checkout-Quandity">
                             <div>Qty</div>
-                            <div className="Decrement" onClick={this.decrement}>
+                            <div className="Checkout-Decrement" onClick={this.decrement}>
                                 <img src="assets/decrement.svg" alt="decrement" />
                             </div >
                             <div>{this.props.count}</div>
               
-                            <div className="Increment" onClick={this.increment}>
+                            <div className="Checkout-Increment" onClick={this.increment}>
                                 <img src="assets/increment.svg" alt="increment" />
                             </div>
                         </div>

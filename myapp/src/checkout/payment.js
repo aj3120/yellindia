@@ -8,11 +8,12 @@ import Status from './status2';
 import './payment.css'
 import './status.css';
 import './checkout.css';
+import {totalPriceAction} from '../actions/total-price-action'
 const mapStateToProps = (state) => {
-    return ({ cart_products: state.cart_products_reducer.cart_products,total_price:state.cart_products_reducer.total_price})
+    return ({ cart_products: state.cart_products_reducer.cart_products,total_price:state.cart_products_reducer.total_price,all_products: state.all_products_reducer.all_products})
 }
 const mapDispatchToProps = (dispatch) => {
-    return ({ action: bindActionCreators({ replace, go }, dispatch) })
+    return ({ action: bindActionCreators({ replace, go,totalPriceAction }, dispatch) })
 }
 
 class Payment extends Component {
@@ -29,8 +30,9 @@ class Payment extends Component {
     goBack = () => {
         this.props.action.go(-2);
     }
-    goCheckout = () => {
+    goCheckout = (totalPrice) => {
         this.props.action.replace("/review")
+        this.props.action.totalPriceAction(totalPrice);
     }
     changeShoppingCartVisibility=()=>{
         this.state.showShoppingCart==='none'?
@@ -38,8 +40,15 @@ class Payment extends Component {
         this.setState({showShoppingCart:'none'})
     }
     render() {
+        var productPrice, totalPrice = 0;
+        let totalPriceArray = this.props.cart_products.map((product) => {
+            productPrice = parseInt(product.count, 10) * parseInt(this.props.all_products.id[product.id].price, 10)
+            return (productPrice)
+        })
+        totalPriceArray.forEach((num) => {
+            totalPrice = totalPrice + num;
+        })
         var checkout = this.props.cart_products.map((product, index) => <CheckoutItem id={product.id} key={index} count={product.count} />)
-        let price=this.props.total_price===undefined? 0:this.props.total_price;
         return (
             <div className="Checkout-Item">
                 <div className="Checkout-Title">
@@ -51,7 +60,7 @@ class Payment extends Component {
                         <Status />
                     </div>
                     <div className="Shopping-Cart-Dropdown" onClick={this.changeShoppingCartVisibility}>
-                        <div><p>Shopping Cart</p></div><div>${price}</div>
+                        <div><p>Shopping Cart</p></div><div>${totalPrice}</div>
                     </div>
                     <div className="Payment-Content-Right" style={{display:this.state.showShoppingCart}} >
                         <div className="Shipping-Items">
@@ -70,7 +79,7 @@ class Payment extends Component {
                     <div className="Continue" onClick={this.goBack}>
                         <div>CONTINUE SHOPPING</div>
                     </div>
-                    <div className="Checkout" onClick={this.goCheckout}>
+                    <div className="Checkout" onClick={()=>this.goCheckout(totalPrice)}>
                         <div>CONTINUE TO REVIEW</div>
                     </div>
                 </div>
@@ -78,7 +87,7 @@ class Payment extends Component {
                     <div className="Continue-Mobile" onClick={this.goBack}>
                         <div>BACK</div>
                     </div>
-                    <div className="Checkout-Mobile" onClick={this.goCheckout}>
+                    <div className="Checkout-Mobile" onClick={()=>this.goCheckout(totalPrice)}>
                         <div>CONTINUE TO REVIEW</div>
                     </div>
                 </div>

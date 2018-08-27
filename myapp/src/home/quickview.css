@@ -1,3 +1,249 @@
+.QuickViewPage {
+    overflow: auto;
+}
+
+@media only screen and (min-width:768px) {
+    .QuickViewPage-Content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .QuickView-Left {
+        width: 48%;
+    }
+    .QuickView-Right {
+        width: 48%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .QuickViewPage-Heading {
+        display: flex;
+        justify-content: space-between;
+        font-family: 'AvenirNext', sans-serif;
+        padding: 20px;
+        font-size: 18px;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 2.22;
+        letter-spacing: normal;
+        color: #030303;
+    }
+    .image-gallery-image {
+        width: 100%;
+        height: 100%;
+        background-color: #f4f4f4;
+    }
+    .image-gallery-thumbnail-inner img {
+        height: 68px;
+        width: 68px;
+    }
+    .QuickView-Name {
+        font-size: 24px;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.25;
+        letter-spacing: normal;
+        color: #030303;
+    }
+    .QuickView-Descriptions p {
+        margin-top: 10px;
+        width: 90%;
+        height: 60px;
+        font-size: 12px;
+        overflow: hidden;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.25;
+        letter-spacing: normal;
+        text-align: justify;
+        color: #666666;
+    }
+    .Sizes, .Kit {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0px;
+        width: 60%;
+    }
+    .Size-Label, .Kit-Label {
+        width: 60px;
+        margin-right: 19px;
+        font-family: 'NunitoSans', sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #263238;
+    }
+    .QickView-Quandity-Label {
+        width: 60px;
+        margin-right: 19px;
+    }
+    .QuickView-Inc-And-Dec {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 30%;
+    }
+    .QuickView-AddToCart {
+        width: 180px;
+        height: 40px;
+        color: white;
+        font-size: 12px;
+        cursor: pointer;
+        border-radius: 2px;
+        margin: 20px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0928bf;
+        border: 1px solid #0928bf;
+    }
+    .QuickView-Bottom {
+        width: 30%;
+        margin: auto;
+    }
+    
+    .QuickView-Bottom img {
+        padding-top: 20px;
+        width: 100%;
+        margin: auto;
+    }
+    .QuickView-Price-And-Rating {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 20px;
+        margin: 20px 0px;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .QuickViewPage-Content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .QuickViewPage-Heading-Content {
+        display: none;
+    }
+    .QuickViewPage-Heading>div{
+        position:absolute;
+        top:10px;
+        right:10px;
+        z-index: 15;
+
+    }
+    .QuickView-Right {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .QuickView-Right {
+        height: 100%;
+        display: flex;
+    }
+    .image-gallery-image {
+        width: 100%;
+        height: 80%;
+        background-color: #f4f4f4;
+        margin-left: auto;
+    }
+    .image-gallery-slide-wrapper.left, .image-gallery-slide-wrapper.right {
+        width: 100%;
+    }
+    .QuickView-Name {
+        font-size: 24px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.17;
+        letter-spacing: normal;
+        text-align: center;
+        color: #263238;
+        margin-top:20px;
+    }
+    .QuickView-Rating, .QuickView-Descriptions {
+        display: none;
+    }
+    .QuickView-Price-And-Rating {
+        text-align: center;
+        width:90%;
+        margin: 20px auto;
+        border-bottom: solid 1px rgba(127, 151, 163, 0.32);
+    }
+    .QuickView-Price {
+        margin: auto;
+    }
+    .Sizes, .Kit {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 5px;
+        width: 80%;
+    }
+    .Size-Label, .Kit-Label {
+        width: 60px;
+        margin-left: 5px;
+        margin-right: 10px;
+        font-family: 'NunitoSans', sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #263238;
+    }
+    .QickView-Quandity-Label {
+        width: 60px;
+        margin-left: 5px;
+        margin-right: 10px;
+    }
+    .QuickView-Inc-And-Dec {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 60%;
+    }
+    .QuickView-AddToCart {
+        color: white;
+        font-size: 12px;
+        cursor: pointer;
+        border-radius: 2px;
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 311px;
+        height: 40px;
+        border-radius: 20px;
+        background-image: linear-gradient(97deg, #4d7bfd, #0231b7);
+    }
+    .QuickView-Bottom {
+        width: 311px;
+        height: 40px;
+        margin: auto;
+    }
+    
+    .QuickView-Bottom img {
+        border-radius: 20px;
+        width: 311px;
+        background-image: linear-gradient(97deg, #4d7bfd, #0231b7);
+        margin:10px auto;
+        
+        
+    }
+}
+
 .QuickViewPage-Container {
     position: absolute;
     width: 100%;
@@ -8,8 +254,18 @@
     z-index: 15;
 }
 
+
+
 .QuickViewPage img {
     cursor: pointer;
+}
+
+.QuickView-Rating {
+    margin-right: 40px;
+}
+
+.QuickView-Rating span {
+    margin-left: 20px;
 }
 
 .QuickViewPage {
@@ -23,60 +279,6 @@
     height: 80%;
 }
 
-.Product-Image-Container {
-    width: 80%;
-    height: 80%;
-}
-
-.image-gallery {
-    height: 100%;
-    width: 100%;
-}
-
-.image-gallery-image {
-    width: 80%;
-    height: 80%
-}
-
-.image-gallery-thumbnail-inner img {
-    height: 68px;
-    width: 68px;
-}
-
-.QuickViewPage-Heading {
-    display: flex;
-    justify-content: space-between;
-    font-family: 'AvenirNext', sans-serif;
-    padding: 20px;
-    font-size: 18px;
-    font-weight: 600;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 2.22;
-    letter-spacing: normal;
-    color: #030303;
-}
-
-.QuickView-Left {
-    float: left;
-    width: 48%;
-}
-
-.QuickView-Right {
-    float: right;
-    width: 48%;
-}
-
-.QuickView-Name {
-    font-size: 24px;
-    font-weight: 600;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.25;
-    letter-spacing: normal;
-    color: #030303;
-}
-
 .QuickView-Price {
     font-size: 24px;
     font-weight: 500;
@@ -87,31 +289,33 @@
     color: #0928bf;
 }
 
-.QuickView-Descriptions p {
-    margin-top: 10px;
+.QuickView-Descriptions {
+    font-family: 'NunitoSans', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 -2px 0 0 #f9f8f6;
+    padding-top: 10px;
+    color: #263238;
     width: 90%;
-    height: 60px;
-    font-size: 12px;
-    overflow: hidden;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.25;
-    letter-spacing: normal;
-    text-align: justify;
-    color: #666666;
 }
 
-.QuickView-Sizes {
+.QickView-Quandity {
+    margin: 20px 0px;
     display: flex;
     align-items: center;
-    
-    
+    font-family: 'NunitoSans', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #263238;
 }
 
-.Sizes {
+.QuickView-Sizes, .QuickView-Kit {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
 }
 
 .Sizes div {
@@ -119,10 +323,20 @@
     height: 40px;
     border-radius: 2px;
     border: solid 1px #90a4ae;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
+    color: #455a64;
 }
-.Sizes>div:visited{
-    background-color: #263238;
+
+.Kit div {
+    width: 72px;
+    height: 40px;
+    border-radius: 2px;
+    border: solid 1px #90a4ae;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #455a64;
 }
+

@@ -25,9 +25,9 @@ class Item extends Component {
     this.setState({ dispQuick: 'none' })
   }
   addToCart=(id)=>{
-    var checkSameItem=0,pos,countOfSameProduct=0;
+    var checkSameItem=0,countOfSameProduct=0;
     this.props.cart_products.forEach((product)=>{
-    if(product.id==id)
+    if(product.id===id)
      {
       checkSameItem=1;
       countOfSameProduct=product.count
@@ -35,7 +35,7 @@ class Item extends Component {
      }
 
     });
-    if(checkSameItem==0){
+    if(checkSameItem===0){
       let cart_products_new=this.props.cart_products
       cart_products_new.push({id:id,count:"1"})
       this.props.action.productCount(cart_products_new)
@@ -44,7 +44,7 @@ class Item extends Component {
     else{
       let cart_products_old=this.props.cart_products
       let cart_products_new=cart_products_old.map((product)=>{
-          if(product.id==id){
+          if(product.id===id){
              product.count=parseInt(countOfSameProduct,10)+1;
              return(product)
           }
@@ -60,16 +60,9 @@ class Item extends Component {
   }
   
   render() {
-    var QuickStyle
     if (this.state.dispQuick === 'block') {
-      var ItemStyle = { position:'relative',left:'-5%',top:'-5%',height:'110%',width:'110%'}
-      QuickStyle = { display: this.state.dispQuick }
+      var ItemStyle = { position:'relative',left:'-5%',top:'-5%',height:'110%',width:'110%',boxShadow: '0 10px 40px 0 rgba(0, 0, 0, 0.1)'}
     }
-    else {
-      QuickStyle = { display: this.state.dispQuick }
-    }
-
-
     return (
       <div className="Item-Container">
         <div id={this.props.id} className="Item" onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} style={ItemStyle}>

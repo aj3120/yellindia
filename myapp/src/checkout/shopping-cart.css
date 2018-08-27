@@ -41,13 +41,9 @@
     font-size: 18px;
 }
 
-.Decrement img, .Increment img {
+.Checkout-Decrement img, .Checkout-Increment img {
     width: 32px;
 }
-/* 
-.Checkout-Details {
-    width: 280px;
-} */
 
 .Shopping-Cart {
     height: 32px;

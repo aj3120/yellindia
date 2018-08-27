@@ -16,6 +16,7 @@ import Shipping from './checkout/shipping';
 import Payment from './checkout/payment';
 import Review from './checkout/review';
 import Thanks from './checkout/thanks';
+import Product from './product-details';
 
 const mapStateToProps=(state)=>{
       return({all_products:state.all_products_reducer.all_products,cart_products:state.cart_products_reducer.cart_products});
@@ -44,6 +45,7 @@ class App extends Component {
             <Route path="/payment" component={Payment}/>   
             <Route path="/review" component={Review}/>
             <Route path="/thanks" component={Thanks}/>
+            <Route path="/product" component={Product}/>
             </Switch>
             <Footer/>
         </div>
