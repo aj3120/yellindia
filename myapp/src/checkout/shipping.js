@@ -33,11 +33,17 @@ class Shipping extends Component {
         this.props.action.go(-2);
     }
     goCheckout = (totalPrice) => {
-        this.props.action.addressAction({fullname:this.state.fullname,address:this.state.address,
+        if(this.state.fullname===''||this.state.address===''||this.state.building===''||this.state.zipcode===''||this.state.phone===''){
+         alert("Please Enter Details")
+        }
+        else{
+         this.props.action.addressAction({fullname:this.state.fullname,address:this.state.address,
                                           building:this.state.building,zipcode:this.state.zipcode,
                                           phone:this.state.phone  });
         this.props.action.totalPriceAction(totalPrice);                                    
         this.props.action.replace("/payment")
+        }
+        
 
     }
     changeShoppingCartVisibility=()=>{

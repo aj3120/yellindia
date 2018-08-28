@@ -42,7 +42,7 @@ class QuickView extends Component {
     let product_in_cart = false
     let pos_of_product_incart;
     this.props.cart_products.forEach((product, index) => {
-      if (product.id == this.props.id) {
+      if (product.id === this.props.id) {
         product_in_cart = true
         pos_of_product_incart = index;
       }

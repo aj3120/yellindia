@@ -96,7 +96,7 @@ class CartItem extends Component {
                             <div>{this.props.count}</div>
               
                             <div className="Increment" onClick={this.increment}>
-                                <img src="/assets/increment.svg" alt="increment" />
+                                <img src="assets/increment.svg" alt="increment" />
                             </div>
                         </div>
                         <div className="Cart-Price">

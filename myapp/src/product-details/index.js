@@ -6,7 +6,9 @@ import cartProductsRequest from '../services/cartProductRequest';
 import {allProductsAction} from '../actions/all_products_action'
 import {cartProductsAction} from '../actions/cart_products_action';
 import { bindActionCreators } from 'redux';
-import './product.css'
+import './product.css';
+import Review from './review';
+import LikeProduct from './like-product'
 const mapStateToProps = (state) => {
     return ({ routing: state.routing })
   }
@@ -24,6 +26,8 @@ class Product extends Component {
     return (
       <div className="Product-Container">
          <QuickView disp={'block'} id={id} callClosePage={this.props.allClosePage} productDetailButtonShow={'none'}/>
+         <Review id={id}/>
+         <LikeProduct/>
       </div>
     );
   }

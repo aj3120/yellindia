@@ -50,12 +50,12 @@ class Footer extends Component {
                                 <input type="email" placeholder="ENTER YOUR NAME" />
                             </div>
                             <div className="SubscribeButton">
-                                <img src="assets/subscribe.svg" alt="subscribe"/>
+                                <img src="/assets/subscribe.svg" alt="subscribe"/>
                             </div>
                         </div>
                         <div className="Subscribe-Images">
-                            {/* <img src="" alt="fb"/>
-                            <img src="" alt="twitter"/> */}
+                            <img src="/assets/facebook-icon.svg" alt="fb"/>
+                            <img src="/assets/twitter-icon.svg" alt="twitter"/>
                         </div>
                     </div>
                 </div>

@@ -13,7 +13,47 @@
 }
 
 .Review-Content-Left {
-    margin:auto;
+    margin: auto;
     margin-top: 20px;
-    width:80%;
+    width: 80%;
+}
+
+.Review-Data {
+    width: 49%;
+    box-sizing: border-box;
+    background-color: #f8fafb;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    float: right;
+    padding: 30px;
+}
+
+.Shipping-Address-Heading, .Review-Payment-Heading, .Billing-Address-Heading {
+    font-size: 16px;
+    font-family: 'NunitoSans', sans-serif;
+    font-weight: bold;
+    color: #263238;
+}
+
+.Review-Shipping-Address-Content, .Review-Payment-Details, .Billing-Address-Details {
+    font-family: "NunitoSans", sans-serif;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    color: #263238;
+}
+
+.Review-Payment-Details {
+    display: flex;
+    align-items: center;
+}
+
+.Review-Payment-Details span {
+    margin-left: 10px;
+}
+
+.Divider-Line-Review {
+    height: 1px;
+    background-color: rgba(38, 50, 56, 0.12);
 }

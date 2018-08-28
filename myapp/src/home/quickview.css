@@ -51,10 +51,9 @@
     }
     .QuickView-Descriptions p {
         margin-top: 10px;
-        width: 90%;
-        height: 60px;
+        height: 80px;
         font-size: 12px;
-        overflow: hidden;
+        overflow: auto;
         font-weight: normal;
         font-style: normal;
         font-stretch: normal;
@@ -67,7 +66,7 @@
         display: flex;
         justify-content: space-between;
         margin: 20px 0px;
-        width: 60%;
+        width: 280px;
     }
     .Size-Label, .Kit-Label {
         width: 60px;
@@ -89,7 +88,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 30%;
+        width: 160px;
     }
     .QuickView-AddToCart {
         width: 180px;
@@ -188,7 +187,7 @@
         display: flex;
         justify-content: space-between;
         margin: 20px 5px;
-        width: 80%;
+        width: 280px;
     }
     .Size-Label, .Kit-Label {
         width: 60px;
@@ -212,7 +211,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 60%;
+        width: 140px;
     }
     .QuickView-AddToCart {
         color: white;
