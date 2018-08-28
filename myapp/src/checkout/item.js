@@ -11,7 +11,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 class CheckoutItem extends Component {
     decrement = () => {
-        let cart_products_new = this.props.cart_products.map((product) => {
+        const cart_products_new = this.props.cart_products.map((product) => {
             if (product.id === this.props.id && parseInt(product.count,10) > 1) {
                 return ({ id: product.id, count: `${parseInt(product.count,10) - 1}` })
             }
@@ -23,7 +23,7 @@ class CheckoutItem extends Component {
         cartUpdateRequest({ cart_products_new })
     }
     increment = () => {
-        let cart_products_new = this.props.cart_products.map((product) => {
+        const cart_products_new = this.props.cart_products.map((product) => {
             if (product.id === this.props.id) {
                 return ({ id: product.id, count: `${parseInt(product.count,10) + 1}` })
             }
@@ -36,7 +36,7 @@ class CheckoutItem extends Component {
     }
     remove = () => {
         var cart_products_new=[]
-        let cart_products_old=this.props.cart_products;
+        const cart_products_old=this.props.cart_products;
         cart_products_old.forEach((product,index) => {
             if (product.id === this.props.id) {
 

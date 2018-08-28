@@ -35,8 +35,8 @@ class MenuBar extends Component {
         this.props.action.logoutAction({status:false})
     }
     render() {
-        let showLogin=this.props.loginStatus===false?'flex':'none';
-        let showWelcome=this.props.loginStatus===true?'flex':'none';
+        const showLogin=this.props.loginStatus===false?'flex':'none';
+        const showWelcome=this.props.loginStatus===true?'flex':'none';
         return (
 
             <div className="Menu-Bar">

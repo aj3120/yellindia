@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { replace, go } from 'react-router-redux';
 import CheckoutItem from './item';
 import './shopping-cart.css';
-import Status from './status2';
+import StatusView from './status2';
 import './payment.css'
 import './status.css';
 import './checkout.css';
@@ -40,7 +40,7 @@ class Payment extends Component {
         else{
             this.props.action.replace("/review")
             this.props.action.totalPriceAction(totalPrice);
-            let paymentDetails={card_number:this.state.card_number,date:this.state.date,cvv:this.state.cvv}
+            const paymentDetails={card_number:this.state.card_number,date:this.state.date,cvv:this.state.cvv}
             this.props.action.paymentDetailsAction(paymentDetails);
         }
         
@@ -69,7 +69,7 @@ class Payment extends Component {
 
     render() {
         var productPrice, totalPrice = 0;
-        let totalPriceArray = this.props.cart_products.map((product) => {
+        const totalPriceArray = this.props.cart_products.map((product) => {
             productPrice = parseInt(product.count, 10) * parseInt(this.props.all_products.id[product.id].price, 10)
             return (productPrice)
         })
@@ -85,7 +85,7 @@ class Payment extends Component {
 
                 <div className="Payment-Content">
                     <div className="Checkout-Status-Container">
-                        <Status />
+                        <StatusView />
                     </div>
                     <div className="Shopping-Cart-Dropdown" onClick={this.changeShoppingCartVisibility}>
                         <div><p>Shopping Cart</p></div><div>${totalPrice}</div>

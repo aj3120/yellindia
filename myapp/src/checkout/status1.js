@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Status extends Component {
+class StatusView extends Component {
     render() {
         return (
             <div className="Checkout-Status">
@@ -36,4 +36,4 @@ class Status extends Component {
         )
     }
 }
-export default Status
+export default StatusView

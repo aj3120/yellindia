@@ -68,7 +68,7 @@ class Shipping extends Component {
     }
     render() {
         var productPrice, totalPrice = 0;
-        let totalPriceArray = this.props.cart_products.map((product) => {
+        const totalPriceArray = this.props.cart_products.map((product) => {
             productPrice = parseInt(product.count, 10) * parseInt(this.props.all_products.id[product.id].price, 10)
             return (productPrice)
         })
