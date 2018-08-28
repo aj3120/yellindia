@@ -4,7 +4,7 @@ import TitleImage from './title-image';
 import Products from './products';
 import About from './about';
 import Shop from './shop';
-import QuickView from './quick-view'
+import QuickViewContainer from './quick-view-container'
 class Home extends Component {
   constructor(props){
     super(props);
@@ -21,7 +21,7 @@ class Home extends Component {
       <div className="Home">
           <TitleImage/>
           <Products callQuickPage={this.displayQuickViewPage}/>
-          <QuickView disp={this.state.dispQuickView} id={this.state.id} callClosePage={this.closeQuickViewPage}/>
+          <QuickViewContainer disp={this.state.dispQuickView} id={this.state.id} callClosePage={this.closeQuickViewPage} productDetailButtonShow={"flex"}/>
           <About/>
           <Shop/>
       </div>

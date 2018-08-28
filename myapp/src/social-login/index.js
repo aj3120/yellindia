@@ -4,9 +4,6 @@ import { GoogleLogin } from 'react-google-login';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { loginAction } from '../actions/login-action'
-const mapStateToProps = (state) => {
-
-}
 const mapDispatchToProps = (dispatch) => {
     return (
         { action: bindActionCreators({ loginAction }, dispatch) }
@@ -47,7 +44,7 @@ class SocailLogin extends Component {
                         fields="name,email,picture"
                         callback={this.facebookResponse}
                         render={renderProps => (
-                            <button style={{ backgroundColor: 'white', border: 'none', height: '36px' }} onClick={renderProps.onClick}><img src="assets/facebook.svg" height="36px" width="120px" alt="facebook" /></button>
+                            <button style={{ backgroundColor: 'white', border: 'none', height: '36px' }} onClick={renderProps.onClick}><img src="/assets/facebook.svg" height="36px" width="120px" alt="facebook" /></button>
                         )}
                     ></FacebookLogin>
                 </div>
@@ -60,7 +57,7 @@ class SocailLogin extends Component {
 
                         style={{ backgroundColor: 'white', border: 'none', height: '36px' }}
                     >
-                        <img src="assets/google.jpg" height="36px" width="120px" alt="google" />
+                        <img src="/assets/google.jpg" height="36px" width="120px" alt="google" />
                     </GoogleLogin>
                 </div>
 
@@ -69,4 +66,4 @@ class SocailLogin extends Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SocailLogin);
+export default connect(null, mapDispatchToProps)(SocailLogin);

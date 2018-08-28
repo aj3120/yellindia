@@ -10,11 +10,12 @@ import './status.css';
 import Status from './status1';
 import SocialLogin from '../social-login';
 import {addressAction }from '../actions/address-action'
+import {totalPriceAction} from '../actions/total-price-action'
 const mapStateToProps = (state) => {
-    return ({ cart_products : state.cart_products_reducer.cart_products,total_price:state.cart_products_reducer.total_price })
+    return ({ cart_products : state.cart_products_reducer.cart_products,total_price:state.cart_products_reducer.total_price ,all_products: state.all_products_reducer.all_products})
 }
 const mapDispatchToProps = (dispatch) => {
-    return ({ action: bindActionCreators({ go, replace,addressAction }, dispatch) })
+    return ({ action: bindActionCreators({ go, replace,addressAction ,totalPriceAction}, dispatch) })
 }
 
 class Shipping extends Component {
@@ -31,11 +32,18 @@ class Shipping extends Component {
     goBack = () => {
         this.props.action.go(-2);
     }
-    goCheckout = () => {
-        this.props.action.addressAction({fullname:this.state.fullname,address:this.state.address,
+    goCheckout = (totalPrice) => {
+        if(this.state.fullname===''||this.state.address===''||this.state.building===''||this.state.zipcode===''||this.state.phone===''){
+         alert("Please Enter Details")
+        }
+        else{
+         this.props.action.addressAction({fullname:this.state.fullname,address:this.state.address,
                                           building:this.state.building,zipcode:this.state.zipcode,
                                           phone:this.state.phone  });
+        this.props.action.totalPriceAction(totalPrice);                                    
         this.props.action.replace("/payment")
+        }
+        
 
     }
     changeShoppingCartVisibility=()=>{
@@ -59,8 +67,15 @@ class Shipping extends Component {
         this.setState({phone:event.target.value})
     }
     render() {
+        var productPrice, totalPrice = 0;
+        let totalPriceArray = this.props.cart_products.map((product) => {
+            productPrice = parseInt(product.count, 10) * parseInt(this.props.all_products.id[product.id].price, 10)
+            return (productPrice)
+        })
+        totalPriceArray.forEach((num) => {
+            totalPrice = totalPrice + num;
+        })
         var checkout = this.props.cart_products.map((product, index) => <CheckoutItem id={product.id} key={index} count={product.count} />)
-        let price=this.props.total_price===undefined? 0:this.props.total_price;
         return (
             <div className="Checkout-Item">
                 <div className="Checkout-Title">
@@ -73,7 +88,7 @@ class Shipping extends Component {
                         <Status />
                     </div>
                     <div className="Shopping-Cart-Dropdown" onClick={this.changeShoppingCartVisibility}>
-                            <div><p>Shopping Cart</p></div><div>${price}</div>
+                            <div><p>Shopping Cart</p></div><div>${totalPrice}</div>
                         </div>
                     <div className="Shipping-Content-Right" style={{display:this.state.showShoppingCart}} >
                         <div className="Shipping-Items">
@@ -131,7 +146,7 @@ class Shipping extends Component {
                     <div className="Continue" onClick={this.goBack}>
                         <div>CONTINUE SHOPPING</div>
                     </div>
-                    <div className="Checkout" onClick={this.goCheckout}>
+                    <div className="Checkout" onClick={()=>this.goCheckout(totalPrice)}>
                         <div>CONTINUE TO PAYMENT</div>
                     </div>
                 </div>
@@ -139,7 +154,7 @@ class Shipping extends Component {
                     <div className="Continue-Mobile" onClick={this.goBack}>
                         <div>BACK</div>
                     </div>
-                    <div className="Checkout-Mobile" onClick={this.goCheckout}>
+                    <div className="Checkout-Mobile" onClick={()=>this.goCheckout(totalPrice)}>
                         <div>CONTINUE TO PAYMENT</div>
                     </div>
                 </div>
