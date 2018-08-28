@@ -33,7 +33,7 @@ class Payment extends Component {
     }
     goCheckout = (totalPrice) => {
         
-        if(this.state.payment_mode===null && (this.state.card_number===''||this.state.date===''||this.state.cvv==='')&&(this.state.payment_mode!=='paypal'))
+        if(this.state.payment_mode===null && (this.state.card_number===''||this.state.cvv==='')&&(this.state.payment_mode!=='paypal'))
         {
             alert("Please Enter Details");
         }

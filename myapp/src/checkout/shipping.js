@@ -33,7 +33,7 @@ class Shipping extends Component {
         this.props.action.go(-2);
     }
     goCheckout = (totalPrice) => {
-        if(this.state.fullname===''||this.state.address===''||this.state.building===''||this.state.zipcode===''||this.state.phone===''){
+        if(this.state.fullname===''||this.state.address===''||this.state.zipcode===''||this.state.phone===''){
          alert("Please Enter Details")
         }
         else{
