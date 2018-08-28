@@ -21,7 +21,6 @@ class SocailLogin extends Component {
     };
 
     googleResponse = (event) => {
-        console.log(event)
         if (event.profileObj !== undefined) {
             let login_details = { status: true, api: 'google', id: event.profileObj.googleId, name: event.profileObj.name, email: event.profileObj.email, image: event.profileObj.imageUrl }
             this.props.action.loginAction(login_details);
