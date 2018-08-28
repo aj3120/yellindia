@@ -3,6 +3,26 @@
     padding: 0px;
 }
 
+.menu-up {
+    margin-left: 5px;
+    border: solid #ff5e1b;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.menu-down {
+
+    margin-left: 5px;
+    border: solid #0231b7;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
 @media only screen and (min-width:1024px) {
     .Login {
         cursor: pointer;
@@ -54,6 +74,7 @@
         height: 19.4px;
     }
     .Shop, .Outlet, .Stores, .Login {
+        cursor: pointer;
         font-family: 'Roboto', sans-serif;
         font-size: 12px;
         font-weight: normal;

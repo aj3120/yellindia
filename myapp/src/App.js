@@ -17,7 +17,7 @@ import Payment from './checkout/payment';
 import Review from './checkout/review';
 import Thanks from './checkout/thanks';
 import Product from './product-details';
-
+import CategoryPage from './category';
 const mapStateToProps=(state)=>{
       return({all_products:state.all_products_reducer.all_products,cart_products:state.cart_products_reducer.cart_products});
 }
@@ -46,6 +46,7 @@ class App extends Component {
             <Route path="/review" component={Review}/>
             <Route path="/thanks" component={Thanks}/>
             <Route path="/product" component={Product}/>
+            <Route path="/jumpsuits/1" component={CategoryPage}/>
             </Switch>
             <Footer/>
         </div>

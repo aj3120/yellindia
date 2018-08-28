@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import SocialLogin from '../social-login';
 import {logoutAction} from '../actions/logout_action';
+import {showMenuAction} from '../actions/showMenuAction'
 const mapStateToProps=(state)=>{
     return({count:state.cart_products_reducer.cart_products.length,
             loginStatus:state.login_reducer.login_details.status,
@@ -12,12 +13,12 @@ const mapStateToProps=(state)=>{
         })
 }
 const mapDispatchToProps=(dispatch)=>{
-    return({action:bindActionCreators({push,logoutAction},dispatch)})
+    return({action:bindActionCreators({push,logoutAction,showMenuAction},dispatch)})
 }
 class MenuBar extends Component {
     constructor(props){
         super(props);
-        this.state={showSocialFlag:'none'}
+        this.state={showSocialFlag:'none',showMenuFlag:'none',showMenuFlagOpposite:'block'}
     }
     goCart=()=>{
         this.props.action.push('/cart');
@@ -34,6 +35,12 @@ class MenuBar extends Component {
     logout=()=>{
         this.props.action.logoutAction({status:false})
     }
+    showMenu=()=>{
+        let show = this.state.showMenuFlag=== 'none' ? 'block' : 'none';
+        let hide = this.state.showMenuFlag === 'none' ? 'none' : 'block';
+        this.setState({ showMenuFlag: show, showMenuFlagOpposite: hide })
+        this.props.action.showMenuAction(show)
+    }
     render() {
         const showLogin=this.props.loginStatus===false?'flex':'none';
         const showWelcome=this.props.loginStatus===true?'flex':'none';
@@ -41,7 +48,7 @@ class MenuBar extends Component {
 
             <div className="Menu-Bar">
                 <div className="Menu-Content">
-                    <div className="Mobile-Menu-Button">
+                    <div className="Mobile-Menu-Button" onClick={this.showMenu}>
                         <div></div>
                         <div></div>
                         <div></div>
@@ -50,9 +57,9 @@ class MenuBar extends Component {
                         <div className="Logo" onClick={this.goHome}>
                             <img src="/assets/group-2.svg" alt="logo" />
                         </div>
-                        <div className="Shop">
+                        <div className="Shop" onClick={this.showMenu}>
                             <p>SHOP</p>
-                            <div className="ShopArrow"></div>
+                            <div><i className="menu-up" style={{ display: this.state.showMenuFlag}} /> <i className="menu-down" style={{ display: this.state.showMenuFlagOpposite}}/></div>
                         </div>
 
 
