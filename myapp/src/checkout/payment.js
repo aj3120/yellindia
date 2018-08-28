@@ -10,6 +10,7 @@ import './status.css';
 import './checkout.css';
 import { totalPriceAction } from '../actions/total-price-action';
 import { paymentDetailsAction } from '../actions/payment-details-action';
+import Modal from 'react-responsive-modal';
 const mapStateToProps = (state) => {
     return ({ cart_products: state.cart_products_reducer.cart_products, total_price: state.cart_products_reducer.total_price, all_products: state.all_products_reducer.all_products })
 }
@@ -21,10 +22,10 @@ class Payment extends Component {
     constructor(props) {
         super(props);
         if (window.innerWidth < 768) {
-            this.state = { showShoppingCart: 'none',payment_mode:null,card_number:'',date:'',cvv:''}
+            this.state = { showShoppingCart: 'none',payment_mode:null,card_number:'',date:'',cvv:'',open:false}
         }
         else {
-            this.state = { showShoppingCart: 'block',payment_mode:null,card_number:'',date:'',cvv:'' }
+            this.state = { showShoppingCart: 'block',payment_mode:null,card_number:'',date:'',cvv:'',open:false}
         }
 
     }
@@ -35,7 +36,7 @@ class Payment extends Component {
         
         if(this.state.payment_mode===null && (this.state.card_number===''||this.state.cvv==='')&&(this.state.payment_mode!=='paypal'))
         {
-            alert("Please Enter Details");
+            this.onOpenModal();
         }
         else{
             this.props.action.replace("/review")
@@ -66,6 +67,13 @@ class Payment extends Component {
             this.setState({...this.state,cvv:event.target.value})
         }
     }
+    onOpenModal = () => {
+        this.setState({ open: true });
+      };
+     
+      onCloseModal = () => {
+        this.setState({ open: false });
+      };
 
     render() {
         var productPrice, totalPrice = 0;
@@ -79,6 +87,10 @@ class Payment extends Component {
         var checkout = this.props.cart_products.map((product, index) => <CheckoutItem id={product.id} key={index} count={product.count} />)
         return (
             <div className="Checkout-Item">
+                <Modal open={this.state.open} onClose={this.onCloseModal} center>
+                    <h2>Error</h2>
+                    <p>Please Enter the details</p>
+                </Modal>
                 <div className="Checkout-Title">
                     Checkout
                 </div>

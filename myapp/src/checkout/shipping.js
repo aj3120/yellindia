@@ -10,6 +10,7 @@ import './status.css';
 import Status from './status1';
 import SocialLogin from '../social-login';
 import {addressAction }from '../actions/address-action'
+import Modal from 'react-responsive-modal';
 import {totalPriceAction} from '../actions/total-price-action'
 const mapStateToProps = (state) => {
     return ({ cart_products : state.cart_products_reducer.cart_products,total_price:state.cart_products_reducer.total_price ,all_products: state.all_products_reducer.all_products})
@@ -22,10 +23,10 @@ class Shipping extends Component {
     constructor(props){
         super(props);
         if(window.innerWidth<768){
-            this.state={showShoppingCart:'none',fullname:'',address:'',building:'',zipcode:'',phone:''}
+            this.state={showShoppingCart:'none',fullname:'',address:'',building:'',zipcode:'',phone:'',open:false}
         }
         else{
-            this.state={showShoppingCart:'block',fullname:'',address:'',building:'',zipcode:'',phone:''}
+            this.state={showShoppingCart:'block',fullname:'',address:'',building:'',zipcode:'',phone:'',open:false}
         }
         
     }
@@ -34,7 +35,7 @@ class Shipping extends Component {
     }
     goCheckout = (totalPrice) => {
         if(this.state.fullname===''||this.state.address===''||this.state.zipcode===''||this.state.phone===''){
-         alert("Please Enter Details")
+         this.onOpenModal();
         }
         else{
          this.props.action.addressAction({fullname:this.state.fullname,address:this.state.address,
@@ -66,6 +67,15 @@ class Shipping extends Component {
     onPhoneChange=(event)=>{
         this.setState({phone:event.target.value})
     }
+
+    onOpenModal = () => {
+        this.setState({ open: true });
+      };
+     
+      onCloseModal = () => {
+        this.setState({ open: false });
+      };
+
     render() {
         var productPrice, totalPrice = 0;
         const totalPriceArray = this.props.cart_products.map((product) => {
@@ -76,8 +86,13 @@ class Shipping extends Component {
             totalPrice = totalPrice + num;
         })
         var checkout = this.props.cart_products.map((product, index) => <CheckoutItem id={product.id} key={index} count={product.count} />)
+        
         return (
             <div className="Checkout-Item">
+                <Modal open={this.state.open} onClose={this.onCloseModal} center>
+                    <h2>Error</h2>
+                    <p>Please Enter the details</p>
+                </Modal>
                 <div className="Checkout-Title">
                     <p>Checkout</p>
                 </div>

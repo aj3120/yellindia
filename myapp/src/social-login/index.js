@@ -27,9 +27,7 @@ class SocailLogin extends Component {
         }
     };
 
-    onFailure = (error) => {
-        alert(error);
-    }
+  
     render() {
 
         return (
