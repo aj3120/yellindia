@@ -32,7 +32,8 @@ class Payment extends Component {
         this.props.action.go(-2);
     }
     goCheckout = (totalPrice) => {
-        if(this.state.payment_mode===null || this.state.card_number===''||this.state.date===''||this.state.cvv==='')
+        
+        if(this.state.payment_mode===null && (this.state.card_number===''||this.state.date===''||this.state.cvv==='')&&(this.state.payment_mode!=='paypal'))
         {
             alert("Please Enter Details");
         }
@@ -67,7 +68,6 @@ class Payment extends Component {
     }
 
     render() {
-        console.log(this.state)
         var productPrice, totalPrice = 0;
         let totalPriceArray = this.props.cart_products.map((product) => {
             productPrice = parseInt(product.count, 10) * parseInt(this.props.all_products.id[product.id].price, 10)
@@ -106,9 +106,7 @@ class Payment extends Component {
                                     <span>Credit Card</span>
                                 </div>
                                 <div className="Credit-Card-Heading-Image">
-                                    <img src="assets/master.svg" alt="master" />
-                                    <img src="assets/visa.svg" alt="visa" />
-                                    <img src="assets/amex.svg" alt="amex" />
+                                    <img src="assets/master.svg" alt="master" /> <img src="assets/visa.svg" alt="visa" /><img src="assets/amex.svg" alt="amex" />
                                 </div>
                             </div>
                             <div className="Credit-Card-Description">
@@ -132,8 +130,7 @@ class Payment extends Component {
 
                             <div className="PayPal-Heading">
                                 <div className="PayPal-Heading-Name">
-                                    <input type="radio" id="paypal" onClick={this.paymentMode}/>
-                                    <span>PayPal</span>
+                                    <input type="radio" id="paypal" onClick={this.paymentMode}/><span>PayPal</span>
                                 </div>
                                 <div className="PayPal-Heading-Image">
                                     <img src="assets/paypal.jpg" alt="paypal" />

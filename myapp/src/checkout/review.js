@@ -9,7 +9,7 @@ import Status from './status3';
 import './status.css';
 
 const mapStateToProps = (state) => {
-    return ({ cart_products: state.cart_products_reducer.cart_products, checkout_details: state.checkout_details_reducer })
+    return ({ cart_products: state.cart_products_reducer.cart_products, checkout_details: state.checkout_details_reducer,total_price:state.cart_products_reducer.total_price })
 }
 const mapDispatchToProps = (dispatch) => {
     return ({ action: bindActionCreators({ go, push }, dispatch) })
@@ -74,7 +74,19 @@ class Review extends Component {
                                 </div>
                                 <div className="Review-Price">
                                     <div className="Review-Subtotal">
-                                    <p>Subtotal</p>
+                                    <p>Subtotal</p> <span>{this.props.total_price}</span>
+                                    </div>
+                                    <div className="Review-Shipping">
+                                    <p>Shipping</p> <span>FREE</span>
+                                    </div>
+                                    <div className="Review-ExpectedDelivery">
+                                    <p>Expected Delivery</p> <span>Aug 29 - 31 </span>
+                                    </div>
+                                    <div className="Review-Taxes">
+                                    <p>Taxes</p> <span>${parseFloat(this.props.total_price,10)*12/100}</span>
+                                    </div>
+                                    <div className="Review-Total">
+                                    <p>Total</p> <span>${parseFloat(this.props.total_price,10)+(parseFloat(this.props.total_price,10)*12/100)}</span>
                                     </div>
                                 </div>
 

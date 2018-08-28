@@ -7,7 +7,7 @@
     width: 49%;
     float: left;
     background-color: #f8fafb;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-bottom: 30px;
     padding-bottom: 27px;
 }
@@ -24,7 +24,8 @@
     background-color: #f8fafb;
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
     float: right;
     padding: 30px;
 }
@@ -56,4 +57,62 @@
 .Divider-Line-Review {
     height: 1px;
     background-color: rgba(38, 50, 56, 0.12);
+}
+
+.Review-Price {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.Review-Subtotal p, .Review-Shipping p, .Review-ExpectedDelivery p, .Review-Taxes p {
+    opacity: 0.64;
+    font-family: 'NunitoSans',sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: #263238;
+    float: left;
+    margin-bottom:10px;
+}
+.Review-Total p{
+    font-family: 'NunitoSans',sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: black;
+    float: left;
+    margin-bottom:10px;
+}
+
+.Review-Subtotal span, .Review-Shipping span, .Review-ExpectedDelivery span, .Review-Taxes span{
+    float: right;
+    opacity: 0.64;
+    font-family: 'NunitoSans',sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: #263238;
+    margin-bottom:10px;
+}
+.Review-Total span {
+    float: right;
+    font-family: 'NunitoSans',sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: black;
+    margin-bottom:10px;
 }

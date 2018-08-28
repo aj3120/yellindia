@@ -25,7 +25,6 @@ class Item extends Component {
     this.setState({ dispQuick: 'none' })
   }
   onItemClick=(event)=>{
-    console.log(event.target)
     if(event.target.id==="Add"){
 
       //ADD TO CART
