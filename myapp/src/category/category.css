@@ -1,0 +1,26 @@
+.Category{
+    width:80%;
+    margin:auto;
+}
+.Category-Left{
+    width:20%;
+    height:400px;
+    float:left;
+    margin-bottom: 40px;
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
+
+}
+.Category-Left h3{
+    margin-bottom:20px;
+}
+.Category-Right{
+    width:80%;
+    float:right;
+    margin-bottom: 40px;
+}
+.Category-Header-Image img{
+    width:100%;
+    margin-bottom: 40px;
+}

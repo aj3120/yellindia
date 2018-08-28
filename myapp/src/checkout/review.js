@@ -7,12 +7,14 @@ import './review.css'
 import './shopping-cart.css';
 import Status from './status3';
 import './status.css';
-
+import sendShoppingInformations from '../services/shopping-informations';
+import {cartProductsAction} from '../actions/cart_products_action'
 const mapStateToProps = (state) => {
-    return ({ cart_products: state.cart_products_reducer.cart_products, checkout_details: state.checkout_details_reducer,total_price:state.cart_products_reducer.total_price })
+    return ({ cart_products: state.cart_products_reducer.cart_products, checkout_details: state.checkout_details_reducer,total_price:state.cart_products_reducer.total_price,
+        login_details:state.login_reducer.login_details})
 }
 const mapDispatchToProps = (dispatch) => {
-    return ({ action: bindActionCreators({ go, push }, dispatch) })
+    return ({ action: bindActionCreators({ go, push ,cartProductsAction}, dispatch) })
 }
 
 class Review extends Component {
@@ -20,6 +22,14 @@ class Review extends Component {
         this.props.action.go(-2);
     }
     goCheckout = () => {
+        const price=this.props.total_price;
+        const products=this.props.cart_products;
+        const address=this.props.checkout_details.address;
+        const login_credentials=this.props.login_details;
+        const payment_details=this.props.checkout_details.payment_details;
+        const shoppingInfo={login_credentials:login_credentials,price:price,products:products,address:address,payment_details:payment_details}
+        sendShoppingInformations(shoppingInfo);
+        this.props.action.cartProductsAction([])
         this.props.action.push("/thanks")
     }
     render() {

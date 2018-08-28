@@ -30,7 +30,7 @@ class Products extends Component {
     if(this.props.home_products!==null)
     return (
       <div className="Products">
-          <div className="Product-Title">
+          <div className="Product-Title" style={{display:this.props.titleDisplay}}>
           <div className="Title">
             Authentic World Cup Kits
           </div>  

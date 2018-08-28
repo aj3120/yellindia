@@ -75,23 +75,23 @@ class Item extends Component {
       var ItemStyle = { position:'relative',left:'-5%',top:'-5%',height:'110%',width:'110%',boxShadow: '0 10px 40px 0 rgba(0, 0, 0, 0.1)'}
     }
     return (
-      <div className="Item-Container" onClick={this.onItemClick}>
+      <div className="Item-Container" >
         <div id={this.props.id} className="Item" onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} style={ItemStyle} >
           <div id={this.props.id} className="Quick-View" onClick={this.onItemClick}>
-            <img src="assets/quick.svg" id="Quick" alt="quickview"/>
+            <img src="/assets/quick.svg" id="Quick" alt="quickview" />
           </div>
-          <div className="Product-Image" id="Item-Image-Container">
+          <div className="Product-Image" id="Item-Image-Container" onClick={this.onItemClick}>
             <img src={this.props.image} id="Item-Image" height="263px" alt="product"/>
           </div>
-          <div className="Product-Content" id="Item-Content">
-            <div className="Product-Name" id="Item-Name">
+          <div className="Product-Content" id="Item-Content" >
+            <div className="Product-Name" id="Item-Name" onClick={this.onItemClick}>
               {this.props.name}
             </div>
-            <div className="Product-Brand" id="Item-Brand">
+            <div className="Product-Brand" id="Item-Brand" onClick={this.onItemClick}>
               {this.props.brand}
             </div>
             <div className="Product-Price-And-Button">
-              <div className="Product-Price" id="Item-Price">
+              <div className="Product-Price" id="Item-Price" onClick={this.onItemClick}>
                 ${this.props.price}
               </div>
               <div className="Add-Button"  onClick={this.onItemClick}>

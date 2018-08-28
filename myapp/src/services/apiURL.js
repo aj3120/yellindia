@@ -4,3 +4,4 @@ export const allProductURL=hostname+"all_products"
 export const cartProductURL=hostname+"cart_products"
 export const cartUpdateURL=hostname+"cart_update"
 export const reviewURL=hostname+"review"
+export const shoppingInfoSendURL=hostname+'shop'
