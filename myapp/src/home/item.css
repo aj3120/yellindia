@@ -44,6 +44,9 @@
     height: 447px;
     box-sizing: border-box;
 }
+.Product-Image img{
+    height: 263px;
+}
 .Item {
     box-sizing: border-box;
     cursor: pointer;
@@ -75,7 +78,7 @@
     left:50%;
     transform: translate(-50%, -50%);
     position: absolute;
-    transition: opacity 0.3s ease-in;
+    transition: opacity 0.4s ease-in;
     opacity: 0; 
     
 }

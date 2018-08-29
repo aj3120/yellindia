@@ -9,7 +9,8 @@ const mapStateToProps=(state)=>{
     return({count:state.cart_products_reducer.cart_products.length,
             loginStatus:state.login_reducer.login_details.status,
             name:state.login_reducer.login_details.name,
-            image:state.login_reducer.login_details.image
+            image:state.login_reducer.login_details.image,
+            showMenu:state.app_helper_reducer.showMenu
         })
 }
 const mapDispatchToProps=(dispatch)=>{
@@ -18,12 +19,14 @@ const mapDispatchToProps=(dispatch)=>{
 class MenuBar extends Component {
     constructor(props){
         super(props);
-        this.state={showSocialFlag:'none',showMenuFlag:'none',showMenuFlagOpposite:'block'}
+       
+        this.state={showSocialFlag:'none'}
     }
     goCart=()=>{
         this.props.action.push('/cart');
     }
     goHome=()=>{
+        this.props.action.showMenuAction({showMenuFlag: 'none', showMenuFlagOpposite: 'block' })
         this.props.action.push('/');
     }
     showSocialLogin=()=>{
@@ -36,10 +39,9 @@ class MenuBar extends Component {
         this.props.action.logoutAction({status:false})
     }
     showMenu=()=>{
-        let show = this.state.showMenuFlag=== 'none' ? 'block' : 'none';
-        let hide = this.state.showMenuFlag === 'none' ? 'none' : 'block';
-        this.setState({ showMenuFlag: show, showMenuFlagOpposite: hide })
-        this.props.action.showMenuAction(show)
+        let show = this.props.showMenu.showMenuFlag=== 'none' ? 'block' : 'none';
+        let hide = this.props.showMenu.showMenuFlag === 'none' ? 'none' : 'block';
+        this.props.action.showMenuAction({ showMenuFlag: show, showMenuFlagOpposite: hide })
     }
     render() {
         const showLogin=this.props.loginStatus===false?'flex':'none';
@@ -59,7 +61,7 @@ class MenuBar extends Component {
                         </div>
                         <div className="Shop" onClick={this.showMenu}>
                             <p>SHOP</p>
-                            <div><i className="menu-up" style={{ display: this.state.showMenuFlag}} /> <i className="menu-down" style={{ display: this.state.showMenuFlagOpposite}}/></div>
+                            <div><i className="menu-up" style={{ display: this.props.showMenu.showMenuFlag}} /> <i className="menu-down" style={{ display: this.props.showMenu.showMenuFlagOpposite}}/></div>
                         </div>
 
 

@@ -7,6 +7,7 @@
         Width:80%;
     }
     .Cart-Image {
+        cursor: pointer;
         width: 183px;
         height: 183px;
         border-radius: 2px;
@@ -14,6 +15,7 @@
         text-align: center;
     }
     .Cart-Name {
+        cursor: pointer;
         font-size: 24px;
         font-weight: 600;
         font-style: normal;
@@ -23,6 +25,7 @@
         color: #263238;
     }
     .Cart-Brand {
+        cursor: pointer;
         height: 14px;
         font-size: 20px;
         font-weight: normal;
@@ -60,6 +63,7 @@
         text-align: center;
     }
     .Cart-Name {
+        cursor: pointer;
         height: 36px;
         font-family: 'NunitoSans',sans-serif;
         font-size: 14px;
@@ -67,7 +71,7 @@
         font-style: normal;
         font-stretch: normal;
         line-height: 1.29;
-        letter-spacing: normal;
+        letter-spacing: normal;cursor: pointer;
         color: #263238;
     }
     .Cart-Brand {
@@ -82,9 +86,11 @@
     }
     
     .Cart-Remove{
+        cursor: pointer;
         padding:5px;
     }
     .Cart-Remove img{
+        cursor: pointer;
         width:14px;
         height:14px;
 
@@ -93,6 +99,7 @@
 
 
 .Cart-Item {
+    
     font-family: 'NunitoSans', sans-serif;
     margin: auto;
     margin-top: 45px;
@@ -108,6 +115,7 @@
 }
 
 .Cart-Image img {
+    cursor: pointer;
     height: 95%;
     margin-top: 2%;
     border-radius: 2px;
@@ -152,6 +160,7 @@
     align-items: center;
 }
 .Empty {
+    
     font-family: 'NunitoSans', sans-serif;
     font-size: 22px;
     font-weight: bold;
@@ -164,3 +173,6 @@
     margin: 30px;
 }
 
+.Decrement,.Increment,.Cart-Remove{
+    cursor: pointer;
+}

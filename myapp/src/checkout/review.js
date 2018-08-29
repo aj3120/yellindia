@@ -69,7 +69,7 @@ class Review extends Component {
                                         <p>Payment Method :</p>
                                     </div>
                                     <div className="Review-Payment-Details">
-                                    <img src="/assets/visa_new.jpg" /><span>{this.props.checkout_details.payment_details.card_number}</span>
+                                    <img src="/assets/visa_new.jpg" alt="visa"/><span>{this.props.checkout_details.payment_details.card_number}</span>
                                     </div>
                                 </div>
                                 <div className="Billing-Address">

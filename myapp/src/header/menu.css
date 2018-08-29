@@ -38,18 +38,19 @@ i {
         font-family: 'Noto Sans', sans-serif;
         padding-top: 20px;
         padding-bottom: 60px;
+        margin:auto;
     }
 }
 .Menu-Window-Container {
-    position: absolute;
-    z-index: 50;
-    
-    top: 120px;
+    position: fixed;
+    z-index: 20;
+    top:120px;
     width: 100%;
     background-color: white;
 }
 
 .Menu-Items {
+    user-select: none;
     display: flex;
     width: 90%;
     justify-content: space-around;
@@ -71,4 +72,14 @@ i {
     line-height: 3.33;
     letter-spacing: 1px;
     color: #33333a;
+}
+.Menu-Items p{
+    padding-left:15px;
+    opacity: 0.7;
+    
+}
+.Menu-Items p:hover{
+    padding-left:15px;
+    opacity: 1;
+    
 }
