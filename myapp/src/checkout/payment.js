@@ -114,7 +114,7 @@ class Payment extends Component {
                         <div className="Credit-Card">
                             <div className="Credit-Card-Heading">
                                 <div className="Credit-Card-Heading-Name">
-                                    <input type="radio" id="credit" onClick={this.paymentMode}/>
+                                    <input type="radio" name="payment" id="credit" onClick={this.paymentMode}/>
                                     <span>Credit Card</span>
                                 </div>
                                 <div className="Credit-Card-Heading-Image">
@@ -142,7 +142,7 @@ class Payment extends Component {
 
                             <div className="PayPal-Heading">
                                 <div className="PayPal-Heading-Name">
-                                    <input type="radio" id="paypal" onClick={this.paymentMode}/><span>PayPal</span>
+                                    <input type="radio" name="payment" id="paypal" onClick={this.paymentMode}/><span>PayPal</span>
                                 </div>
                                 <div className="PayPal-Heading-Image">
                                     <img src="assets/paypal.jpg" alt="paypal" />

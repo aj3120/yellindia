@@ -149,6 +149,7 @@
 
 .Credit-Card-Number-Box input {
     border: none;
+    outline: none;
 }
 
 .Credit-Card-Number-Label {
