@@ -3,6 +3,8 @@
     margin: auto;
 }
 
+@media only screen and (min-width:768px){
+    
 .Review-Content-Right {
     width: 49%;
     float: left;
@@ -17,7 +19,6 @@
     margin-top: 20px;
     width: 80%;
 }
-
 .Review-Data {
     width: 49%;
     box-sizing: border-box;
@@ -28,6 +29,38 @@
     margin-bottom: 20px;
     float: right;
     padding: 30px;
+}
+
+}
+@media only screen and (max-width:768px){
+
+    .Review-Content-Right {
+        width: 90%;
+        margin:auto;
+        background-color: #f8fafb;
+        margin-top: 40px;
+        margin-bottom: 30px;
+        padding-bottom: 27px;
+        
+    }
+    
+    .Review-Content-Left {
+        margin: auto;
+        margin-top: 20px;
+        width: 80%;
+    }
+    .Review-Data {
+        width: 90%;
+        margin:auto;
+        box-sizing: border-box;
+        background-color: #f8fafb;
+        display: flex;
+        flex-direction: column;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        padding: 30px;
+    }
+    
 }
 
 .Shipping-Address-Heading, .Review-Payment-Heading, .Billing-Address-Heading {

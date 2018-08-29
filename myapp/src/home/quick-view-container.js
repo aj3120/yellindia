@@ -23,7 +23,7 @@ class QuickViewContainer extends Component {
             <div className="QuickViewPage-Heading">
               <div className="QuickViewPage-Heading-Content">{this.props.all_products.id[this.props.id].name}</div>
               <div>
-                <img src="assets/close.png" onClick={() => this.props.callClosePage()} alt="close" />
+                <img src="/assets/close.png" onClick={() => this.props.callClosePage()} alt="close" />
               </div>
             </div>
             <QuickView disp={this.props.disp} id={this.props.id} callClosePage={this.props.allClosePage}/>

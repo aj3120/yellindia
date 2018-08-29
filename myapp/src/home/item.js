@@ -81,7 +81,7 @@ class Item extends Component {
             <img src="/assets/quick.svg" id="Quick" alt="quickview" />
           </div>
           <div className="Product-Image" id="Item-Image-Container" onClick={this.onItemClick}>
-            <img src={this.props.image} id="Item-Image" height="263px" alt="product"/>
+            <img src={this.props.image} id="Item-Image" alt="product"/>
           </div>
           <div className="Product-Content" id="Item-Content" >
             <div className="Product-Name" id="Item-Name" onClick={this.onItemClick}>

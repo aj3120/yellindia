@@ -1,6 +1,7 @@
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import React,{Component} from 'react';
+import {Link} from 'react-router-dom'
 class TitleImage extends Component {
   render() {
     return (
@@ -9,7 +10,7 @@ class TitleImage extends Component {
             <div className="Carousel-Title">
                 <p>Perfect<br/>Style, Fit, Comfort</p>
             </div>
-            <div className="Carousel-Button">
+            <div className="Carousel-Button" >
                 <img src="assets/m.png" alt="shop"/>
             </div>
         <Carousel showArrows={true} showThumbs={false} autoPlay={true} interval={2000} showStatus={false} infiniteLoop={true}>

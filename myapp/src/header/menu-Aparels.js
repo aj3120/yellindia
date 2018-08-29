@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import {Link } from "react-router-dom";
+import {push } from "react-router-redux";
+import {showMenuAction} from '../actions/showMenuAction';
+import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
+const mapDispatchToProps=(dispatch)=>{
+    return({action:bindActionCreators({showMenuAction,push},dispatch)})
+}
 class MenuAparels extends Component {
     constructor(props) {
         super(props);
@@ -37,6 +44,13 @@ class MenuAparels extends Component {
         let hide = this.state.show_trousers === 'none' ? 'none' : 'inline-block';
         this.setState({ show_trousers: show, show_trousers_opposite: hide })
     }
+    showMenu=(event)=>{
+        console.log(event.target)
+        let show = this.state.showMenuFlag=== 'none' ? 'block' : 'none';
+        let hide = this.state.showMenuFlag === 'none' ? 'none' : 'block';
+        this.props.action.showMenuAction({ showMenuFlag: show, showMenuFlagOpposite: hide })
+        this.props.action.push(`/jumpsuits/${event.target.id}`)
+    }
     render() {
         return (
             <div className="Apparels">
@@ -49,8 +63,8 @@ class MenuAparels extends Component {
                             <i className="right" style={{ display: this.state.show_jumpsuits_opposite }} /> <i className="down" style={{ display: this.state.show_jumpsuits }} /> <span>JUMPSUITS</span>
                         </div>
                         <div className="Jumpsuits-Item" style={{ display: this.state.show_jumpsuits }}>
-                            <p><Link to="/jumpsuits/1" style={{textDecoration:'none',color:'#33333a'}}>JUMPSUITS 1</Link></p>
-                            <p><Link to="/jumpsuits/2" style={{textDecoration:'none',color:'#33333a'}}>JUMPSUITS 2</Link></p>
+                            <p id="1" onClick={this.showMenu}> JACKET </p>
+                            <p>JUMPSUITS 2</p>
                             <p>JUMPSUITS 3</p>
                         </div>
                     </div>
@@ -59,7 +73,7 @@ class MenuAparels extends Component {
                             <i className="right" style={{ display: this.state.show_shirts_opposite }} /> <i className="down" style={{ display: this.state.show_shirts }} /> <span>SHIRTS</span>
                         </div>
                         <div className="Shirts-Item" style={{ display: this.state.show_shirts }}>
-                            <p>SHIRTS 1</p>
+                        <p id="2" onClick={this.showMenu}> JERSEY</p>
                             <p>SHIRTS 2</p>
                             <p>SHIRTS 3</p>
                         </div>
@@ -69,9 +83,9 @@ class MenuAparels extends Component {
                             <i className="right" style={{ display: this.state.show_tops_opposite }}/> <i className="down" style={{ display: this.state.show_tops }}/> <span>TOPS</span>
                         </div>
                         <div className="Tops-Item"  style={{ display: this.state.show_tops}} >
+                            
                             <p>TOPS 1</p>
                             <p>TOPS 2</p>
-                            <p>TOPS 3</p>
                         </div>
                     </div>
                     <div className="Shorts">
@@ -103,4 +117,4 @@ class MenuAparels extends Component {
     }
 }
 
-export default MenuAparels;
+export default withRouter(connect(null,mapDispatchToProps) (MenuAparels));

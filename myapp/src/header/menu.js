@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { push } from 'react-router-redux';
 import {connect} from 'react-redux';
-import { bindActionCreators } from 'redux';
 import './menu.css'
 import Footwear from './menu-footwear';
 import OuterWear from './menu-outerwear';
@@ -16,15 +14,8 @@ const mapStateToProps=(state)=>{
 }
 class Menu extends Component {
     render() {
-        var show;
-        if(this.props.showMenu===undefined){
-             show='none'
-        }
-        else{
-             show=this.props.showMenu
-        }
         return (
-            <div className="Menu-Window-Container" style={{display:show}}>
+            <div className="Menu-Window-Container" style={{display:this.props.showMenu.showMenuFlag}}>
                 <div className="Menu-Items">
                     <Aparels/>
                     <Accessories/>

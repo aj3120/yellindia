@@ -1,23 +1,7 @@
 import React, { Component } from 'react';
 import Item from './item';
-import {connect} from 'react-redux';
-import { bindActionCreators } from 'redux';
-import {home_products_action} from '../actions/home_products_action';
-import homeProductRequest from '../services/homeProductRequest';
 import Loader from '../Loader'
-
-const mapStateToProps=(state)=>{
-  return({home_products:state.home_products_reducer.home_products})
-}
-const mapDispatchToProps=(dispatch)=>{
-  return({action:bindActionCreators({home_products_action},dispatch)})
-}
-class Products extends Component {
-  componentDidMount(){
-
-      homeProductRequest().then((home_products)=>this.props.action.home_products_action(home_products.data.products))
-
-    }
+class Products extends Component {  
   listItems=()=>{
           var productList=this.props.home_products.map((product)=>(
                                                           <Item id={product.id} key={product.id} name={product.name}
@@ -27,7 +11,7 @@ class Products extends Component {
           return(productList)
         }
   render() {
-    if(this.props.home_products!==null)
+    if(this.props.home_products!==null && this.props.home_products!==undefined)
     return (
       <div className="Products">
           <div className="Product-Title" style={{display:this.props.titleDisplay}}>
@@ -58,4 +42,4 @@ class Products extends Component {
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Products);
+export default Products;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {push} from 'react-router-redux'
 import { bindActionCreators } from 'redux';
 import { productCount } from '../actions/product_count';
 import cartUpdateRequest from '../services/cartUpdateRequest';
@@ -8,7 +9,7 @@ const mapStateToProps = (state) => {
     return ({ all_products: state.all_products_reducer.all_products, cart_products: state.cart_products_reducer.cart_products })
 }
 const mapDispatchToProps = (dispatch) => {
-    return ({ action: bindActionCreators({ productCount }, dispatch) })
+    return ({ action: bindActionCreators({ productCount ,push}, dispatch) })
 }
 class CartItem extends Component {
     decrement = () => {
@@ -51,18 +52,21 @@ class CartItem extends Component {
         cartUpdateRequest(cart_products_new)
         
     }
+    goToProduct=()=>{
+        this.props.action.push(`/product/${this.props.id}`)
+    }
     render() {
         return (
             <div>
-                <div className="Cart-Item">
-                    <div className="Cart-Image">
+                <div className="Cart-Item" >
+                    <div className="Cart-Image" onClick={this.goToProduct}>
                         <img src={this.props.all_products.id[this.props.id].image} alt="product" />
                     </div>
                     <div className="Cart-Details">
-                        <div className="Cart-Name">
+                        <div className="Cart-Name " onClick={this.goToProduct}>
                             {this.props.all_products.id[this.props.id].name}
                         </div>
-                        <div className="Cart-Brand">
+                        <div className="Cart-Brand" onClick={this.goToProduct}>
                             {this.props.all_products.id[this.props.id].brand}
                         </div>
                         <div className="Cart-Quandity">
