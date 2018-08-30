@@ -58,13 +58,24 @@ class Payment extends Component {
     }
     formChange=(event)=>{
         if(event.target.id==="cardnumber"){
-            this.setState({...this.state,card_number:event.target.value})
+            let pattern=/^\s*?[0-9]{1,12}\s*$/
+            if(pattern.test(event.target.value) || event.target.value===""){
+                this.setState({...this.state,card_number:event.target.value})
+            }
+            
         }
         else if(event.target.id==="date"){
-            this.setState({...this.state,date:event.target.value})
+            let pattern=/^\s*?[0-9]{1,6}\s*$/
+            if(pattern.test(event.target.value) || event.target.value===""){
+                this.setState({...this.state,date:event.target.value})
+            }
+            
         }
         else if(event.target.id==="cvv"){
-            this.setState({...this.state,cvv:event.target.value})
+            let pattern=/^\s*?[0-9]{1,3}\s*$/
+            if(pattern.test(event.target.value) || event.target.value===""){
+                this.setState({...this.state,cvv:event.target.value})
+            }
         }
     }
     onOpenModal = () => {
@@ -74,7 +85,7 @@ class Payment extends Component {
       onCloseModal = () => {
         this.setState({ open: false });
       };
-
+     
     render() {
         var productPrice, totalPrice = 0;
         const totalPriceArray = this.props.cart_products.map((product) => {
@@ -87,10 +98,11 @@ class Payment extends Component {
         var checkout = this.props.cart_products.map((product, index) => <CheckoutItem id={product.id} key={index} count={product.count} />)
         return (
             <div className="Checkout-Item">
-                <Modal open={this.state.open} onClose={this.onCloseModal} center>
+                <Modal open={this.state.open} onOpen={this.onOpenModal} onClose={this.onCloseModal} center>
                     <h2>Error</h2>
                     <p>Please Enter the details</p>
                 </Modal>
+               
                 <div className="Checkout-Title">
                     Checkout
                 </div>

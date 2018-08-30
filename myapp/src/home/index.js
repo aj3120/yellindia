@@ -36,7 +36,7 @@ class Home extends Component {
     return (
       <div className="Home">
           <TitleImage/>
-          <Products callQuickPage={this.displayQuickViewPage} titleDisplay='block' home_products={this.props.home_products}/>
+          <Products id="product-01"callQuickPage={this.displayQuickViewPage} titleDisplay='block' home_products={this.props.home_products}/>
           <QuickViewContainer disp={this.state.dispQuickView} id={this.state.id} callClosePage={this.closeQuickViewPage} productDetailButtonShow={"flex"}/>
           <About/>
           <Shop/>

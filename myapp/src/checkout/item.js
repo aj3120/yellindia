@@ -20,7 +20,10 @@ class CheckoutItem extends Component {
             }
         })
         this.props.action.productCount(cart_products_new)
-        cartUpdateRequest({ cart_products_new })
+        cartUpdateRequest(cart_products_new)
+
+
+
     }
     increment = () => {
         const cart_products_new = this.props.cart_products.map((product) => {

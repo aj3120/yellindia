@@ -13,7 +13,10 @@ import {addressAction }from '../actions/address-action'
 import Modal from 'react-responsive-modal';
 import {totalPriceAction} from '../actions/total-price-action'
 const mapStateToProps = (state) => {
-    return ({ cart_products : state.cart_products_reducer.cart_products,total_price:state.cart_products_reducer.total_price ,all_products: state.all_products_reducer.all_products})
+    return ({ cart_products : state.cart_products_reducer.cart_products,total_price:state.cart_products_reducer.total_price ,all_products: state.all_products_reducer.all_products,
+            login_status:state.login_reducer.login_details.status
+    
+    })
 }
 const mapDispatchToProps = (dispatch) => {
     return ({ action: bindActionCreators({ go, replace,addressAction ,totalPriceAction}, dispatch) })
@@ -23,10 +26,10 @@ class Shipping extends Component {
     constructor(props){
         super(props);
         if(window.innerWidth<768){
-            this.state={showShoppingCart:'none',fullname:'',address:'',building:'',zipcode:'',phone:'',open:false}
+            this.state={showShoppingCart:'none',fullname:'',address:'',building:'',zipcode:'',phone:'',fullname_visible:'none',address_visible:'none',zipcode_visible:'none',phone_visible:'none',open:false,open_login:false}
         }
         else{
-            this.state={showShoppingCart:'block',fullname:'',address:'',building:'',zipcode:'',phone:'',open:false}
+            this.state={showShoppingCart:'block',fullname:'',address:'',building:'',zipcode:'',phone:'',fullname_visible:'none',address_visible:'none',zipcode_visible:'none',phone_visible:'none',open:false,open_login:false}
         }
         
     }
@@ -35,7 +38,10 @@ class Shipping extends Component {
     }
     goCheckout = (totalPrice) => {
         if(this.state.fullname===''||this.state.address===''||this.state.zipcode===''||this.state.phone===''){
-         this.onOpenModal();
+            this.onOpenModal();
+        }
+        else if(this.props.login_status===false){
+            this.onOpenModalForLogin();
         }
         else{
          this.props.action.addressAction({fullname:this.state.fullname,address:this.state.address,
@@ -62,20 +68,45 @@ class Shipping extends Component {
         this.setState({building:event.target.value})
     }
     onZipcodeChange=(event)=>{
-        this.setState({zipcode:event.target.value})
+        let pattern=/^\s*?[0-9]{1,6}\s*$/
+        if(pattern.test(event.target.value) || event.target.value===""){
+            this.setState({zipcode:event.target.value})
+        }
+        
     }
     onPhoneChange=(event)=>{
+        let pattern=/^\s*?[0-9]{1,10}\s*$/
+        if(pattern.test(event.target.value) || event.target.value===""){
         this.setState({phone:event.target.value})
+        }
     }
 
     onOpenModal = () => {
-        this.setState({ open: true });
+        this.setState({ open: true, });
       };
      
       onCloseModal = () => {
         this.setState({ open: false });
       };
+      onOpenModalForLogin = () => {
+        this.setState({ open_login: true });
+      };
+     
+      onCloseModalForLogin= () => {
+        this.setState({ open_login: false });
+      };
 
+    inputFieldCheck=(event)=>{
+        let field=event.target.id.split('_')[0]
+        if(this.state[field]===''){
+            this.setState({[event.target.id]:'block'});
+        }
+        else{
+            this.setState({[event.target.id]:'none'});
+        }
+        
+
+    }  
     render() {
         var productPrice, totalPrice = 0;
         const totalPriceArray = this.props.cart_products.map((product) => {
@@ -92,6 +123,10 @@ class Shipping extends Component {
                 <Modal open={this.state.open} onClose={this.onCloseModal} center>
                     <h2>Error</h2>
                     <p>Please Enter the details</p>
+                </Modal>
+                <Modal open={this.state.open_login} onClose={this.onCloseModalForLogin} center>
+                    <h2>Login Error</h2>
+                    <p>Please Login</p>
                 </Modal>
                 <div className="Checkout-Title">
                     <p>Checkout</p>
@@ -125,32 +160,40 @@ class Shipping extends Component {
                         <div className="FullName">
                             <p>Full Name</p>
                             <div className="FullName-Box">
-                                <input type="text" placeholder="Enter Your Name" required value={this.state.fullname} onChange={this.onFirstnameChange}/>
+                                <input id="fullname_visible" type="text" placeholder="Enter Your Name" onKeyPress={this.inputFieldCheck} onBlur={this.inputFieldCheck} value={this.state.fullname} onChange={this.onFirstnameChange}/>
+                                <div className="Error-In-Input" style={{display:this.state.fullname_visible}}>Please Enter Your Name</div>
                             </div>
+                            
                         </div>
                         <div className="StreetAddress">
                             <p>Street Address</p>
                             <div className="StreetAddress-Box">
-                                <input type="text" placeholder="Enter Your Address" required value={this.state.address} onChange={this.onAddressChange}/>
+                                <input id="address_visible" type="text" placeholder="Enter Your Address" onKeyPress={this.inputFieldCheck} onBlur={this.inputFieldCheck} required value={this.state.address} onChange={this.onAddressChange}/>
+                                <div className="Error-In-Input"style={{display:this.state.address_visible}}>Please Enter Address</div>
                             </div>
+                            
                         </div>
                         <div className="Building">
                             <p>Apt, Suite, Bldg (optional)</p>
                             <div className="Building-Box">
-                                <input type="text" placeholder="Optional" value={this.state.building} onChange={this.onBuildingChange}/>
+                                <input  type="text" placeholder="Optional" value={this.state.building}  onChange={this.onBuildingChange}/>
                             </div>
                         </div>
                         <div className="ZipCode">
                             <p>Zip Code</p>
                             <div className="ZipCode-Box">
-                                <input type="text" placeholder="Zip Code" required value={this.state.zipcode} onChange={this.onZipcodeChange}/>
+                                <input id="zipcode_visible" type="text" placeholder="673307" required value={this.state.zipcode} onKeyPress={this.inputFieldCheck} onBlur={this.inputFieldCheck} onChange={this.onZipcodeChange}/>
+                                <div className="Error-In-Input" style={{display:this.state.zipcode_visible}}>Please Enter Zipcode</div>
                             </div>
+                           
                         </div>
                         <div className="PhoneNumber">
                             <p>Phone Number</p>
                             <div className="PhoneNumber-Box">
-                                <input type="text" placeholder="Phone number" value={this.state.phone} onChange={this.onPhoneChange}/>
+                                <input id="phone_visible" type="text" placeholder="9645160472" value={this.state.phone} onKeyPress={this.inputFieldCheck} onBlur={this.inputFieldCheck} onChange={this.onPhoneChange}/>
+                                <div className="Error-In-Input" style={{display:this.state.phone_visible}}>Please Enter your phone number</div>
                             </div>
+                            
                         </div>
                     </div>
 

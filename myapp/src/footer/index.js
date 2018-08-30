@@ -50,7 +50,7 @@ class Footer extends Component {
                                 <input type="email" placeholder="ENTER YOUR NAME" />
                             </div>
                             <div className="SubscribeButton">
-                                <img src="/assets/subscribe.svg" alt="subscribe"/>
+                                SUBSCRIBE
                             </div>
                         </div>
                         <div className="Subscribe-Images">

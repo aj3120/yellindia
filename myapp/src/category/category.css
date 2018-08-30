@@ -139,6 +139,6 @@
     height: 347px;
 }
 
-.Product-Image img {
-    height: 200px
+.Category-Right .Product-Image>img{
+    height:200px;
 }

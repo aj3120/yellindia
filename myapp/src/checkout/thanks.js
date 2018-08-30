@@ -29,7 +29,7 @@ class Thanks extends Component {
                         <p>An order confirmation email has been sent to</p>
                     </div>
                     <div className="Thanks-Email">
-                        {email}}
+                        {email}
                     </div>
                     <div className="Send-Email">
                         send confirmation to another email

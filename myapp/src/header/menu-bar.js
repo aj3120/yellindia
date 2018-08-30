@@ -96,8 +96,8 @@ class MenuBar extends Component {
                         <div className="Wishlist">
                             <img src="/assets/shape.svg" alt="wishlist" />
                         </div>
-                        <div className="Cart-List" >
-                            <div className="Cart-Count"  onClick={this.goCart}>
+                        <div className="Cart-List" onClick={this.goCart} >
+                            <div className="Cart-Count"  >
                             <div className="Count" >
                             {this.props.count}
                             </div>

@@ -243,6 +243,7 @@
 }
 
 .Cart-List {
+    cursor: pointer;
     position: relative
 }
 

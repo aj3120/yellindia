@@ -13,9 +13,9 @@ class Products extends Component {
   render() {
     if(this.props.home_products!==null && this.props.home_products!==undefined)
     return (
-      <div className="Products">
+      <div className="Products" id="shome-home-jump">
           <div className="Product-Title" style={{display:this.props.titleDisplay}}>
-          <div className="Title">
+          <div className="Title" >
             Authentic World Cup Kits
           </div>  
           <div className="Search-Box">

@@ -104,3 +104,17 @@
         box-sizing: border-box;
     }
 }
+.SubscribeButton{
+    color: #33333a;
+    border-radius: 2px;
+    font-family: AvenirNext;
+    font-size:10px;
+    width:100px;
+    height:30px;
+    margin-top:5px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    background-color: white;
+}

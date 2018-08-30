@@ -9,19 +9,20 @@ import Status from './status3';
 import './status.css';
 import sendShoppingInformations from '../services/shopping-informations';
 import {cartProductsAction} from '../actions/cart_products_action'
+import {totalPriceAction} from '../actions/total-price-action'
 const mapStateToProps = (state) => {
     return ({ cart_products: state.cart_products_reducer.cart_products, checkout_details: state.checkout_details_reducer,total_price:state.cart_products_reducer.total_price,
-        login_details:state.login_reducer.login_details})
+        login_details:state.login_reducer.login_details,all_products: state.all_products_reducer.all_products})
 }
 const mapDispatchToProps = (dispatch) => {
-    return ({ action: bindActionCreators({ go, push ,cartProductsAction}, dispatch) })
+    return ({ action: bindActionCreators({ go, push ,cartProductsAction,totalPriceAction}, dispatch) })
 }
 
 class Review extends Component {
     goBack = () => {
         this.props.action.go(-2);
     }
-    goCheckout = () => {
+    goCheckout = (totalPrice) => {
         const price=this.props.total_price;
         const products=this.props.cart_products;
         const address=this.props.checkout_details.address;
@@ -29,11 +30,20 @@ class Review extends Component {
         const payment_details=this.props.checkout_details.payment_details;
         const shoppingInfo={login_credentials:login_credentials,price:price,products:products,address:address,payment_details:payment_details}
         sendShoppingInformations(shoppingInfo);
+        this.props.action.totalPriceAction(totalPrice);
         this.props.action.cartProductsAction([])
         this.props.action.push("/thanks")
     }
     render() {
         var checkout = this.props.cart_products.map((product, index) => <CheckoutItem id={product.id} key={index} count={product.count} />)
+        var productPrice, totalPrice = 0;
+        const totalPriceArray = this.props.cart_products.map((product) => {
+            productPrice = parseInt(product.count, 10) * parseInt(this.props.all_products.id[product.id].price, 10)
+            return (productPrice)
+        })
+        totalPriceArray.forEach((num) => {
+            totalPrice = totalPrice + num;
+        })
         if (this.props.checkout_details.address !== undefined) {
             return (
                 <div className="Checkout-Item">
@@ -84,7 +94,7 @@ class Review extends Component {
                                 </div>
                                 <div className="Review-Price">
                                     <div className="Review-Subtotal">
-                                    <p>Subtotal</p> <span>{this.props.total_price}</span>
+                                    <p>Subtotal</p> <span>{totalPrice}</span>
                                     </div>
                                     <div className="Review-Shipping">
                                     <p>Shipping</p> <span>FREE</span>
@@ -93,10 +103,10 @@ class Review extends Component {
                                     <p>Expected Delivery</p> <span>Aug 29 - 31 </span>
                                     </div>
                                     <div className="Review-Taxes">
-                                    <p>Taxes</p> <span>${parseFloat(this.props.total_price,10)*12/100}</span>
+                                    <p>Taxes</p> <span>${parseFloat(totalPrice,10)*12/100}</span>
                                     </div>
                                     <div className="Review-Total">
-                                    <p>Total</p> <span>${parseFloat(this.props.total_price,10)+(parseFloat(this.props.total_price,10)*12/100)}</span>
+                                    <p>Total</p> <span>${parseFloat(totalPrice,10)+(parseFloat(totalPrice,10)*12/100)}</span>
                                     </div>
                                 </div>
 
@@ -107,7 +117,7 @@ class Review extends Component {
                         <div className="Continue" onClick={this.goBack}>
                             <div>CONTINUE SHOPPING</div>
                         </div>
-                        <div className="Checkout" onClick={this.goCheckout}>
+                        <div className="Checkout" onClick={() => this.goCheckout(totalPrice)}>
                             <div>COMPLETE ORDER</div>
                         </div>
                     </div>
@@ -115,7 +125,7 @@ class Review extends Component {
                         <div className="Continue-Mobile" onClick={this.goBack}>
                             <div>BACK</div>
                         </div>
-                        <div className="Checkout-Mobile" onClick={this.goCheckout}>
+                        <div className="Checkout-Mobile" onClick={() => this.goCheckout(totalPrice)}>
                             <div>COMPLETE ORDER</div>
                         </div>
                     </div>

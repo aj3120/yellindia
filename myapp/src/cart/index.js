@@ -17,9 +17,11 @@ class Cart extends Component {
         this.props.action.goBack();
     }
     goCheckout=(totalPrice)=>{
-
+        if(this.props.cart_products.length!==0){
             this.props.action.totalPriceAction(totalPrice);
             this.props.action.push("/shipping")
+        }
+   
     }
 
     render() {
