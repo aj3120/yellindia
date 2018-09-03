@@ -2,7 +2,9 @@
     margin: 0px;
     padding: 0px;
 }
-
+.FreeShipping p{
+    margin:0px;
+}
 .menu-up {
     margin-left: 5px;
     border: solid #ff5e1b;
@@ -60,8 +62,23 @@
     }
     .Search {
         margin: 0px 20px;
-        width: 20px;
-        height: 20px;
+        display: flex;
+    }
+    .Search img{
+        cursor: pointer;
+        z-index: 10;
+    }
+    .Search input{
+        color:gray;
+        outline: none;
+        width:20em;
+        border:none;
+        border-bottom:1px solid lightgray;
+        padding-top:10px;
+        padding-left:5px;
+        padding-right:30px;
+        position:relative;
+        left:25px;
     }
     .Wishlist {
         margin: 0px 20px;
@@ -288,4 +305,7 @@
 
 .btnClass {
     background-color: 'white'
+}
+.Menu-Left p{
+    margin-bottom: 0px
 }

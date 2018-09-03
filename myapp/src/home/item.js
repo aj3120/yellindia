@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { productCount } from '../actions/product_count';
 import cartUpdateRequest from '../services/cartUpdateRequest';
 const mapStateToProps=(state)=>{
-  return({cart_products: state.cart_products_reducer.cart_products });
+  return({cart_products: state.cart_products_reducer.cart_products ,addNotification:state.app_helper_reducer.notificationFunction});
 
 }
 const mapDispatchToProps=(dispatch)=>{
@@ -59,7 +59,7 @@ class Item extends Component {
         cartUpdateRequest(cart_products_new)
         
       }
-      this.props.action.push('/cart')
+      this.props.addNotification()
     }
     else if(event.target.id==="Quick"){
       this.props.callQuickPage(this.props.id)

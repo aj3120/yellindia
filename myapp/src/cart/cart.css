@@ -97,6 +97,12 @@
     .Forward-Buttons-Mobile{
         display:none;
     }
+    .Cart-Wrapper{
+        height:530px;
+        overflow: auto;
+        width:80%;
+        margin:auto;
+    }
 }
 @media only screen and (max-width:768px) {
     
@@ -190,6 +196,12 @@
     }
     .Forward-Buttons{
         display:none;
+    }
+    .Cart-Wrapper{
+        height:430px;
+        overflow: auto;
+        width:80%;
+        margin:auto;
     }
    
 }

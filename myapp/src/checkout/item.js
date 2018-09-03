@@ -54,6 +54,14 @@ class CheckoutItem extends Component {
         
     }
     render() {
+        let count=0;
+        this.props.cart_products.forEach((product)=>
+            {
+                if(product.id===this.props.id){
+                    count=product.count
+                }
+            }
+        );
         return (
             <div>
                 <div className="Cart-Item-Checkout">
@@ -84,7 +92,7 @@ class CheckoutItem extends Component {
                             <img src="/assets/remove.svg" alt="remove" />
                         </div>
                         <div className="Checkout-Price">
-                            ${this.props.all_products.id[this.props.id].price}
+                            ${this.props.all_products.id[this.props.id].price*count}
                         </div>
 
                     </div>

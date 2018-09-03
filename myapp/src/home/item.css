@@ -139,6 +139,7 @@
 }
 
 .Add-Button {
+    user-select: none;
     float: right;
     width: 151.3px;
     height: 16px;
@@ -151,4 +152,18 @@
     letter-spacing: normal;
     text-align: center;
     color: #2196f3;
+}
+.Add-Button:active{
+    float: right;
+    width: 151.3px;
+    height: 16px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.89;
+    letter-spacing: normal;
+    text-align: center;
+    color: black;
 }

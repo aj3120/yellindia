@@ -56,6 +56,14 @@ class CartItem extends Component {
         this.props.action.push(`/product/${this.props.id}`)
     }
     render() {
+        let count=0;
+        this.props.cart_products.forEach((product)=>
+            {
+                if(product.id===this.props.id){
+                    count=product.count
+                }
+            }
+        );
         return (
             <div>
                 <div className="Cart-Item" >
@@ -86,7 +94,7 @@ class CartItem extends Component {
                             <img src="/assets/remove.svg" alt="remove" />
                         </div>
                         <div className="Cart-Price">
-                            ${this.props.all_products.id[this.props.id].price}
+                            ${this.props.all_products.id[this.props.id].price*count}
                         </div>
 
                     </div>
@@ -104,11 +112,11 @@ class CartItem extends Component {
                             </div>
                         </div>
                         <div className="Cart-Price">
-                            ${this.props.all_products.id[this.props.id].price}
+                            ${this.props.all_products.id[this.props.id].price*count}
                         </div>
 
                 </div>
-                <div className="Divider-Line">
+                <div className="Cart-Divider-Line">
                 </div>
             </div>
         );

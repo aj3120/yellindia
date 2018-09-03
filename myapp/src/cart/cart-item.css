@@ -4,7 +4,7 @@
         display: none;
     }
     .Cart-Item{
-        Width:80%;
+        padding-right:30px;
     }
     .Cart-Image {
         cursor: pointer;
@@ -106,18 +106,16 @@
     display: flex;
     justify-content: space-between
 }
-.Divider-Line {
+.Cart-Divider-Line {
+    width:98%;
     height: 2px;
-    width: 80%;
-    margin: auto;
     margin-top: 27.9px;
     background-color: rgba(38, 50, 56, 0.12);
 }
 
 .Cart-Image img {
     cursor: pointer;
-    height: 95%;
-    margin-top: 2%;
+    height: 100%;
     border-radius: 2px;
     background-color: #eceff1;
 }

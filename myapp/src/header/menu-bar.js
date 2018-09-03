@@ -5,22 +5,28 @@ import { bindActionCreators } from 'redux';
 import SocialLogin from '../social-login';
 import {logoutAction} from '../actions/logout_action';
 import {showMenuAction} from '../actions/showMenuAction'
+import 'react-notifications/lib/notifications.css';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import {addNotificationFunction} from '../actions/add_notification_function';
+import {searchTextAction} from '../actions/search_text_action';
 const mapStateToProps=(state)=>{
     return({count:state.cart_products_reducer.cart_products.length,
             loginStatus:state.login_reducer.login_details.status,
             name:state.login_reducer.login_details.name,
             image:state.login_reducer.login_details.image,
-            showMenu:state.app_helper_reducer.showMenu
+            showMenu:state.app_helper_reducer.showMenu,
+            notificationFunction:state.app_helper_reducer.notificationFunction
+            
         })
 }
 const mapDispatchToProps=(dispatch)=>{
-    return({action:bindActionCreators({push,logoutAction,showMenuAction},dispatch)})
+    return({action:bindActionCreators({push,logoutAction,showMenuAction,addNotificationFunction,searchTextAction},dispatch)})
 }
 class MenuBar extends Component {
     constructor(props){
         super(props);
        
-        this.state={showSocialFlag:'none'}
+        this.state={showSocialFlag:'none',searchText:'',searchBox:'none'}
     }
     goCart=()=>{
         this.props.action.push('/cart');
@@ -43,6 +49,20 @@ class MenuBar extends Component {
         let hide = this.props.showMenu.showMenuFlag === 'none' ? 'none' : 'block';
         this.props.action.showMenuAction({ showMenuFlag: show, showMenuFlagOpposite: hide })
     }
+
+    createNotification = () => {
+        return () =>NotificationManager.success('Added To Cart','',5000);   
+        };
+    componentWillMount(){
+        this.props.action.addNotificationFunction(this.createNotification())
+    }  
+    SearchValueChange=(event)=>{
+        this.setState({searchText:event.target.value})
+        this.props.action.searchTextAction(event.target.value)
+      }   
+    searchBox=()=>{
+        this.state.searchBox==='none'?this.setState({searchBox:'block'}):this.props.action.push('/search')
+    }  
     render() {
         const showLogin=this.props.loginStatus===false?'flex':'none';
         const showWelcome=this.props.loginStatus===true?'flex':'none';
@@ -91,22 +111,24 @@ class MenuBar extends Component {
                         </div>
                         </div>
                         <div className="Search">
-                            <img src="/assets/shape_2.svg" alt="search" />
+                            <input id="search" type="text" style={{display:this.state.searchBox}} value={this.state.searchText} onChange={this.SearchValueChange}/>
+                            <img src="/assets/shape_2.svg" alt="search" onClick={this.searchBox} />
                         </div>
-                        <div className="Wishlist">
+                        <div className="Wishlist" >
                             <img src="/assets/shape.svg" alt="wishlist" />
                         </div>
-                        <div className="Cart-List" onClick={this.goCart} >
+                        <div className="Cart-List" onClick={this.goCart}  >
                             <div className="Cart-Count"  >
                             <div className="Count" >
                             {this.props.count}
                             </div>
-                            
+                           
                             </div>
                             <img src="/assets/cart.svg" alt="cart" />
                         </div>
                     </div>
                 </div>
+                <NotificationContainer enterTimeout={100} />
             </div>
         )
     }

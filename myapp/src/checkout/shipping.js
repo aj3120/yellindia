@@ -38,11 +38,14 @@ class Shipping extends Component {
     }
     goCheckout = (totalPrice) => {
         if(this.state.fullname===''||this.state.address===''||this.state.zipcode===''||this.state.phone===''){
-            this.onOpenModal();
+            this.inputFieldCheck("fullname_visible");
+            this.inputFieldCheck("address_visible");
+            this.inputFieldCheck("zipcode_visible");
+            this.inputFieldCheck("phone_visible");
         }
-        else if(this.props.login_status===false){
-            this.onOpenModalForLogin();
-        }
+        // else if(this.props.login_status===false){
+        //     this.onOpenModalForLogin();
+        // }
         else{
          this.props.action.addressAction({fullname:this.state.fullname,address:this.state.address,
                                           building:this.state.building,zipcode:this.state.zipcode,
@@ -58,51 +61,44 @@ class Shipping extends Component {
         this.setState({showShoppingCart:'block'}):
         this.setState({showShoppingCart:'none'})
     }
-    onFirstnameChange=(event)=>{
-        this.setState({fullname:event.target.value})
-    }
-    onAddressChange=(event)=>{
-        this.setState({address:event.target.value})
-    }
-    onBuildingChange=(event)=>{
-        this.setState({building:event.target.value})
-    }
-    onZipcodeChange=(event)=>{
-        let pattern=/^\s*?[0-9]{1,6}\s*$/
-        if(pattern.test(event.target.value) || event.target.value===""){
-            this.setState({zipcode:event.target.value})
-        }
-        
-    }
-    onPhoneChange=(event)=>{
-        let pattern=/^\s*?[0-9]{1,10}\s*$/
-        if(pattern.test(event.target.value) || event.target.value===""){
-        this.setState({phone:event.target.value})
-        }
-    }
-
-    onOpenModal = () => {
-        this.setState({ open: true, });
-      };
-     
-      onCloseModal = () => {
-        this.setState({ open: false });
-      };
-      onOpenModalForLogin = () => {
-        this.setState({ open_login: true });
-      };
-     
-      onCloseModalForLogin= () => {
-        this.setState({ open_login: false });
-      };
-
-    inputFieldCheck=(event)=>{
+    onInpuFieldChange=(event)=>{
+        let pattern_zipcode=/^\s*?[0-9]{0,6}\s*$/
+        let pattern_phone=/^\s*?[0-9]{0,10}\s*$/
         let field=event.target.id.split('_')[0]
-        if(this.state[field]===''){
-            this.setState({[event.target.id]:'block'});
+        if(field=='zipcode'){
+            if(pattern_zipcode.test(event.target.value) && event.target.value===""){
+                this.setState({[event.target.id]:'block',[field]:event.target.value});
+            }
+            else{
+                this.setState({[event.target.id]:'none',[field]:event.target.value});
+            }
+        }
+        else if(field=='phone'){
+            if(pattern_phone.test(event.target.value) && event.target.value===""){
+                this.setState({[event.target.id]:'block',[field]:event.target.value});
+            }
+            else{
+                this.setState({[event.target.id]:'none',[field]:event.target.value});
+            }
         }
         else{
-            this.setState({[event.target.id]:'none'});
+            if(event.target.value===''){
+                this.setState({[event.target.id]:'block',[field]:event.target.value});
+            }
+            else{
+                this.setState({[event.target.id]:'none',[field]:event.target.value});
+            }
+        }
+       
+        
+    }
+    inputFieldCheck=(id)=>{
+        let field=id.split('_')[0]
+        if(this.state[field]===''){
+            this.setState({[id]:'block'});
+        }
+        else{
+            this.setState({[id]:'none'});
         }
         
 
@@ -120,14 +116,6 @@ class Shipping extends Component {
         
         return (
             <div className="Checkout-Item">
-                <Modal open={this.state.open} onClose={this.onCloseModal} center>
-                    <h2>Error</h2>
-                    <p>Please Enter the details</p>
-                </Modal>
-                <Modal open={this.state.open_login} onClose={this.onCloseModalForLogin} center>
-                    <h2>Login Error</h2>
-                    <p>Please Login</p>
-                </Modal>
                 <div className="Checkout-Title">
                     <p>Checkout</p>
                 </div>
@@ -160,7 +148,7 @@ class Shipping extends Component {
                         <div className="FullName">
                             <p>Full Name</p>
                             <div className="FullName-Box">
-                                <input id="fullname_visible" type="text" placeholder="Enter Your Name" onKeyPress={this.inputFieldCheck} onBlur={this.inputFieldCheck} value={this.state.fullname} onChange={this.onFirstnameChange}/>
+                                <input id="fullname_visible" type="text" placeholder="Enter Your Name" onChange={this.onInpuFieldChange} onBlur={()=>this.inputFieldCheck("fullname_visible")} value={this.state.fullname} />
                                 <div className="Error-In-Input" style={{display:this.state.fullname_visible}}>Please Enter Your Name</div>
                             </div>
                             
@@ -168,7 +156,7 @@ class Shipping extends Component {
                         <div className="StreetAddress">
                             <p>Street Address</p>
                             <div className="StreetAddress-Box">
-                                <input id="address_visible" type="text" placeholder="Enter Your Address" onKeyPress={this.inputFieldCheck} onBlur={this.inputFieldCheck} required value={this.state.address} onChange={this.onAddressChange}/>
+                                <input id="address_visible" type="text" placeholder="Enter Your Address"  onChange={this.onInpuFieldChange} onBlur={()=>this.inputFieldCheck("address_visible")} required value={this.state.address}/>
                                 <div className="Error-In-Input"style={{display:this.state.address_visible}}>Please Enter Address</div>
                             </div>
                             
@@ -176,13 +164,13 @@ class Shipping extends Component {
                         <div className="Building">
                             <p>Apt, Suite, Bldg (optional)</p>
                             <div className="Building-Box">
-                                <input  type="text" placeholder="Optional" value={this.state.building}  onChange={this.onBuildingChange}/>
+                                <input  type="text" placeholder="Optional" value={this.state.building}  onChange={this.onInpuFieldChange} />
                             </div>
                         </div>
                         <div className="ZipCode">
                             <p>Zip Code</p>
                             <div className="ZipCode-Box">
-                                <input id="zipcode_visible" type="text" placeholder="673307" required value={this.state.zipcode} onKeyPress={this.inputFieldCheck} onBlur={this.inputFieldCheck} onChange={this.onZipcodeChange}/>
+                                <input id="zipcode_visible" type="text" placeholder="Enter Zipcode" required value={this.state.zipcode} onChange={this.onInpuFieldChange} onBlur={()=>this.inputFieldCheck("zipcode_visible")} />
                                 <div className="Error-In-Input" style={{display:this.state.zipcode_visible}}>Please Enter Zipcode</div>
                             </div>
                            
@@ -190,7 +178,7 @@ class Shipping extends Component {
                         <div className="PhoneNumber">
                             <p>Phone Number</p>
                             <div className="PhoneNumber-Box">
-                                <input id="phone_visible" type="text" placeholder="9645160472" value={this.state.phone} onKeyPress={this.inputFieldCheck} onBlur={this.inputFieldCheck} onChange={this.onPhoneChange}/>
+                                <input id="phone_visible" type="text" placeholder="Enter phone number" value={this.state.phone} onChange={this.onInpuFieldChange} onBlur={()=>this.inputFieldCheck("phone_visible")} />
                                 <div className="Error-In-Input" style={{display:this.state.phone_visible}}>Please Enter your phone number</div>
                             </div>
                             

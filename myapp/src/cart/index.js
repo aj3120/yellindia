@@ -40,7 +40,7 @@ class Cart extends Component {
                 <div className="Cart-Title">
                     Your Cart
                  </div>
-                <div>
+                <div className="Cart-Wrapper">
                     {this.props.cart_products.length !== 0 ?
 
                         CartItems

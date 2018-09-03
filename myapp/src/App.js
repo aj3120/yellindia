@@ -19,7 +19,8 @@ import Thanks from './checkout/thanks';
 import Product from './product-details';
 import CategoryPage from './category';
 import worker_script from './webworker/webworker';
-import {showMenuAction} from './actions/showMenuAction'
+import {showMenuAction} from './actions/showMenuAction';
+import SearchPage from './search'
 const mapStateToProps = (state) => {
   return ({ all_products: state.all_products_reducer.all_products, cart_products: state.cart_products_reducer.cart_products });
 }
@@ -58,6 +59,7 @@ class App extends Component {
             <Route path="/thanks" component={Thanks} />
             <Route path="/product" component={Product} />
             <Route path="/jumpsuits/:id" component={CategoryPage} />
+            <Route path="/search" component={SearchPage} />
           </Switch>
           </div>
           <Footer />

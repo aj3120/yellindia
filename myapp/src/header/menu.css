@@ -1,21 +1,22 @@
-i {
+.Menu-Items i {
     border: solid black;
-    border-width: 0 3px 3px 0;
+    border-width: 0 1px 1px 0;
     display: inline-block;
-    padding: 3px;
+    padding: 4px;
+    margin-right: 12px;
 }
 
-.right {
+.Menu-Items .right {
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
 }
 
-.up {
+.Menu-Items  .up {
     transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
 }
 
-.down {
+.Menu-Items  .down {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
 }
@@ -74,12 +75,12 @@ i {
     color: #33333a;
 }
 .Menu-Items p{
-    padding-left:15px;
+    padding-left:25px;
     opacity: 0.7;
     
 }
 .Menu-Items p:hover{
-    padding-left:15px;
+    padding-left:25px;
     opacity: 1;
     
 }
