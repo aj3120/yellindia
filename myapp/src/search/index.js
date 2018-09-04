@@ -18,14 +18,16 @@ class Search extends Component {
         super(props);
         this.state={dispQuickView:'none',id:null}
       }
-      componentWillMount(){
+      componentDidMount(){
     
         searchProductRequest({searchText:this.props.searchText}).then((search_products)=>this.props.action.search_products_action(search_products.data))
     
       }
       componentWillReceiveProps(next){
-        if(next.routing.pathname==='/search' && next.routing.key!==this.props.key){
-            searchProductRequest({searchText:this.props.searchText}).then((search_products)=>this.props.action.search_products_action(search_products.data))
+        console.log(next);
+        console.log(this.props)
+        if(this.props.routing.location.pathname==='/search' && (this.props.routing.location.key!==next.routing.location.key)){
+          searchProductRequest({searchText:next.searchText}).then((search_products)=>this.props.action.search_products_action(search_products.data))
         }
       }
       displayQuickViewPage=(id)=>{
@@ -39,9 +41,7 @@ class Search extends Component {
     if(this.props.search_products!==null){
         return (
             <div className="Search-Result">
-                <TitleImage/>
-                <h3>Search Result</h3>
-                <Products id="product-01"callQuickPage={this.displayQuickViewPage} titleDisplay='none' home_products={this.props.search_products}/>
+                <Products id="product-01"callQuickPage={this.displayQuickViewPage} titleDisplay='block' title="Search Result" home_products={this.props.search_products}/>
                 <QuickViewContainer disp={this.state.dispQuickView} id={this.state.id} callClosePage={this.closeQuickViewPage} productDetailButtonShow={"flex"}/>
             </div>
           );

@@ -237,7 +237,14 @@
 
 .Logo {
     margin-left: 10px;
+    height:32px;
+    width:137px;
     cursor: pointer;
+}
+.Logo img{
+    margin-left: 10px;
+    height:32px;
+    width:137px;
 }
 
 @media only screen and (min-width:1280px) {

@@ -14,8 +14,23 @@ const mapStateToProps=(state)=>{
 }
 class Menu extends Component {
     render() {
+        let menu_style=this.props.showMenu.showMenuFlag==='block'?
+                        {
+                            visibility:'visible',
+                            width: '100%',
+                            transition:'width 1s'
+                        }
+                        :
+                        {
+                            visibility:'hidden',
+                            width: '800px',
+                            transition:'width 0.5s'
+                        }
         return (
-            <div className="Menu-Window-Container" style={{display:this.props.showMenu.showMenuFlag}}>
+            
+
+
+            <div className="Menu-Window-Container" style={menu_style}>
                 <div className="Menu-Items">
                     <Aparels/>
                     <Accessories/>

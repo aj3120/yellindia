@@ -29,40 +29,42 @@
         padding-top: 20px;
         padding-bottom: 60px;
     }
+    .Menu-Items h3{
+        margin-top:30px;
+        margin-bottom: 30px;
+    }
 }
 @media only screen and (max-width:768px){
     .Menu-Items {
         display: flex;
         flex-direction: column;
         width: 90%;
-        justify-content: space-around;
+        
         font-family: 'Noto Sans', sans-serif;
         padding-top: 20px;
         padding-bottom: 60px;
         margin:auto;
+    }
+    .Menu-Window-Container {
+        width:100%;
     }
 }
 .Menu-Window-Container {
     position: fixed;
     z-index: 20;
     top:120px;
-    width: 100%;
     background-color: white;
 }
 
 .Menu-Items {
     user-select: none;
-    display: flex;
     width: 90%;
     justify-content: space-around;
     font-family: 'Noto Sans', sans-serif;
     padding-top: 20px;
     padding-bottom: 60px;
 }
-.Menu-Items h3{
-    margin-top:30px;
-    margin-bottom: 30px;
-}
+
 
 .Menu-Items span,.Menu-Items p {
     cursor: pointer;
@@ -76,7 +78,7 @@
 }
 .Menu-Items p{
     padding-left:25px;
-    opacity: 0.7;
+    opacity: 0.6;
     
 }
 .Menu-Items p:hover{

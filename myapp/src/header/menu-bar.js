@@ -51,7 +51,7 @@ class MenuBar extends Component {
     }
 
     createNotification = () => {
-        return () =>NotificationManager.success('Added To Cart','',5000);   
+        return () =>NotificationManager.success('Added To Cart','',1000);   
         };
     componentWillMount(){
         this.props.action.addNotificationFunction(this.createNotification())
@@ -59,9 +59,10 @@ class MenuBar extends Component {
     SearchValueChange=(event)=>{
         this.setState({searchText:event.target.value})
         this.props.action.searchTextAction(event.target.value)
+        this.props.action.push('/search')
       }   
     searchBox=()=>{
-        this.state.searchBox==='none'?this.setState({searchBox:'block'}):this.props.action.push('/search')
+        this.state.searchBox==='none'?this.setState({searchBox:'block'}):this.setState({searchBox:'none'})
     }  
     render() {
         const showLogin=this.props.loginStatus===false?'flex':'none';
@@ -77,7 +78,7 @@ class MenuBar extends Component {
                     </div>
                     <div className="Menu-Left">
                         <div className="Logo" onClick={this.goHome}>
-                            <img src="/assets/group-2.svg" alt="logo" />
+                            <img src="/assets/logo.png" alt="logo" />
                         </div>
                         <div className="Shop" onClick={this.showMenu}>
                             <p>SHOP</p>

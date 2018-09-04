@@ -159,7 +159,7 @@ class QuickView extends Component {
 
               </div>
               <div className="QuickView-Bottom" onClick={this.changeToProductDetail} style={{display:this.props.productDetailButtonShow}}>
-                <img src="/assets/view_product.svg" alt="products" />
+                 VIEW FULL PRODUCT DETAILS
               </div>
             </div>
 

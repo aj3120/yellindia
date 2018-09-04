@@ -12,31 +12,31 @@
 
 @media only screen and (min-width:1920px) {
     .List-Items {
-        grid-template-columns: auto auto auto auto auto;
+        grid-template-columns: 18% 18% 18% 18% 18%;
     }
 }
 
 @media only screen and (min-width:1440px) and (max-width:1920px) {
     .List-Items {
-        grid-template-columns: auto auto auto auto;
+        grid-template-columns: 23% 23% 23% 23%;
     }
 }
 
-@media only screen and (min-width:1080px) and (max-width:1440px) {
+@media only screen and (min-width:1080px) and (max-width:1439px) {
     .List-Items {
-        grid-template-columns: auto auto auto;
+        grid-template-columns: 31% 31% 31%;
     }
 }
 
 @media only screen and (min-width:870px) and (max-width:1080px) {
     .List-Items {
-        grid-template-columns: auto auto;
+        grid-template-columns: 48% 48%;
     }
 }
 
 @media only screen and (min-width:700px) and (max-width:870px) {
     .List-Items {
-        grid-template-columns: auto auto;
+        grid-template-columns:  48%  48%;
     }
 }
 .Item-Container{
@@ -74,12 +74,34 @@
     position: absolute;
     cursor: pointer;
     z-index: 10;
+    background-color: black;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.35;
+    width:50%;
+    height:10%;
+    letter-spacing: normal;
+    color:white;
     top: 32%;
     left:50%;
     transform: translate(-50%, -50%);
     position: absolute;
     transition: opacity 0.4s ease-in;
     opacity: 0; 
+    
+    
+}
+.Quick-View div{
+   
+    width:100%;
+    height:100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+    
     
 }
 .Item:hover .Quick-View{

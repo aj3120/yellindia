@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import Item from './item';
 import Loader from '../Loader';
 import {searchTextAction} from '../actions/search_text_action';
+import {push} from 'react-router-redux'
 import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux'
 const mapDispatchToProps=(dispatch)=>{
-  return({action:bindActionCreators({searchTextAction},dispatch)})
+  return({action:bindActionCreators({searchTextAction,push},dispatch)})
 }
 class Products extends Component {  
   constructor(props){
@@ -22,7 +23,8 @@ class Products extends Component {
         }
   SearchValueChange=(event)=>{
     this.setState({searchText:event.target.value})
-    this.props.action.searchTextAction(event.target.value)
+        this.props.action.searchTextAction(event.target.value)
+        this.props.action.push('/search')
   }      
   render() {
     
@@ -33,7 +35,7 @@ class Products extends Component {
         <div className="Products" id="shome-home-jump">
             <div className="Product-Title" style={{display:this.props.titleDisplay}}>
             <div className="Title" >
-              Authentic World Cup Kits
+              {this.props.title}
             </div>  
             <div className="Search-Box">
               <img src="assets/search-input-icon.svg" height="14px" width="14px" alt="search icon"/>

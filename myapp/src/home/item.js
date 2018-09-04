@@ -72,13 +72,13 @@ class Item extends Component {
 
   render() {
     if (this.state.dispQuick === 'block') {
-      var ItemStyle = { position:'relative',left:'-5%',top:'-5%',height:'110%',width:'110%',boxShadow: '0 10px 40px 0 rgba(0, 0, 0, 0.1)'}
+      var ItemStyle = { position:'relative',left:'-5%',top:'-5%',height:'110%',width:'110%',boxShadow: '0 10px 40px 0 rgba(0, 0, 0, 0.1)',transition:'all 0.2s'}
     }
     return (
       <div className="Item-Container" >
         <div id={this.props.id} className="Item" onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} style={ItemStyle} >
           <div id={this.props.id} className="Quick-View" onClick={this.onItemClick}>
-            <img src="/assets/quick.svg" id="Quick" alt="quickview" />
+             <div id="Quick"> QUICK VIEW </div>
           </div>
           <div className="Product-Image" id="Item-Image-Container" onClick={this.onItemClick}>
             <img src={this.props.image} id="Item-Image" alt="product"/>
