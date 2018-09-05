@@ -112,7 +112,7 @@ class MenuBar extends Component {
                         </div>
                         </div>
                         <div className="Search">
-                            <input id="search" type="text" style={{display:this.state.searchBox}} value={this.state.searchText} onChange={this.SearchValueChange}/>
+                            <input id="search" type="text" placeholder="Search" style={{display:this.state.searchBox}} value={this.state.searchText} onChange={this.SearchValueChange}/>
                             <img src="/assets/shape_2.svg" alt="search" onClick={this.searchBox} />
                         </div>
                         <div className="Wishlist" >

@@ -17,7 +17,7 @@ class Review extends Component {
     }
 
     render() {
-        if (this.props.reviews !== null) {
+        if (this.props.reviews !== null && this.props.id!==undefined) {
             let review_of_product = this.props.reviews[this.props.id]
             let review_array = review_of_product.customer_ratings.map((single_review) => (
                 <div className="Single-Review">

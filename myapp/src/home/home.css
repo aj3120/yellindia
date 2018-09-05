@@ -83,6 +83,9 @@
     .Search-Box {
         display: none;
     }
+    .Grid, .Table {
+        display:none;
+    }
 }
 
 @media only screen and (max-width:768px) {
@@ -132,6 +135,13 @@
         letter-spacing: normal;
         float:right;
         margin-left:24px;
+        margin-bottom:36px;
+        margin-top:16px;
+        color: #78909c;
+    }
+    .Grid, .Table {
+        float:left;
+        margin-right:24px;
         margin-bottom:36px;
         margin-top:16px;
         color: #78909c;

@@ -10,43 +10,189 @@
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-@media only screen and (min-width:1920px) {
+@media only screen and (min-width:1600px) {
     .List-Items {
-        grid-template-columns: 18% 18% 18% 18% 18%;
+        grid-template-columns: auto auto auto auto auto;
+    }
+    .Item-Container{
+        position:relative;
+        height: 20vw;
+        box-sizing: border-box;
+    }
+    .Product-Image img{
+        height: 13vw;
+    }
+    .Product-Name{
+        font-size: 1.1vw;
+        height:40%;
     }
 }
 
-@media only screen and (min-width:1440px) and (max-width:1920px) {
+@media only screen and (min-width:1440px) and (max-width:1600px) {
     .List-Items {
-        grid-template-columns: 23% 23% 23% 23%;
+        grid-template-columns: auto auto auto auto;
+    }
+    .Item-Container{
+        position:relative;
+        height: 23vw;
+        box-sizing: border-box;
+    }
+    .Product-Image img{
+        height: 14vw;
+    }
+    .Product-Name{
+        font-size: 1.4vw;
+        height:42%;
+    }
+    
+}
+
+@media only screen and (min-width:1280px) and (max-width:1439px) {
+    .List-Items {
+        grid-template-columns: auto auto auto auto;
+    }
+    .Item-Container{
+        position:relative;
+        height: 23vw;
+        box-sizing: border-box;
+    }
+    .Product-Image img{
+        height: 12vw;
+    }
+    .Product-Name{
+        font-size: 1.7vw;
+        height:39%;
     }
 }
 
-@media only screen and (min-width:1080px) and (max-width:1439px) {
+@media only screen and (min-width:920px) and (max-width:1280px) {
     .List-Items {
-        grid-template-columns: 31% 31% 31%;
+        grid-template-columns: auto auto auto;
+    }
+    .Item-Container{
+        position:relative;
+        height: 30vw;
+        box-sizing: border-box;
+    }
+    .Product-Image img{
+        height: 18vw;
+    }
+    .Product-Name{
+        font-size: 1.9vw;
+        height:39%;
     }
 }
 
-@media only screen and (min-width:870px) and (max-width:1080px) {
+@media only screen and (min-width:600px) and (max-width:920px) {
     .List-Items {
-        grid-template-columns: 48% 48%;
+        grid-template-columns:  auto  auto;
+    }
+    .Item-Container{
+        position:relative;
+        height:41vw;
+        box-sizing: border-box;
+    }
+    .Product-Image img{
+        height: 22vw;
+    }
+    .Product-Name{
+        font-size: 2.9vw;
+        height:42%;
+    }
+    .Product-Brand {
+        height: 14px;
+        font-size: 18px;
+    }
+    
+    .Product-Price {
+        height: 20px;
+        font-size: 18px;
+
+    }
+    
+    .Add-Button {
+        font-size: 18px;
+    }
+    .Item:hover .Quick-View{
+        opacity: 1;
+        transform: translate(0px,0px);
+
     }
 }
 
-@media only screen and (min-width:700px) and (max-width:870px) {
+@media only screen and (min-width:320px) and (max-width:600px) {
     .List-Items {
-        grid-template-columns:  48%  48%;
+        grid-template-columns:  auto auto;
+        grid-row-gap: 20px;
+        grid-column-gap: 20px;
+    }
+    .Item-Container{
+        position:relative;
+        height:44vw;
+        box-sizing: border-box;
+    }
+    .Product-Image img{
+        height: 22vw;
+    }
+    .Product-Name{
+        font-size: 3.2vw;
+        height:39%;
+    }
+    .Product-Brand {
+        height: 14px;
+        font-size: 12px;
+       
+    }
+    
+    .Product-Price {
+        height: 20px;
+        font-size: 12px;
+    }
+    
+    .Add-Button {
+        font-size: 12px;
+    }
+    .Quick-View{
+        display:none;
     }
 }
-.Item-Container{
-    position:relative;
-    height: 447px;
-    box-sizing: border-box;
+
+@media only screen and (max-width:320px) {
+    .List-Items {
+        grid-template-columns:  auto;
+    }
+    .Item-Container{
+        position:relative;
+        box-sizing: border-box;
+    }
+    .Product-Image img{
+        height: 42vw;
+    }
+    .Product-Name{
+        font-size: 6.2vw;
+        height:48%;
+    }
+    .Product-Brand {
+        height: 18px;
+        font-size: 12px;
+    }
+    
+    .Product-Price {
+        height: 20px;
+        font-size: 12px;
+
+    }
+    
+    .Add-Button {
+        height: 12px;
+        font-size: 10px;
+    }
+    .Quick-View{
+        display:none;
+    }
+
 }
-.Product-Image img{
-    height: 263px;
-}
+
 .Item {
     box-sizing: border-box;
     cursor: pointer;
@@ -58,16 +204,38 @@
     background-color: #ffffff;
     box-shadow: 0 1px 4px 0 rgba(38, 50, 56, 0.38);
 }
-.Item {
-    box-sizing: border-box;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    height:100%;
-    width:100%;
-    border-radius: 4px;
-    background-color: #ffffff;
-    box-shadow: 0 1px 4px 0 rgba(38, 50, 56, 0.38);
+.Product-Brand {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.78;
+    letter-spacing: normal;
+    color: #78909c;
+}
+
+.Product-Price {
+    float: left;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.11;
+    letter-spacing: normal;
+    color: #263238;
+}
+
+.Add-Button {
+    user-select: none;
+    float: right;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.89;
+    letter-spacing: normal;
+    text-align: center;
+    color: #2196f3;
 }
 
 .Quick-View {
@@ -85,11 +253,14 @@
     height:10%;
     letter-spacing: normal;
     color:white;
-    top: 32%;
-    left:50%;
-    transform: translate(-50%, -50%);
+    margin-left:auto;
+    margin-right: auto;
     position: absolute;
-    transition: opacity 0.4s ease-in;
+    left:0;
+    right:0;
+    top:30%;
+    transform: translate(0px,30px);
+    transition: all 0.4s ease;
     opacity: 0; 
     
     
@@ -104,13 +275,13 @@
     
     
 }
-.Item:hover .Quick-View{
-    opacity: 1;
-}
+
 
 .Product-Content {
     display: flex;
-    margin-left: 19px;
+    padding-top:2%;
+    padding-left: 6%;
+    padding-right:6%;
     flex-direction: column;
     justify-content: space-around;
     height: 100%;
@@ -122,10 +293,7 @@
 }
 
 .Product-Name {
-    width: 224px;
-    height: 54px;
     font-family: 'Nunito Sans', sans-serif;
-    font-size: 20px;
     font-weight: 600;
     font-style: normal;
     font-stretch: normal;
@@ -134,58 +302,13 @@
     color: #263238;
     overflow: hidden;
 }
+.Item:hover .Quick-View{
+    opacity: 1;
+    transform: translate(0px,0px);
 
-.Product-Brand {
-    height: 14px;
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 0.78;
-    letter-spacing: normal;
-    color: #78909c;
 }
 
-.Product-Price {
-    float: left;
-    height: 20px;
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.11;
-    letter-spacing: normal;
-    color: #263238;
-}
-
-.Add-Button {
-    user-select: none;
-    float: right;
-    width: 151.3px;
-    height: 16px;
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 0.89;
-    letter-spacing: normal;
-    text-align: center;
-    color: #2196f3;
-}
 .Add-Button:active{
-    float: right;
-    width: 151.3px;
-    height: 16px;
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 0.89;
-    letter-spacing: normal;
-    text-align: center;
+    
     color: black;
 }

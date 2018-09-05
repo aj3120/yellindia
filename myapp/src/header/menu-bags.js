@@ -29,7 +29,7 @@ class Bags extends Component {
 
             <div className="Bags">
                 <div className="Bags-Heading"  onClick={this.showBags}> 
-                    <h3>Bags</h3>
+                <i className="right" id="heading-arrow"/> <h3>Bags</h3>
                 </div>
                 <div className="Bags-Content" style={{display:this.state.show_bags}}>
                     <div className="Houseware">

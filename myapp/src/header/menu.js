@@ -17,14 +17,14 @@ class Menu extends Component {
         let menu_style=this.props.showMenu.showMenuFlag==='block'?
                         {
                             visibility:'visible',
-                            width: '100%',
-                            transition:'width 1s'
+                            paddingTop: '40px',
+                            transition:'all 0.4s',
+                            opacity:1
                         }
                         :
                         {
                             visibility:'hidden',
-                            width: '800px',
-                            transition:'width 0.5s'
+                            paddingTop: '0px',
                         }
         return (
             

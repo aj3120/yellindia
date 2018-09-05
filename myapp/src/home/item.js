@@ -72,11 +72,14 @@ class Item extends Component {
 
   render() {
     if (this.state.dispQuick === 'block') {
-      var ItemStyle = { position:'relative',left:'-5%',top:'-5%',height:'110%',width:'110%',boxShadow: '0 10px 40px 0 rgba(0, 0, 0, 0.1)',transition:'all 0.2s'}
+      var ItemStyle = {  transform: 'translate(-2%, -2%)',height:'104%',width:'104%',boxShadow: '0 10px 40px 0 rgba(0, 0, 0, 0.1)',transition:'all 0.3s'}
+      
     }
+    var view_style=this.props.view==='row'?{flexDirection:'row'}:{flexDirection:'column'}
+    var view_style_height=this.props.view==='row'?{height:'100%'}:{}
     return (
-      <div className="Item-Container" >
-        <div id={this.props.id} className="Item" onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} style={ItemStyle} >
+      <div className="Item-Container" style={view_style_height}>
+        <div id={this.props.id} className="Item" onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} style={{...ItemStyle,...view_style}} >
           <div id={this.props.id} className="Quick-View" onClick={this.onItemClick}>
              <div id="Quick"> QUICK VIEW </div>
           </div>

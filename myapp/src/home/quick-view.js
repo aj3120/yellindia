@@ -70,7 +70,7 @@ class QuickView extends Component {
     this.props.action.push(`/product/${this.props.id}`)
   }
   render() {
-    if(this.props.all_products!==null){
+    if(this.props.all_products!==null && this.props.id!==undefined){
       const images = [
         {
           original: this.props.all_products.id[this.props.id].image,

@@ -14,18 +14,18 @@ class Care extends Component {
 
             <div className="Care">
                 <div className="Care-Heading" onClick={this.showCareAbout}>
-                    <h3>Care About</h3>
+                <i className="right" id="heading-arrow"/>  <h3>Care About</h3>
                 </div>
                 <div className="Care-Content" style={{display:this.state.show_care_about}}>
                     <div className="Sale">
                         <div className="Sale-Heading">
-                             <span>SALE/LASR CALL</span>
+                        <i className="right"  id="free-arrow-for-spacing"/><span>CALL</span>
                         </div>
                        
                     </div>
                     <div className="Essentials">
                         <div className="Essentials-Heading">
-                            <span>ESSENTIALS</span>
+                        <i className="right"  id="free-arrow-for-spacing" /><span>CALL ESSENTIALS</span>
                         </div>
                       
                     </div>

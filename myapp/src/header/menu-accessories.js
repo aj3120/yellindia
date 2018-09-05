@@ -8,7 +8,7 @@ class MenuAccessories extends Component {
     onNecklaces = () => {
         let show = this.state.show_necklaces === 'none' ? 'inline-block' : 'none';
         let hide = this.state.show_necklaces === 'none' ? 'none' : 'inline-block';
-        this.setState({ show_necklaces: show, show_necklaces_opposite: hide ,show_scarfs: 'none', show_carfs_opposite: 'inline-block'})
+        this.setState({ show_necklaces: show, show_necklaces_opposite: hide ,show_scarfs: 'none', show_scarfs_opposite: 'inline-block'})
     }
     onScarfs = () => {
         let show = this.state.show_scarfs === 'none' ? 'inline-block' : 'none';
@@ -27,7 +27,7 @@ class MenuAccessories extends Component {
 
             <div className="Accessories">
                 <div className="Accessories-Heading" onClick={this.showAccessories}>
-                    <h3>Accessories</h3>
+                <i className="right" id="heading-arrow"/> <h3>Accessories</h3>
                 </div>
                 <div className="Accessories-Content" style={{display:this.state.show_accessories}} >
                     <div className="Necklaces">

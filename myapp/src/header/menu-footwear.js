@@ -14,31 +14,31 @@ class Footwear extends Component {
 
             <div className="Footwear">
                 <div className="Footwear-Heading" onClick={this.showFootwear}>
-                    <h3>Footwear</h3>
+                <i className="right" id="heading-arrow"/> <h3>Footwear</h3>
                 </div>
                 <div className="Footwear-Content" style={{display:this.state.show_footwear}}>
                     <div className="Block">
                         <div className="Block-Heading">
-                             <span>BLOCK PRINTING</span>
+                        <i className="right" id="free-arrow-for-spacing" /><span>BLOCK PRINTING</span>
                         </div>
                        
                     </div>
                     <div className="Ikat">
                         <div className="Ikat-Heading">
-                            <span>IKAT</span>
+                        <i className="right" id="free-arrow-for-spacing" /> <span>IKAT</span>
                         </div>
                       
                     </div>
 
                      <div className="Jamdani">
                         <div className="Jamdani-Heading">
-                            <span>JAMDANI</span>
+                        <i className="right" id="free-arrow-for-spacing" /> <span>JAMDANI</span>
                         </div>
                       
                     </div>
                     <div className="Handloom">
                         <div className="Handloom-Heading">
-                            <span>HANDLOOM</span>
+                        <i className="right" id="free-arrow-for-spacing" /> <span>HANDLOOM</span>
                         </div>
                       
                     </div>

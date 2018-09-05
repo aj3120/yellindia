@@ -78,7 +78,7 @@ class MenuAparels extends Component {
         return (
             <div className="Apparels">
                 <div className="Apparels-Heading" onClick={this.showApparels}>
-                    <h3>Apparels</h3>
+                <i id="heading-arrow" className="right"/> <h3>Apparels</h3>
                 </div>
                 <div className="Apparels-Content" style={{display:this.state.show_apparels}}>
                     <div className="Jumpsuits">
