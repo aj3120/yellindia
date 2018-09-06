@@ -36,6 +36,8 @@ class Category extends Component {
       case "2":
         this.setState({ head_position:'60%',head_color:'#232323',heading_image: '/assets/jersey.jpg', heading_image_name: 'Jersey', heading_image_desc: 'White Gold began gaining popularity in the early 1900’s as an alternative to platinum. ' })
         break;
+      default:
+        break;  
     }
     categoryProductRequest(id).then((home_products) => this.props.action.category_products_action(home_products.data.products))
 
@@ -52,7 +54,8 @@ class Category extends Component {
           case "2":
             this.setState({ head_position:'60%',head_color:'#232323',heading_image: 'http://10.7.20.68:3000/assets/jersey.jpg', heading_image_name: 'Jersey', heading_image_desc: 'White Gold began gaining popularity in the early 1900’s as an alternative to platinum. ' })
             break;
-
+          default:
+          break;
         }
         categoryProductRequest(id).then((home_products) => this.props.action.category_products_action(home_products.data.products))
       }

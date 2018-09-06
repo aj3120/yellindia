@@ -29,9 +29,13 @@ class SocailLogin extends Component {
 
   
     render() {
-
+            let view=this.props.callFrom==='menu'||window.innerWidth<768?{height:'36px'}:{height:'56px'}
+            let height=this.props.callFrom==='menu'||window.innerWidth<768?"36px":"100%";
+            let width=this.props.callFrom==='menu'||window.innerWidth<768?"120px":"100%";
+            let src_google=this.props.callFrom==='menu'||window.innerWidth<768?"/assets/google.jpg":"/assets/google_big.jpg";
+            let src_facebook=this.props.callFrom==='menu'||window.innerWidth<768?"/assets/facebook.svg":"/assets/facebook_big.png";
         return (
-
+            
             <div className="Social-Login">
                 <div>
                     <FacebookLogin
@@ -41,7 +45,7 @@ class SocailLogin extends Component {
                         fields="name,email,picture"
                         callback={this.facebookResponse}
                         render={renderProps => (
-                            <button style={{ backgroundColor: 'white', border: 'none', height: '36px' }} onClick={renderProps.onClick}><img src="/assets/facebook.svg" height="36px" width="120px" alt="facebook" /></button>
+                            <button style={{ backgroundColor: 'white', border: 'none', ...view }} onClick={renderProps.onClick}><img src={src_facebook} height={height} width={width} alt="facebook" /></button>
                         )}
                     ></FacebookLogin>
                 </div>
@@ -52,9 +56,9 @@ class SocailLogin extends Component {
                         onSuccess={this.googleResponse}
                         onFailure={this.googleResponse}
 
-                        style={{ backgroundColor: 'white', border: 'none', height: '36px' }}
+                        style={{ backgroundColor: 'white', border: 'none', ...view}}
                     >
-                        <img src="/assets/google.jpg" height="36px" width="120px" alt="google" />
+                        <img src={src_google} height={height} width={width} alt="google" />
                     </GoogleLogin>
                 </div>
 

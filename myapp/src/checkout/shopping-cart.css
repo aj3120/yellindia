@@ -1,4 +1,20 @@
+.Voucher i {
+    border: solid black;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 4px;
+    margin-right: 12px;
+}
 
+.Voucher .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.Voucher .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
 
 .Checkout-Image img {
     height: 80%;
@@ -82,4 +98,146 @@
     border: solid 1px #e4eaee;
     background-color: #e4eaee;
     margin: 16px auto;
+}
+
+.Shipping-Items-List {
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+    overflow: auto;
+}
+
+.Voucher {
+    cursor: pointer;
+    font-family: "AvenirNext";
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #1b2125;
+    display: flex;
+    flex-direction: column;
+    width: 78%;
+    margin: auto;
+}
+
+.Voucher-Heading p {
+    float: left;
+}
+
+.Voucher-Heading i {
+    float: right;
+}
+
+.Voucher input {
+    border: solid 1px rgba(38, 50, 56, 0.12);
+    width: 50%;
+    height: 40px;
+    outline: none;
+    padding-left: 10px;
+}
+
+.Shipping-Price-Calculations {
+    font-family: 'AvenirNext';
+    font-size: 16px;
+    color: #788995;
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+}
+
+.Shipping-Subtotal, .Shipping-Type {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Shipping-Total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    color: #1b2125;
+}
+
+.Shipping-Calculated-Price {
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+    padding-bottom: 30px;
+}
+
+.Shipping-Calculated-Price .Shipping-Total-Value {
+    font-weight: 600;
+}
+
+.Shipping-Method {
+    width: 80%;
+    padding: 10px;
+    margin: auto;
+}
+
+.Shipping-Method-Heading {
+    font-family: "NunitoSans", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #78909c;
+    margin-bottom: 25px;
+}
+
+.Free, .One-Day, .Three-Day {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+    font-family: 'NunitoSans',sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #263238;
+    cursor: pointer;
+}
+
+#free {
+    margin-left: auto;
+    font-weight: 600;
+}
+
+.Question-Mark-Selection {
+    width: 23px;
+    border: 2px solid gray;
+    color: gray;
+    border-radius: 3px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    height: 23px;
+}
+
+@media only screen and (min-width:768px){
+
+.Shopping-Cart-DropList{
+    display:none
+}
+}
+@media only screen and (max-width:768px){
+    .Shopping-Cart-Dropdown-Container{
+        position:relative;
+    }
+    .Shopping-Cart-DropList-Items{
+        z-index: 20;
+        position:absolute;
+        display:flex;
+        flex-direction: column;
+        top:153px;
+        width:95%;
+        max-height:300px;
+        overflow: auto;
+        background-color: white;
+        border: solid 1px rgba(38, 50, 56, 0.12);
+    }
 }

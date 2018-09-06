@@ -294,17 +294,17 @@
     letter-spacing: normal;
 }
 
-.Social-Login {
+.Menu-Bar .Social-Login {
     margin-left: 10px;
     display: flex;
     justify-content: space-around;
 }
 
-.Social-Login img {
+.Menu-Bar .Social-Login img {
     height: 100%;
 }
 
-.Social-Login-Container {
+.Menu-Bar .Social-Login-Container {
     width: 260px;
 }
 

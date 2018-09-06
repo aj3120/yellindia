@@ -101,7 +101,7 @@ class MenuBar extends Component {
                         <div className="Login" style={{display:showLogin}} onClick={this.showSocialLogin}>
                             <div >LOGIN</div>
                             <div className="Social-Login-Container" style={{display:this.state.showSocialFlag}}>
-                                <SocialLogin/>
+                                <SocialLogin callFrom="menu"/>
                             </div>
                         </div>
                         </div>
