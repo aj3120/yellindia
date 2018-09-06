@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
 class Category extends Component {
   constructor(props) {
     super(props);
-    this.state = { dispQuickView: 'none', id: null, heading_image: '',head_color:'',head_color:'', heading_image_name: '', heading_image_desc: '' ,head_position:''}
+    this.state = { dispQuickView: 'none', id: null, heading_image: '',head_color:'', heading_image_name: '', heading_image_desc: '' ,head_position:''}
   }
   displayQuickViewPage = (id) => {
     this.setState({ dispQuickView: 'block', id: id })
@@ -41,9 +41,6 @@ class Category extends Component {
 
   }
   componentWillReceiveProps(next) {
-
-    console.log(this.props.location.pathname)
-    console.log(next.location.pathname)
   
       if (this.props.location.pathname !== next.location.pathname) {
         let idArray = next.location.pathname.split('/')

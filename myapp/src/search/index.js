@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import TitleImage from '../home/title-image';
-import Products from '../home/products';
+import Products from './search_products';
 import QuickViewContainer from '../home/quick-view-container'
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {search_products_action} from '../actions/search_products_action';
 import searchProductRequest from '../services/searchProductRequest';
 const mapStateToProps=(state)=>{
+  
   return({search_products:state.search_products_reducer.search_products,searchText:state.app_helper_reducer.searchText,routing:state.routing})
 }
 const mapDispatchToProps=(dispatch)=>{
@@ -19,13 +19,11 @@ class Search extends Component {
         this.state={dispQuickView:'none',id:null}
       }
       componentDidMount(){
-    
+
         searchProductRequest({searchText:this.props.searchText}).then((search_products)=>this.props.action.search_products_action(search_products.data))
     
       }
       componentWillReceiveProps(next){
-        console.log(next);
-        console.log(this.props)
         if(this.props.routing.location.pathname==='/search' && (this.props.routing.location.key!==next.routing.location.key)){
           searchProductRequest({searchText:next.searchText}).then((search_products)=>this.props.action.search_products_action(search_products.data))
         }
@@ -41,7 +39,7 @@ class Search extends Component {
     if(this.props.search_products!==null){
         return (
             <div className="Search-Result">
-                <Products id="product-01"callQuickPage={this.displayQuickViewPage} titleDisplay='block' title="Search Result" home_products={this.props.search_products}/>
+                <Products callQuickPage={this.displayQuickViewPage} titleDisplay='block' title="Search Result" home_products={this.props.search_products}/>
                 <QuickViewContainer disp={this.state.dispQuickView} id={this.state.id} callClosePage={this.closeQuickViewPage} productDetailButtonShow={"flex"}/>
             </div>
           );

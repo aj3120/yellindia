@@ -60,7 +60,6 @@ class MenuAparels extends Component {
     }
 
     showMenu = (event) => {
-        console.log(event.target)
         let show = this.state.showMenuFlag === 'none' ? 'block' : 'none';
         let hide = this.state.showMenuFlag === 'none' ? 'none' : 'block';
         this.props.action.showMenuAction({ showMenuFlag: show, showMenuFlagOpposite: hide })
