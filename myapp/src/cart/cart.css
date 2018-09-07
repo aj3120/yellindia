@@ -159,7 +159,7 @@
         margin-bottom: 52px;
         height:48px;
         align-items: center;
-        width:80%;
+        width:90%;
         
         display:flex;
         justify-content: space-between;
@@ -200,7 +200,7 @@
     .Cart-Wrapper{
         height:330px;
         overflow: auto;
-        width:80%;
+        width:90%;
         margin:auto;
     }
    

@@ -1,0 +1,48 @@
+
+.Payment-Mobile-Input{
+    display:flex;
+    
+}
+.Payment-Mobile-Card_number{
+    display:flex;
+    flex-wrap: wrap;
+    border: solid 1px #90a4ae;
+    padding:10px;
+    box-sizing: border-box;
+    
+    
+}
+.Payment-Mobile-Card_Extras{
+    padding:10px;
+    display:flex;
+    flex-wrap: wrap;
+    width:80%;
+    height:50px;
+    border: solid 1px #90a4ae;
+
+}
+
+.Payment-Mobile-Card_Extras input{
+    text-align: center;
+    width:40%;
+    font-size: 16px;
+    border:none;
+    outline:none;
+}
+.Payment-Mobile-Card_number input{
+    text-align: center;
+    width:20%;
+    font-size: 16px;
+    border:none;
+    outline:none;
+
+}
+
+.Month{
+    display:flex;
+    align-items: center;
+    width:50%;
+}
+.Month p{
+    margin: 0px
+}

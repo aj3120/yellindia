@@ -30,6 +30,9 @@
     .Shipping-Login {
         margin-top: 0px;
     }
+    .Building input{
+        margin-bottom: 10px;
+    }
     .ZipCode input, .PhoneNumber input {
         font-weight: normal;
         font-size: 14px;
@@ -44,7 +47,7 @@
 
 @media only screen and (max-width:768px) {
     .Shipping-Content {
-        width: 80%;
+        width: 90%;
         margin: auto;
     }
     .Shipping-Content-Right {
@@ -67,26 +70,8 @@
     }
     .Checkout-Status-Container {
         float: left;
-        width: 95%;
+        width: 100%;
         margin-top: 20px;
-    }
-    .Shopping-Cart-Dropdown {
-        cursor: pointer;
-        width: 95%;
-        float: left;
-        height: 48px;
-        margin-top: 30px;
-        border-radius: 2px;
-        background-color: #f7f9f9;
-        box-shadow: 0 1px 3px 0 rgba(38, 50, 56, 0.32);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 10px;
-        padding-right: 10px;
-        font-size: 16px;
-        font-weight: 600;
-        color: #2196f3;
     }
     .Shipping-Login {
         margin-top: 0px;
@@ -96,7 +81,7 @@
         font-size: 14px;
         color: #263238;
         padding-left: 10px;
-        width: 95%;
+        width: 100%;
         height: 45px;
         background-color: #ffffff;
         border: solid 1px rgba(38, 50, 56, 0.12);
@@ -138,14 +123,28 @@
     font-size: 14px;
     color: #263238;
     padding-left: 10px;
-    width: 95%;
+    width: 100%;
     height: 45px;
     background-color: #ffffff;
     border: solid 1px rgba(38, 50, 56, 0.12);
 }
-
+.FullName input:focus,{
+    border: solid 1px #2196f3;
+}
+.StreetAddress input:focus {
+    border: solid 1px #2196f3;
+}
+.Building input:focus {
+    border: solid 1px #2196f3;
+}
+.ZipCode input:focus {
+    border: solid 1px #2196f3;
+}
+.PhoneNumber input:focus {
+    border: solid 1px #2196f3;
+}
 .FullName {
-    margin-top: 80px;
+    margin-top: 90px;
 }
 
 
@@ -162,7 +161,8 @@
     color: red;
     font-size: 11px;
     padding-left: 2px;
-    padding-top: 10px;
+    padding-top: 2px;
+    margin-bottom:7px;
 }
 
 .Shipping-Content .Social-Login {

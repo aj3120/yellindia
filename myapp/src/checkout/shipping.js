@@ -4,23 +4,24 @@ import './item.css';
 import './shipping.css'
 import { bindActionCreators } from 'redux';
 import { replace, go } from 'react-router-redux';
-import CheckoutItem from './item';
 import './shopping-cart.css';
 import './status.css';
 import Status from './status1';
 import SocialLogin from '../social-login';
 import { addressAction } from '../actions/address-action'
-import Modal from 'react-responsive-modal';
-import { totalPriceAction } from '../actions/total-price-action'
+import { totalPriceAction } from '../actions/total-price-action';
+import ShoppingCart from './shopping_cart'
+import ShoppingCartMobile from './shopping_cart_mobile';
+import {shippingMethodAction} from '../actions/shipping_method_action'
 const mapStateToProps = (state) => {
     return ({
         cart_products: state.cart_products_reducer.cart_products, total_price: state.cart_products_reducer.total_price, all_products: state.all_products_reducer.all_products,
-        login_status: state.login_reducer.login_details.status
+        login_status: state.login_reducer.login_details.status,shippingMethod:state.app_helper_reducer.shippingMethod
 
     })
 }
 const mapDispatchToProps = (dispatch) => {
-    return ({ action: bindActionCreators({ go, replace, addressAction, totalPriceAction }, dispatch) })
+    return ({ action: bindActionCreators({ go, replace, addressAction, totalPriceAction,shippingMethodAction}, dispatch) })
 }
 
 class Shipping extends Component {
@@ -28,10 +29,8 @@ class Shipping extends Component {
         super(props);
 
         this.state = {
-            showShoppingCart: 'none', shipping_method: 'Free', shipping_style: { border: "2px solid #2196f3", color: '#2196f3' }, shipping_style_opposite: {
-                border: "2px solid gray",
-                color: 'gray'
-            }, voucher: 'none', voucher_opposite: 'inline-block', fullname: '', address: '', building: '', zipcode: '', phone: '', fullname_visible: 'none',
+            shipping_method:  this.props.shippingMethod, 
+            showShoppingCart: 'none',fullname: '', address: '', building: '', zipcode: '', phone: '', fullname_visible: 'none',
             address_visible: 'none', zipcode_visible: 'none', phone_visible: 'none', open: false, open_login: false
         }
 
@@ -56,6 +55,7 @@ class Shipping extends Component {
                 building: this.state.building, zipcode: this.state.zipcode,
                 phone: this.state.phone
             });
+            this.props.action.shippingMethodAction(this.state.shipping_method)
             this.props.action.totalPriceAction(totalPrice);
             this.props.action.replace("/payment")
         }
@@ -115,20 +115,21 @@ class Shipping extends Component {
 
 
     }
-    openVocuherBox = () => {
-        this.state.voucher === 'none' ? this.setState({ voucher: 'inline-block', voucher_opposite: 'none' }) : this.setState({ voucher: 'none', voucher_opposite: 'inline-block' })
+    shippingMethodChange=(id)=>{
+        if(id==='Free'){
+            this.setState({ shipping_method: 'Free' })
+        }
+        else if(id==='One-Day'){
+            this.setState({ shipping_method: 'One-Day' })
+        }
+        else{
+            this.setState({ shipping_method: 'Three-Days' })
+        }
     }
-    freeShipping = () => {
-        this.setState({ shipping_method: 'Free' })
-    }
-
-    ondayShipping = () => {
-        this.setState({ shipping_method: 'One-Day' })
-    }
-    threedayShipping = () => {
-        this.setState({ shipping_method: 'Three-Days' })
-    }
+    
     render() {
+        let shopping_title=this.state.showShoppingCart==='none'?"Show Cart Details":"Hide Cart Details";
+        let shopping_title_img=this.state.showShoppingCart==='none'?"/assets/down_arrow.png":"/assets/up_arrow.png";
         var productPrice, subTotal = 0, totalPrice = 0;
         const totalPriceArray = this.props.cart_products.map((product) => {
             productPrice = parseInt(product.count, 10) * parseInt(this.props.all_products.id[product.id].price, 10)
@@ -146,11 +147,9 @@ class Shipping extends Component {
         else {
             totalPrice = parseFloat(subTotal, 10) + 5.99
         }
-        var checkout = this.props.cart_products.map((product, index) => <CheckoutItem id={product.id} key={index} count={product.count} />)
-        let questionBoxStyleFree = this.state.shipping_method === 'Free' ? this.state.shipping_style : this.state.shipping_style_opposite;
-        let questionBoxStyleThreeDay = this.state.shipping_method === 'Three-Days' ? this.state.shipping_style : this.state.shipping_style_opposite;
-        let questionBoxStyleOneDay = this.state.shipping_method === 'One-Day' ? this.state.shipping_style : this.state.shipping_style_opposite;
+       
         return (
+           
             <div className="Checkout-Item">
                 <div className="Checkout-Title">
                     <p>Checkout</p>
@@ -162,85 +161,13 @@ class Shipping extends Component {
                         <Status />
                     </div>
                     <div className="Shopping-Cart-Dropdown-Container">
-                    <div className="Shopping-Cart-Dropdown" onClick={this.changeShoppingCartVisibility}>
-                        <div><p>Shopping Cart</p></div><div>${totalPrice}</div><div>asdas<i className="up" /><i className="down" /></div>
-                    </div>
-                    <div className="Shopping-Cart-DropList" style={{ display: this.state.showShoppingCart }}>
-                        <div className="Shopping-Cart-DropList-Items">
-                            {checkout}
-                         </div>   
-                         <div className="Voucher" >
-                         asdasdasd
-                         asdasdasdasd
-                         asdasd
-                           </div>
-                         
-                    </div>
+                        <div className="Shopping-Cart-Dropdown" onClick={this.changeShoppingCartVisibility}>
+                            <div><p>{shopping_title}</p></div><div>${totalPrice}</div><div><img src={shopping_title_img} height="20px"/></div>
+                        </div>
+                        <ShoppingCartMobile showShoppingCart={this.state.showShoppingCart} totalPrice={totalPrice} shipping_method={this.state.shipping_method} />
                     </div>
                     <div className="Shipping-Content-Right"  >
-                        <div className="Shipping-Items">
-                            <div className="Shopping-Cart">Shopping Cart</div> <div className="Checkout-Count"><div>{this.props.cart_products.length}</div></div>
-                        </div>
-                        <div className="Divider-Line2">
-                        </div>
-                        <div className="Shipping-Items-List">
-                            {checkout}
-                        </div>
-                        <div className="Divider-Line2">
-                        </div>
-                        <div className="Voucher" >
-                            <div className="Voucher-Heading" onClick={this.openVocuherBox}><p> Have Voucher?</p><i className="up" style={{ display: this.state.voucher }} /><i className="down" style={{ display: this.state.voucher_opposite }} /></div>
-                            <div><input type="text" placeholder="Voucher Number" style={{ display: this.state.voucher }} /></div>
-                        </div>
-
-
-                        <div className="Divider-Line2">
-                        </div>
-                        <div className="Shipping-Price-Calculations">
-                            <div className="Shipping-Subtotal">
-                                <div className="Shipping-Subtotal-Heading">
-                                    <p>Subtotal</p>
-                                </div>
-                                <div className="Shipping-Subtotal-Value">
-                                    ${totalPrice}
-                                </div>
-                            </div>
-                            <div className="Shipping-Type">
-                                <div className="Shipping-Type-Heading">
-                                    <p>Shipping</p>
-                                </div>
-                                <div className="Shipping-Type-Value">
-                                    <p>{this.state.shipping_method}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="Divider-Line2">
-                        </div>
-                        <div className="Shipping-Calculated-Price">
-
-                            <div className="Shipping-Total">
-                                <div className="Shipping-Total-Heading">
-                                    <p>Total</p>
-                                </div>
-                                <div className="Shipping-Total-Value">
-                                    ${totalPrice}
-                                </div>
-                            </div>
-                        </div>
-                        <div className="Shipping-Method">
-                            <div className="Shipping-Method-Heading">
-                                <p>Shipping Method</p>
-                            </div>
-                            <div className="Free" onClick={this.freeShipping}>
-                                <div className="Question-Mark-Selection" style={questionBoxStyleFree}>?</div><div>FreeFedEx Ground shipping </div> <div id="free">Free</div>
-                            </div>
-                            <div className="Three-Day" onClick={this.threedayShipping}>
-                                <div className="Question-Mark-Selection" style={questionBoxStyleThreeDay}>?</div><div>FedEx Ground Shipping. 2-3 business days after processing. </div> <div id="free">$5.99</div>
-                            </div>
-                            <div className="One-Day" onClick={this.ondayShipping}>
-                                <div className="Question-Mark-Selection" style={questionBoxStyleOneDay}>?</div><span>FedEx One-Day Shipping </span> <div id="free">$17.50</div>
-                            </div>
-                        </div>
+                        <ShoppingCart totalPrice={totalPrice} shipping_method={this.state.shipping_method} shippingMethodChange={this.shippingMethodChange}/>
                     </div>
                     <div className="Shipping-Content-Left">
 

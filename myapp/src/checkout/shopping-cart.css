@@ -189,7 +189,7 @@
     display: flex;
     align-items: center;
     padding-bottom: 15px;
-    font-family: 'NunitoSans',sans-serif;
+    font-family: 'NunitoSans', sans-serif;
     font-size: 16px;
     font-weight: normal;
     font-style: normal;
@@ -218,26 +218,87 @@
     height: 23px;
 }
 
-@media only screen and (min-width:768px){
-
-.Shopping-Cart-DropList{
-    display:none
-}
-}
-@media only screen and (max-width:768px){
-    .Shopping-Cart-Dropdown-Container{
-        position:relative;
+@media only screen and (min-width:768px) {
+    .Shopping-Cart-DropList {
+        display: none
     }
-    .Shopping-Cart-DropList-Items{
-        z-index: 20;
-        position:absolute;
-        display:flex;
+}
+
+@media only screen and (max-width:768px) {
+    .Shopping-Cart-Dropdown-Container {
+        position: relative;
+    }
+    .Shopping-Cart-Dropdown-Container p{
+        margin:0px;
+    }
+    .Shopping-Cart-Dropdown-Container .Shopping-Cart-Dropdown {
+        position: relative;
+    }
+    .Shopping-Cart-Dropdown-Container .Shopping-Cart-DropList {
+        z-index: 4;
+        position: absolute;
+        display: flex;
         flex-direction: column;
-        top:153px;
-        width:95%;
-        max-height:300px;
-        overflow: auto;
+        top: 152px;
+        width: 100%;
         background-color: white;
         border: solid 1px rgba(38, 50, 56, 0.12);
+        box-shadow: 0 4px 12px 0 rgba(38, 50, 56, 0.24);
+    }
+    
+    .Shopping-Cart-Dropdown-Container .Shipping-Items-List {
+        max-height: 150px;
+        overflow: auto;
+    }
+    .Shopping-Cart-Dropdown-Container .Cart-Item-Checkout {
+        margin-top: 10px
+    }
+    .Shopping-Cart-Dropdown-Container .Cart-Item-Checkout .Checkout-Image {
+        height: 90px;
+    }
+    .Shopping-Cart-Dropdown-Container .Checkout-Mobile-Extras {
+        margin-top: 0px
+    }
+    .Shopping-Cart-Dropdown-Container .Checkout-Quandity img {
+        height: 30px;
+    }
+    .Shopping-Cart-Dropdown-Container .Divider-Line2 {
+
+        width: 95%;
+    }
+    .Shopping-Cart-Dropdown-Container .Divider-Line {
+        width: 90%;
+        margin-top: 2px;
+    }
+    .Shopping-Cart-Dropdown-Container .Voucher {
+        width: 90%;
+    }
+    .Shopping-Cart-Dropdown-Container .Voucher input {
+        width: 90%;
+    }
+    .Shopping-Cart-Dropdown-Container .Shipping-Price-Calculations {
+        width: 95%;
+    }
+    .Shopping-Cart-Dropdown-Container .Shipping-Calculated-Price    {
+        width: 95%;
+        padding-bottom:5px;
+    }
+       .Shopping-Cart-Dropdown {
+        cursor: pointer;
+        width: 100%;
+        float: left;
+        height: 48px;
+        margin-top: 30px;
+        border-radius: 2px;
+        background-color: #f7f9f9;
+        box-shadow: 0 1px 3px 0 rgba(38, 50, 56, 0.32);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #2196f3;
     }
 }
