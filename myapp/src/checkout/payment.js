@@ -28,7 +28,7 @@ const mapDispatchToProps = (dispatch) => {
 class Payment extends Component {
     constructor(props) {
         super(props);
-        this.state = { shipping_method: this.props.shippingMethod, showShoppingCart: 'none', payment_mode: null, card_number: '', date: '', cvv: '', open: false }
+        this.state = { shipping_method: this.props.shippingMethod, showShoppingCart: 'none', payment_mode: null}
     }
 
 
@@ -39,7 +39,7 @@ class Payment extends Component {
     goCheckout = (totalPrice) => {
 
         if (this.state.payment_mode === null && (this.state.card_number === '' || this.state.cvv === '') && (this.state.payment_mode !== 'paypal')) {
-            this.onOpenModal();
+            
         }
         else {
             this.props.action.replace("/review")
@@ -60,35 +60,6 @@ class Payment extends Component {
         this.setState({ ...this.state, payment_mode: event.target.id })
 
     }
-    formChange = (event) => {
-        if (event.target.id === "cardnumber") {
-            let pattern = /^\s*?[0-9]{1,12}\s*$/
-            if (pattern.test(event.target.value) || event.target.value === "") {
-                this.setState({ ...this.state, card_number: event.target.value })
-            }
-
-        }
-        else if (event.target.id === "date") {
-            let pattern = /^\s*?[0-9]{1,6}\s*$/
-            if (pattern.test(event.target.value) || event.target.value === "") {
-                this.setState({ ...this.state, date: event.target.value })
-            }
-
-        }
-        else if (event.target.id === "cvv") {
-            let pattern = /^\s*?[0-9]{1,3}\s*$/
-            if (pattern.test(event.target.value) || event.target.value === "") {
-                this.setState({ ...this.state, cvv: event.target.value })
-            }
-        }
-    }
-    onOpenModal = () => {
-        this.setState({ open: true });
-    };
-
-    onCloseModal = () => {
-        this.setState({ open: false });
-    };
     shippingMethodChange = (id) => {
         if (id === 'Free') {
             this.setState({ shipping_method: 'Free' })
@@ -125,11 +96,6 @@ class Payment extends Component {
         var checkout = this.props.cart_products.map((product, index) => <CheckoutItem id={product.id} key={index} count={product.count} />)
         return (
             <div className="Checkout-Item">
-                <Modal open={this.state.open} onOpen={this.onOpenModal} onClose={this.onCloseModal} center>
-                    <h2>Error</h2>
-                    <p>Please Enter the details</p>
-                </Modal>
-
                 <div className="Checkout-Title">
                     Checkout
                 </div>
@@ -162,16 +128,7 @@ class Payment extends Component {
                                 <p>Safe money transfer using your bank account. Visa, Maestro, Discover, American Express.</p>
                             </div>
                             <div className="Credit-Card-Number">
-                                <div className="Credit-Card-Number-Box">
-                                    <img src="assets/placeholder.svg" alt="placeholder" />
-                                    <input type="text" id="cardnumber" value={this.state.card_number} placeholder="1234 5678 9012 3456" onChange={this.formChange} />
-                                    <input type="text" id="date" value={this.state.date} placeholder="MM/YY" onChange={this.formChange} />
-                                    <input type="text" id="cvv" value={this.state.cvv} placeholder="CVV" onChange={this.formChange} />
-                                </div>
-
-                                <div className="Credit-Card-Number-Label">
-                                    <p>Enter card number, expiration date & CVV number</p>
-                                </div>
+                                     <CreditCard/>
 
                             </div>
                         </div>
@@ -193,6 +150,14 @@ class Payment extends Component {
                     </div>
                     <div className="Payment-Mobile">
                         <CreditCard/>
+                        <div className="Payment-Mobile-Paypal" id="paypal" onClick={this.paymentMode}>
+                        <div><img id="paypal" src="/assets/paypal-black.svg" height="20px" /></div>
+                        <div><p id="paypal">PAYPAL</p></div>
+                        </div>
+                        <div className="Payment-Mobile-ApplePay"  id="applepay" onClick={this.paymentMode}>
+                        <div><img src="/assets/apple-black.svg" id="applepay" height="20px"/></div>
+                        <div><p  id="applepay" >APPLE PAY</p></div>
+                        </div>
                     </div>
 
                 </div>
