@@ -89,12 +89,12 @@ class CreditCard extends Component {
             <div className="Payment-Mobile-Credit-Card">
                 <div className="Payment-Mobile-Heading"><p>Credit or Debit Card</p></div>
                 <div className="Payment-Mobile-Input">
-                    <div className="Payment-Mobile-Card_number">
-                        <img src={card_image} alt="placeholder" onClick={this.showCardNumber} />
-                        <input id="first-part" placeholder="1234" type="number" onChange={this.onInputChange} value={this.state.card_name_part1} style={{ display: this.state.card_name_show_upto_three }} />
+                    <div className="Payment-Mobile-Card_number" style={this.props.credit_box_style}>
+                        <img src={card_image} alt="placeholder"  />
+                        <input id="first-part" placeholder="1234" onClick={(event)=>this.props.paymentMode(event)}type="number" onChange={this.onInputChange} value={this.state.card_name_part1} style={{ display: this.state.card_name_show_upto_three }} />
                         <input id="second-part" placeholder="1234" ref={this.cardname_ref2} type="number" onChange={this.onInputChange} value={this.state.card_name_part2} style={{ display: this.state.card_name_show_upto_three }} />
-                        <input id="third-part" placeholder="1234" ref={this.cardname_ref3} type="number" onChange={this.onInputChange} value={this.state.card_name_part3} style={{ display: this.state.card_name_show_upto_three }} />
-                        <input id="fourth-part" placeholder="1234" ref={this.cardname_ref4} type="number" onChange={this.onInputChange} value={this.state.card_name_part4} style={{ display: this.state.card_name_show_part4 }} />
+                        <input id="third-part" placeholder="1234"   ref={this.cardname_ref3} type="number" onChange={this.onInputChange} value={this.state.card_name_part3} style={{ display: this.state.card_name_show_upto_three }} />
+                        <input id="fourth-part" placeholder="1234" onClick={this.showCardNumber} ref={this.cardname_ref4} type="number" onChange={this.onInputChange} value={this.state.card_name_part4} style={{ display: this.state.card_name_show_part4 }} />
                         <input id="month-part1" placeholder="MM" ref={this.month_ref1} onChange={this.onInputChange} type="number" value={this.state.month_part1} style={{ display: this.state.month_show_part1 }} />
                         <p style={{ display: this.state.month_show_part1 }}>/</p>
                         <input id="month-part2" placeholder="YYYY" ref={this.month_ref2} onChange={this.onInputChange} type="number" value={this.state.month_part2} style={{ display: this.state.month_show_part2 }} />

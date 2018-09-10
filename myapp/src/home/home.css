@@ -89,6 +89,12 @@
 }
 
 @media only screen and (max-width:768px) {
+    .Products {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
     .Carousel-Image {
         display: none;
     }

@@ -1,5 +1,10 @@
 
+.Payment-Mobile .Payment-Mobile-Heading p{
+    padding-top:180px;
+    color: #333;
+}
 .Payment-Mobile-Input{
+    margin-top:10px;
     display:flex;
     flex-direction: column;
     
@@ -25,4 +30,11 @@
 }
 .Payment-Mobile-Card_number p{
     margin-top:3px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
 }

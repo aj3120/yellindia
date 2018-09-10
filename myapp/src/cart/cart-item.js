@@ -12,6 +12,10 @@ const mapDispatchToProps = (dispatch) => {
     return ({ action: bindActionCreators({ productCount ,push}, dispatch) })
 }
 class CartItem extends Component {
+    componentDidMount(){
+        window.scrollTo(0, 0)
+    }
+
     decrement = () => {
         const cart_products_new = this.props.cart_products.map((product) => {
             if (product.id === this.props.id && parseInt(product.count,10) > 1) {

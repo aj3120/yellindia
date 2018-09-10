@@ -1,4 +1,4 @@
-const hostname="http://adarsh-desktop-cart:5000/"
+const hostname="http://10.7.20.68:5000/"
 export const homeProductURL=hostname+"home_products"
 export const searchProductURL=hostname+"search_products"
 export const categoryProductURL=hostname+"category/"

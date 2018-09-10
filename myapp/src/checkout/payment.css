@@ -16,7 +16,6 @@
         float: left;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
         width: 49%;
     }
     .Shopping-Cart-Dropdown {
@@ -61,18 +60,24 @@
 }
 
 .Credit-Card {
+    margin-bottom:30px;
+    margin-top:30px;
+    cursor: pointer;
     height: 240px;
     border-radius: 3px;
     border: solid 1px #dde3e8;
 }
 
 .PayPal {
+    margin-bottom:30px;
+    cursor: pointer;
     height: 150px;
     border-radius: 3px;
     border: solid 1px #dde3e8;
 }
 
 .Credit-Card-Heading, .PayPal-Heading {
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -119,12 +124,23 @@
     font-size: 16px;
     color: #788995;
 }
+.Credit-Card-Number-Box {
+    display: flex;
+    justify-content: space-between;
+    height: 53px;
+    background-color: #ffffff;
+    
+}
+
+
+
 
 .Credit-Card-Number-Label {
     font-family: 'NunitoSans', sans-serif;
     font-size: 12px;
     font-weight: normal;
     font-style: normal;
+    margin-top:14px;
     font-stretch: normal;
     line-height: 1.5;
     letter-spacing: normal;
@@ -164,4 +180,19 @@
 
 .Payment-Mobile-ApplePay {
     margin-bottom: 60px;
+}
+.Error-Payment{
+    color:red;
+}
+.kJnpoy{
+    border: solid 1px rgba(38, 50, 56, 0.12);
+    width: 100%;
+    height:100%;
+}
+.ixTfPP {
+    width: 100%;
+    height:100%;
+}
+#card-number,#card-expiry,#cvc{
+    font-weight: 400;
 }

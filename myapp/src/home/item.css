@@ -128,14 +128,14 @@
     }
     .Item-Container{
         position:relative;
-        height:44vw;
+        height:65vw;
         box-sizing: border-box;
     }
     .Product-Image img{
-        height: 22vw;
+        height: 38vw;
     }
     .Product-Name{
-        font-size: 3.2vw;
+        font-size: 3.4vw;
         height:39%;
     }
     .Product-Brand {

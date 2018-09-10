@@ -38,7 +38,7 @@ class App extends Component {
       let cart_products=cart_products_object.cart_products
       this.props.action.cartProductsAction(cart_products)
     };
-    setInterval(()=>myWorker.postMessage('Update Cart Details'),5000);
+    setInterval(()=>myWorker.postMessage('Update Cart Details'),10000);
 
     allProductsRequest().then((response) => this.props.action.allProductsAction(response.data.products))
     cartProductsRequest().then((response) => this.props.action.cartProductsAction(response.data.cart_products))

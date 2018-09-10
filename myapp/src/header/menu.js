@@ -16,15 +16,18 @@ class Menu extends Component {
     render() {
         let menu_style=this.props.showMenu.showMenuFlag==='block'?
                         {
+                            maxHeight: '100%',
+                            transition:'max-height 2s',
+                            opacity:1,
                             visibility:'visible',
-                            paddingTop: '40px',
-                            transition:'all 0.4s',
-                            opacity:1
+                            overflow:'auto'
                         }
                         :
                         {
+                            opacity:0,
                             visibility:'hidden',
-                            paddingTop: '0px',
+                            maxHeight: '0px',
+                            transition:'max-height 2s',
                         }
         return (
             

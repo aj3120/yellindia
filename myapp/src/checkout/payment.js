@@ -15,6 +15,7 @@ import ShoppingCart from './shopping_cart'
 import ShoppingCartMobile from './shopping_cart_mobile'
 import { shippingMethodAction } from '../actions/shipping_method_action';
 import CreditCard from './credit_card';
+import CreditCardInput from 'react-credit-card-input';
 const mapStateToProps = (state) => {
     return ({
         cart_products: state.cart_products_reducer.cart_products, total_price: state.cart_products_reducer.total_price, all_products: state.all_products_reducer.all_products,
@@ -28,18 +29,23 @@ const mapDispatchToProps = (dispatch) => {
 class Payment extends Component {
     constructor(props) {
         super(props);
-        this.state = { shipping_method: this.props.shippingMethod, showShoppingCart: 'none', payment_mode: null}
+        this.state = { shipping_method: this.props.shippingMethod, showShoppingCart: 'none', payment_mode: null, card_number: '', date: '', cvv: '', error_visibility: 'hidden' }
+        this.month_ref = React.createRef();
+        this.cvv_ref = React.createRef();
+        this.error_ref = React.createRef();
     }
-
+    componentDidMount(){
+        window.scrollTo(0, 0)
+    }
 
 
     goBack = () => {
         this.props.action.go(-2);
     }
     goCheckout = (totalPrice) => {
-
-        if (this.state.payment_mode === null && (this.state.card_number === '' || this.state.cvv === '') && (this.state.payment_mode !== 'paypal')) {
-            
+        if (this.state.payment_mode === null) {
+            this.setState({ error_visibility: 'visible' })
+            window.scrollTo(0, this.error_ref.current)
         }
         else {
             this.props.action.replace("/review")
@@ -50,6 +56,22 @@ class Payment extends Component {
         }
 
     }
+    formChange = (event) => {
+        if (event.target.id === "card-number") {
+            this.setState({ ...this.state, card_number: event.target.value })
+        }
+        else if (event.target.id === "card-expiry") {
+
+            this.setState({ ...this.state, date: event.target.value })
+
+        }
+        else if (event.target.id === "cvc") {
+
+            this.setState({ ...this.state, cvv: event.target.value })
+
+        }
+    }
+
     changeShoppingCartVisibility = () => {
         this.state.showShoppingCart === 'none' ?
             this.setState({ showShoppingCart: 'block' }) :
@@ -57,8 +79,17 @@ class Payment extends Component {
     }
 
     paymentMode = (event) => {
-        this.setState({ ...this.state, payment_mode: event.target.id })
+        if (event.target.id === "card-number" || event.target.id === "card-expiry" || event.target.id === "cvc" || event.target.id === 'first-part') {
+            this.setState({ ...this.state, payment_mode: 'credit' })
+        }
+        else {
+            this.setState({ ...this.state, payment_mode: event.target.id })
+        }
 
+
+    }
+    paymentModeForCredit = (id) => {
+        this.setState({ ...this.state, payment_mode: 'credit' })
     }
     shippingMethodChange = (id) => {
         if (id === 'Free') {
@@ -75,6 +106,11 @@ class Payment extends Component {
     render() {
         let shopping_title = this.state.showShoppingCart === 'none' ? "Show Cart Details" : "Hide Cart Details";
         let shopping_title_img = this.state.showShoppingCart === 'none' ? "/assets/down_arrow.png" : "/assets/up_arrow.png";
+        let payment_mode_paypal_style = this.state.payment_mode === 'paypal' ? { border: 'solid 1px #2196f3' } : { border: 'solid 1px #90a4ae' }
+        let payment_mode_apple_style = this.state.payment_mode === 'applepay' ? { border: 'solid 1px #2196f3' } : { border: 'solid 1px #90a4ae' }
+        let payment_mode_credit_style = this.state.payment_mode === 'credit' ? { border: 'solid 1px #2196f3' } : { border: 'solid 1px #90a4ae' }
+        let payment_mode_paypal_radio_image = this.state.payment_mode === 'paypal' ? "/assets/radio-active.svg" : "/assets/radio-inactive.svg"
+        let payment_mode_credit_radio_image = this.state.payment_mode === 'credit' ? "/assets/radio-active.svg" : "/assets/radio-inactive.svg"
         var productPrice, subTotal = 0, totalPrice = 0;
         const totalPriceArray = this.props.cart_products.map((product) => {
             productPrice = parseInt(product.count, 10) * parseInt(this.props.all_products.id[product.id].price, 10)
@@ -114,49 +150,89 @@ class Payment extends Component {
                         <ShoppingCart totalPrice={totalPrice} shipping_method={this.state.shipping_method} shippingMethodChange={this.shippingMethodChange} />
                     </div>
                     <div className="Payment-Content-Left">
-                        <div className="Credit-Card">
-                            <div className="Credit-Card-Heading">
-                                <div className="Credit-Card-Heading-Name">
-                                    <input type="radio" name="payment" id="credit" onClick={this.paymentMode} />
-                                    <span>Credit Card</span>
+                        <div className="Credit-Card" id="credit" onClick={this.paymentMode} style={payment_mode_credit_style}>
+                            <div className="Credit-Card-Heading" id="credit" onClick={this.paymentMode}>
+                                <div className="Credit-Card-Heading-Name" id="credit">
+                                    <div id="credit" onClick={this.paymentMode} />
+                                    <img src={payment_mode_credit_radio_image} alt="radio" height='18px' id="credit" onClick={this.paymentMode} />
+                                    <span id="credit" onClick={this.paymentMode}>Credit Card</span>
                                 </div>
                                 <div className="Credit-Card-Heading-Image">
                                     <img src="assets/master.svg" alt="master" /> <img src="assets/visa.svg" alt="visa" /><img src="assets/amex.svg" alt="amex" />
                                 </div>
                             </div>
                             <div className="Credit-Card-Description">
-                                <p>Safe money transfer using your bank account. Visa, Maestro, Discover, American Express.</p>
+                                <p id="credit" onClick={this.paymentMode}>Safe money transfer using your bank account. Visa, Maestro, Discover, American Express.</p>
                             </div>
                             <div className="Credit-Card-Number">
-                                     <CreditCard/>
+                                <div className="Credit-Card-Number-Box">
+                                    <CreditCardInput
+                                        cardCVCInputRenderer={({ handleCardCVCChange, props }) => (
+                                            <input
+                                                {...props}
+                                                onClick={this.paymentMode}
+                                                onChange={handleCardCVCChange(e => this.formChange(e))}
+                                            />
+                                        )}
+                                        cardExpiryInputRenderer={({ handleCardExpiryChange, props }) => (
+                                            <input
+                                                {...props}
+                                                onClick={this.paymentMode}
+                                                onChange={handleCardExpiryChange(e =>
+                                                    this.formChange(e))}
+                                            />
+                                        )}
+                                        cardNumberInputRenderer={({ handleCardNumberChange, props }) => (
+                                            <input
+                                                {...props}
+                                                onClick={this.paymentMode}
+                                                onChange={handleCardNumberChange(e =>
+                                                    this.formChange(e))}
+                                            />
+                                        )}
+                                    />
+
+                                </div>
+
+                                <div className="Credit-Card-Number-Label">
+                                    <p>Enter card number, expiration date & CVV number</p>
+                                </div>
 
                             </div>
-                        </div>
-                        <div className="PayPal">
 
-                            <div className="PayPal-Heading">
-                                <div className="PayPal-Heading-Name">
-                                    <input type="radio" name="payment" id="paypal" onClick={this.paymentMode} /><span>PayPal</span>
+                        </div>
+                        <div id="paypal" className="PayPal" style={payment_mode_paypal_style} onClick={this.paymentMode}>
+
+                            <div id="paypal" className="PayPal-Heading">
+                                <div id="paypal" className="PayPal-Heading-Name">
+                                    <div id="paypal" onClick={this.paymentMode} />
+                                    <img src={payment_mode_paypal_radio_image} alt="radio" height='18px' id="paypal" onClick={this.paymentMode} />
+                                    <span id="paypal" onClick={this.paymentMode}>Paypal</span>
                                 </div>
-                                <div className="PayPal-Heading-Image">
-                                    <img src="assets/paypal.jpg" alt="paypal" />
+                                <div className="PayPal-Heading-Image" id="paypal" onClick={this.paymentMode}>
+                                    <img src="assets/paypal.jpg" alt="paypal" id="paypal" onClick={this.paymentMode} />
                                 </div>
                             </div>
                             <div className="PayPal-Description">
-                                <p>You will be redirected to PayPal website to complete your purchase securely</p>
+                                <p id="paypal" onClick={this.paymentMode}>You will be redirected to PayPal website to complete your purchase securely</p>
                             </div>
 
                         </div>
+                        <div class="Error-Payment" style={{ visibility: this.state.error_visibility }}>
+                            <p type="text" ref={this.error_ref}>Please choose a payment mode</p>
+                        </div>
                     </div>
                     <div className="Payment-Mobile">
-                        <CreditCard/>
-                        <div className="Payment-Mobile-Paypal" id="paypal" onClick={this.paymentMode}>
-                        <div><img id="paypal" src="/assets/paypal-black.svg" height="20px" /></div>
-                        <div><p id="paypal">PAYPAL</p></div>
+                        <div>
+                            <CreditCard credit_box_style={payment_mode_credit_style} paymentMode={this.paymentMode} />
                         </div>
-                        <div className="Payment-Mobile-ApplePay"  id="applepay" onClick={this.paymentMode}>
-                        <div><img src="/assets/apple-black.svg" id="applepay" height="20px"/></div>
-                        <div><p  id="applepay" >APPLE PAY</p></div>
+                        <div className="Payment-Mobile-Paypal" id="paypal" onClick={this.paymentMode} style={payment_mode_paypal_style}>
+                            <div><img id="paypal" src="/assets/paypal-black.svg" height="20px" /></div>
+                            <div><p id="paypal">PAYPAL</p></div>
+                        </div>
+                        <div className="Payment-Mobile-ApplePay" id="applepay" onClick={this.paymentMode} style={payment_mode_apple_style}>
+                            <div><img src="/assets/apple-black.svg" id="applepay" height="20px" /></div>
+                            <div><p id="applepay" >APPLE PAY</p></div>
                         </div>
                     </div>
 
