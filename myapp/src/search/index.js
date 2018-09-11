@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Products from './search_products';
+import './search.css'
 import QuickViewContainer from '../home/quick-view-container'
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';

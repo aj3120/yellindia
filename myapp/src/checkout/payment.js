@@ -9,8 +9,8 @@ import './payment.css'
 import './status.css';
 import './checkout.css';
 import { totalPriceAction } from '../actions/total-price-action';
+import { paymentModeAction } from '../actions/payment-details-action';
 import { paymentDetailsAction } from '../actions/payment-details-action';
-import Modal from 'react-responsive-modal';
 import ShoppingCart from './shopping_cart'
 import ShoppingCartMobile from './shopping_cart_mobile'
 import { shippingMethodAction } from '../actions/shipping_method_action';
@@ -23,7 +23,7 @@ const mapStateToProps = (state) => {
     })
 }
 const mapDispatchToProps = (dispatch) => {
-    return ({ action: bindActionCreators({ replace, go, totalPriceAction, paymentDetailsAction, shippingMethodAction }, dispatch) })
+    return ({ action: bindActionCreators({ replace, go, totalPriceAction, paymentDetailsAction, shippingMethodAction,paymentModeAction }, dispatch) })
 }
 
 class Payment extends Component {
@@ -53,6 +53,20 @@ class Payment extends Component {
             this.props.action.shippingMethodAction(this.state.shipping_method)
             const paymentDetails = { card_number: this.state.card_number, date: this.state.date, cvv: this.state.cvv }
             this.props.action.paymentDetailsAction(paymentDetails);
+            this.props.action.paymentModeAction(this.state.payment_mode);
+        }
+
+    }
+    goCheckoutMobile = (totalPrice) => {
+        if (this.state.payment_mode === null) {
+            this.setState({ error_visibility: 'visible' })
+            window.scrollTo(0, this.error_ref.current)
+        }
+        else {
+            this.props.action.replace("/review")
+            this.props.action.totalPriceAction(totalPrice);
+            this.props.action.shippingMethodAction(this.state.shipping_method)
+            this.props.action.paymentModeAction(this.state.payment_mode);
         }
 
     }
@@ -79,7 +93,8 @@ class Payment extends Component {
     }
 
     paymentMode = (event) => {
-        if (event.target.id === "card-number" || event.target.id === "card-expiry" || event.target.id === "cvc" || event.target.id === 'first-part') {
+        if (event.target.id === "card-number" || event.target.id === "card-expiry" || event.target.id === "cvc" || event.target.id === 'first-part'|| event.target.id === 'second-part'|| event.target.id === 'third-part'||
+                                        event.target.id === 'month-part1'||event.target.id === 'month-part2'||event.target.id === 'cvv') {
             this.setState({ ...this.state, payment_mode: 'credit' })
         }
         else {
@@ -142,7 +157,7 @@ class Payment extends Component {
                     </div>
                     <div className="Shopping-Cart-Dropdown-Container">
                         <div className="Shopping-Cart-Dropdown" onClick={this.changeShoppingCartVisibility}>
-                            <div><p>{shopping_title}</p></div><div>${totalPrice}</div><div><img src={shopping_title_img} height="20px" /></div>
+                            <div><p>{shopping_title}</p></div><div><span>${totalPrice}</span><img src={shopping_title_img} height="20px" /></div>
                         </div>
                         <ShoppingCartMobile showShoppingCart={this.state.showShoppingCart} totalPrice={totalPrice} shipping_method={this.state.shipping_method} />
                     </div>
@@ -218,7 +233,7 @@ class Payment extends Component {
                             </div>
 
                         </div>
-                        <div class="Error-Payment" style={{ visibility: this.state.error_visibility }}>
+                        <div className="Error-Payment" style={{ visibility: this.state.error_visibility }}>
                             <p type="text" ref={this.error_ref}>Please choose a payment mode</p>
                         </div>
                     </div>
@@ -250,7 +265,7 @@ class Payment extends Component {
                     <div className="Continue-Mobile" onClick={this.goBack}>
                         <div>BACK</div>
                     </div>
-                    <div className="Checkout-Mobile" onClick={() => this.goCheckout(totalPrice)}>
+                    <div className="Checkout-Mobile" onClick={() => this.goCheckoutMobile(totalPrice)}>
                         <div>CONTINUE TO REVIEW</div>
                     </div>
                 </div>

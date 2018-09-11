@@ -4,3 +4,9 @@ export const paymentDetailsAction=(payment_details)=>(
         data:payment_details
     }
     );
+ export const paymentModeAction=(payment_mode)=>(
+        {
+            type:"PAYMENT_MODE",
+            data:payment_mode
+        }
+        );

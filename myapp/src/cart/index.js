@@ -33,7 +33,7 @@ class Cart extends Component {
         totalPriceArray.forEach((num) => {
             totalPrice = totalPrice + num;
         })
-        const empty = [<div className="Empty">Your Cart is Empty</div>]
+        const empty = <div className="Empty">Your Cart is Empty</div>
         var CartItems = this.props.cart_products.map((product, index) => <CartItem id={product.id} key={index} count={product.count} />)
         return (
             <div className="Cart">

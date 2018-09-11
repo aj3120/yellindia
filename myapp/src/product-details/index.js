@@ -19,6 +19,7 @@ class Product extends Component {
   componentWillMount(){
     allProductsRequest().then((response)=>this.props.action.allProductsAction(response.data.products))
     cartProductsRequest().then((response)=>this.props.action.cartProductsAction(response.data.cart_products))
+    window.scrollTo(0,0)
   } 
   render() {
     let idArray=this.props.routing.location.pathname.split('/')

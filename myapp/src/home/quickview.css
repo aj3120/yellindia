@@ -105,9 +105,10 @@
         border: 1px solid #0928bf;
     }
     .QuickView-Bottom {
+        cursor: pointer;
+        user-select: none;
         width: 28%;
         height: 40px;
-            
         display: flex;
         justify-content: center;
         border-radius: 5px;
@@ -120,6 +121,7 @@
         letter-spacing: normal;
         margin: auto;
         margin-top:30px;
+        margin-bottom:10px;
         color: white;
         background-color: #33333a;
     }
@@ -245,7 +247,7 @@
 .QuickViewPage-Container {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 600vh;
     color: black;
     top: 0px;
     background-color: rgba(0, 0, 0, 0.8);
@@ -315,6 +317,8 @@
 }
 
 .Sizes div {
+    cursor: pointer;
+    user-select: none;
     width: 44px;
     height: 40px;
     border-radius: 2px;
@@ -326,6 +330,8 @@
 }
 
 .Kit div {
+    cursor: pointer;
+    user-select: none;
     width: 72px;
     height: 40px;
     border-radius: 2px;

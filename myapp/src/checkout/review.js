@@ -15,7 +15,8 @@ import ShoppingCartMobile from  './shopping_cart_mobile'
 const mapStateToProps = (state) => {
     return ({
         cart_products: state.cart_products_reducer.cart_products, checkout_details: state.checkout_details_reducer, total_price: state.cart_products_reducer.total_price,
-        login_details: state.login_reducer.login_details, all_products: state.all_products_reducer.all_products
+        login_details: state.login_reducer.login_details, all_products: state.all_products_reducer.all_products,shippingMethod: state.app_helper_reducer.shippingMethod,
+        paymentMode:state.checkout_details_reducer.payment_mode
     })
 }
 const mapDispatchToProps = (dispatch) => {
@@ -25,7 +26,10 @@ const mapDispatchToProps = (dispatch) => {
 class Review extends Component {
     constructor(props) {
         super(props);
-        this.state = { shipping_method: this.props.shippingMethod, showShoppingCart: 'none', payment_mode: null }
+        this.state = { shipping_method: this.props.shippingMethod, showShoppingCart: 'none', payment_mode: this.props.paymentMode,edit_shipping:'none',edit_shipping_opposite:'block',
+                        fullname:this.props.checkout_details.address.fullname,address:this.props.checkout_details.address.address,building:this.props.checkout_details.address.building,
+                        zipcode:this.props.checkout_details.address.zipcode,phone:this.props.checkout_details.address.phone
+                    }
     }
     goBack = () => {
         this.props.action.go(-2);
@@ -63,18 +67,57 @@ class Review extends Component {
             this.setState({ shipping_method: 'Three-Days' })
         }
     }
+    editShippingEnable=()=>{
+        this.state.edit_shipping==='none'?this.setState({edit_shipping:'block',edit_shipping_opposite:'none'}):this.setState({edit_shipping:'none',edit_shipping_opposite:'block'})
+        
+    }
+    formChangeHandler=(event)=>{
+        this.setState({[event.target.id]:event.target.value})
+    }
     render() {
         let shopping_title = this.state.showShoppingCart === 'none' ? "Show Cart Details" : "Hide Cart Details";
         let shopping_title_img = this.state.showShoppingCart === 'none' ? "/assets/down_arrow.png" : "/assets/up_arrow.png";
+        let shopping_cart_mobile_view=window.innerWidth<768?'block':'none';
         var checkout = this.props.cart_products.map((product, index) => <CheckoutItem id={product.id} key={index} count={product.count} />)
-        var productPrice, totalPrice = 0;
+        var productPrice, subTotal = 0, totalPrice = 0;
+        let email=this.props.login_details.email===undefined? 'aj3120@gmail.com' : this.props.login_details.email
+        
         const totalPriceArray = this.props.cart_products.map((product) => {
             productPrice = parseInt(product.count, 10) * parseInt(this.props.all_products.id[product.id].price, 10)
             return (productPrice)
         })
         totalPriceArray.forEach((num) => {
-            totalPrice = totalPrice + num;
+            subTotal = subTotal + num;
         })
+        
+        
+        if (this.state.shipping_method === 'Free') {
+            totalPrice = subTotal;
+        }
+        else if (this.state.shipping_method === 'One-Day') {
+            totalPrice = parseFloat(subTotal, 10) + 17.50
+        }
+        else {
+            totalPrice = parseFloat(subTotal, 10) + 5.99
+        }
+
+
+        
+        var payment_content
+        var payment_image
+        if(this.state.payment_mode==='credit'){
+            payment_content=this.props.checkout_details.payment_details.card_number
+            payment_image='/assets/visa_new.jpg'
+        }
+        else if(this.state.payment_mode==='paypal'){
+            payment_content='Paypal'
+            payment_image='/assets/paypal-black.svg'
+        }
+        else if(this.state.payment_mode==='applepay'){
+            payment_content='Applepay'
+            payment_image='/assets/apple-black.svg'
+        }
+
         if (this.props.checkout_details.address !== undefined) {
             return (
                 <div className="Checkout-Item">
@@ -86,32 +129,51 @@ class Review extends Component {
                             <Status />
                         </div>
                         <div className="Shopping-Cart-Dropdown-Container">
-                            <div className="Shopping-Cart-Dropdown" onClick={this.changeShoppingCartVisibility}>
-                                <div><p>{shopping_title}</p></div><div>${totalPrice}</div><div><img src={shopping_title_img} height="20px" /></div>
+                            
+                            <ShoppingCartMobile showShoppingCart={shopping_cart_mobile_view} showPriceCalculations={'none'} totalPrice={totalPrice} shipping_method={this.state.shipping_method} />
+                            <div className="Order-Confirmation" style={{display:shopping_cart_mobile_view}}>
+                                <p id="Order-Confirmation-Heading">Order confirmation sent to:</p>
+                                <p id="Order-Confirmation-Email">{email}</p>
                             </div>
-                            <ShoppingCartMobile showShoppingCart={this.state.showShoppingCart} totalPrice={totalPrice} shipping_method={this.state.shipping_method} />
                         </div>
                         <div className="Review-Content-Right" >
-                            <ShoppingCart totalPrice={totalPrice} shipping_method={this.state.shipping_method} shippingMethodChange={this.shippingMethodChange} />
-                        </div>
+                            <ShoppingCart totalPrice={totalPrice} showPriceCalculations={'none'} shipping_method={this.state.shipping_method} shippingMethodChange={this.shippingMethodChange} />
+                            <div className="Order-Confirmation">
+                                <p id="Order-Confirmation-Heading">Order confirmation sent to</p>
+                                <p id="Order-Confirmation-Email">{email}</p>
+                            </div>
+                       </div>
                         <div className="Review-Data">
                             <div className="Review-Shipping-Address">
                                 <div className="Shipping-Address-Heading">
-                                    <p>Shipping to :</p>
+                                    <p>Shipping to :</p><img src='/assets/edit.svg' alt="Edit" onClick={this.editShippingEnable}/>
                                 </div>
-                                <div className="Review-Shipping-Address-Content">
-                                    <p>{this.props.checkout_details.address.fullname}</p>
-                                    <p>{this.props.checkout_details.address.address}</p>
-                                    <p>{this.props.checkout_details.address.building}</p>
-                                    <p>{this.props.checkout_details.address.zipcode}</p>
-                                    <p>{this.props.checkout_details.address.phone}</p>
+                                <div className="Review-Shipping-Address-Content" style={{display:this.state.edit_shipping_opposite}}>
+                                    <p>{this.state.fullname}</p>
+                                    <p>{this.state.address}</p>
+                                    <p>{this.state.building}</p>
+                                    <p>{this.state.zipcode}</p>
+                                    <p>{this.state.phone}</p>
                                 </div>
+                                <div className="Review-Shipping-Address-Content-Edit" style={{display:this.state.edit_shipping}}>
+                                <div className="Review-Shipping-Address-Content-Edit-Input" >
+                                    <div> <input id="fullname" type="text" value={this.state.fullname} onChange={this.formChangeHandler}/></div>
+                                    <div><input  id="address" type="text" value={this.state.address} onChange={this.formChangeHandler}/></div>
+                                    <div><input id="building" type="text" value={this.state.building} onChange={this.formChangeHandler} /></div>
+                                    <div><input id="zipcode" type="number" value={this.state.zipcode} onChange={this.formChangeHandler} /></div>
+                                    <div><input id="phone" type="number"value={this.state.phone} onChange={this.formChangeHandler} /></div>
+                                </div>
+                                <div className="Shipping-Change-Button" onClick={this.editShippingEnable}>
+                                    CHANGE
+                                </div>
+                                </div>
+                                
                                 <div className="Review-Payment-Content">
                                     <div className="Review-Payment-Heading">
-                                        <p>Payment Method :</p>
+                                        <p>Shipping to :</p><img src='/assets/edit.svg' alt="Edit" onClick={()=>this.props.action.push('/payment')}/>
                                     </div>
                                     <div className="Review-Payment-Details">
-                                        <img src="/assets/visa_new.jpg" alt="visa" /><span>{this.props.checkout_details.payment_details.card_number}</span>
+                                        <img src={payment_image} height="20px" alt="visa" /><span>{payment_content}</span>
                                     </div>
                                 </div>
                                 <div className="Billing-Address">
@@ -129,16 +191,16 @@ class Review extends Component {
                                         <p>Subtotal</p> <span>{totalPrice}</span>
                                     </div>
                                     <div className="Review-Shipping">
-                                        <p>Shipping</p> <span>FREE</span>
+                                        <p>Shipping</p> <span>{this.state.shipping_method}</span>
                                     </div>
                                     <div className="Review-ExpectedDelivery">
                                         <p>Expected Delivery</p> <span>Aug 29 - 31 </span>
                                     </div>
                                     <div className="Review-Taxes">
-                                        <p>Taxes</p> <span>${parseFloat(totalPrice, 10) * 12 / 100}</span>
+                                        <p>Taxes</p> <span>${(parseFloat(totalPrice, 10) * 12 / 100).toFixed(2)}</span>
                                     </div>
                                     <div className="Review-Total">
-                                        <p>Total</p> <span>${parseFloat(totalPrice, 10) + (parseFloat(totalPrice, 10) * 12 / 100)}</span>
+                                        <p>Total</p> <span>${(parseFloat(totalPrice, 10) + (parseFloat(totalPrice, 10) * 12 / 100)).toFixed(2)}</span>
                                     </div>
                                 </div>
 

@@ -1,11 +1,11 @@
 .Category-Wrapper {
     width: 80%;
     margin: auto;
+    height:100%;
 }
 @media only screen and (min-width:768px){
     .Category-Left {
         width: 20%;
-        height: 400px;
         float: left;
         margin-bottom: 40px;
         display: flex;

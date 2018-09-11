@@ -35,15 +35,15 @@ class ShoppingCart extends Component{
                             </div>
                             <div className="Divider-Line2">
                             </div>
-                            <div className="Voucher" >
+                            <div className="Voucher" style={{display:this.props.showPriceCalculations}} >
                                 <div className="Voucher-Heading" onClick={this.openVocuherBox}><p> Have Voucher?</p><i className="up" style={{ display: this.state.voucher }} /><i className="down" style={{ display: this.state.voucher_opposite }} /></div>
                                 <div><input type="text" placeholder="Voucher Number" style={{ display: this.state.voucher }} /></div>
                             </div>
 
 
-                            <div className="Divider-Line2">
+                            <div className="Divider-Line2" style={{display:this.props.showPriceCalculations}}>
                             </div>
-                            <div className="Shipping-Price-Calculations">
+                            <div className="Shipping-Price-Calculations" style={{display:this.props.showPriceCalculations}}>
                                 <div className="Shipping-Subtotal">
                                     <div className="Shipping-Subtotal-Heading">
                                         <p>Subtotal</p>
@@ -61,9 +61,9 @@ class ShoppingCart extends Component{
                                     </div>
                                 </div>
                             </div>
-                            <div className="Divider-Line2">
+                            <div className="Divider-Line2" style={{display:this.props.showPriceCalculations}}>
                             </div>
-                            <div className="Shipping-Calculated-Price">
+                            <div className="Shipping-Calculated-Price" style={{display:this.props.showPriceCalculations}}>
 
                                 <div className="Shipping-Total">
                                     <div className="Shipping-Total-Heading">

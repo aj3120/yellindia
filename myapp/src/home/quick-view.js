@@ -18,9 +18,13 @@ class QuickView extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { addedToCart: 'none', addToCart: 'flex', count: 1 }
+    this.state = { addedToCart: 'none', addToCart: 'flex', count: 1,small_size:'selected',medium_size:'notselected',large_size:'notselected',xtra_size:'notselected',
+                  dxtra_size:'notselected',home_kit:'selected',away_kit:'notselected',third_kit:'notselected'}
 
 
+  }
+  componentWillMount(){
+    window.scrollTo(0,120)
   }
 
   decrement = () => {
@@ -36,6 +40,20 @@ class QuickView extends Component {
 
 
   }
+  onSizeSelection=(event)=>{
+      let id=event.target.id; 
+      if(this.state[id]==='notselected'){
+          this.setState({small_size:'notselected',medium_size:'notselected',large_size:'notselected',xtra_size:'notselected',
+          dxtra_size:'notselected',[id]:'selected'})
+      }
+  }
+  onKitSelection=(event)=>{
+    let id=event.target.id; 
+    if(this.state[id]==='notselected'){
+        this.setState({home_kit:'notselected',away_kit:'notselected',third_kit:'notselected',[id]:'selected'})
+    }
+}
+
   addToCart = () => {
 
     this.setState({ addedToCart: 'flex', addToCart: 'none' })
@@ -88,6 +106,7 @@ class QuickView extends Component {
       ]
 
       let showThumb=window.innerWidth<=768?false:true;
+
       return (
       
             <div className="QuickViewPage-Content">
@@ -129,13 +148,19 @@ class QuickView extends Component {
                     Sizes
                   </div>
                   <div className="Sizes">
-                    <div> S </div> <div> M  </div> <div> L </div> <div> XL </div>  <div> XXL</div>
+                    <div id="small_size" onClick={this.onSizeSelection} style={this.state.small_size==='selected'?{backgroundColor:'#263238',color:'white'}:{backgroundColor:'white',color:'#455a64'}}> S </div> 
+                    <div id="medium_size" onClick={this.onSizeSelection}style={this.state.medium_size==='selected'?{backgroundColor:'#263238',color:'white'}:{backgroundColor:'white',color:'#455a64'}}> M  </div> 
+                    <div id="large_size" onClick={this.onSizeSelection} style={this.state.large_size==='selected'?{backgroundColor:'#263238',color:'white'}:{backgroundColor:'white',color:'#455a64'}}> L </div>
+                     <div id="xtra_size" onClick={this.onSizeSelection} style={this.state.xtra_size==='selected'?{backgroundColor:'#263238',color:'white'}:{backgroundColor:'white',color:'#455a64'}}> XL </div> 
+                     <div id="dxtra_size" onClick={this.onSizeSelection} style={this.state.dxtra_size==='selected'?{backgroundColor:'#263238',color:'white'}:{backgroundColor:'white',color:'#455a64'}}> XXL</div>
                   </div>
                 </div>
                 <div className="QuickView-Kit" >
                   <div className="Kit-Label"><p>Kit</p></div>
                   <div className="Kit">
-                    <div className="Kit-Home">HOME</div><div className="Kit-Away">AWAY</div><div className="Kit-Third">THIRD</div>
+                    <div className="Kit-Home" id="home_kit" onClick={this.onKitSelection} style={this.state.home_kit==='selected'?{backgroundColor:'#263238',color:'white'}:{backgroundColor:'white',color:'#455a64'}}>HOME</div>
+                    <div className="Kit-Away" id="away_kit"onClick={this.onKitSelection} style={this.state.away_kit==='selected'?{backgroundColor:'#263238',color:'white'}:{backgroundColor:'white',color:'#455a64'}}>AWAY</div>
+                    <div className="Kit-Third" id="third_kit" onClick={this.onKitSelection} style={this.state.third_kit==='selected'?{backgroundColor:'#263238',color:'white'}:{backgroundColor:'white',color:'#455a64'}}>THIRD</div>
                   </div>
                 </div>
 

@@ -136,6 +136,7 @@
     width: 50%;
     height: 40px;
     outline: none;
+    margin-top:10px;
     padding-left: 10px;
 }
 
@@ -164,7 +165,7 @@
     width: 80%;
     margin: auto;
     padding: 10px;
-    padding-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .Shipping-Calculated-Price .Shipping-Total-Value {
@@ -247,7 +248,7 @@
     }
     
     .Shopping-Cart-Dropdown-Container .Shipping-Items-List {
-        max-height: 150px;
+        max-height: 320px;
         overflow: auto;
     }
     .Shopping-Cart-Dropdown-Container .Cart-Item-Checkout {

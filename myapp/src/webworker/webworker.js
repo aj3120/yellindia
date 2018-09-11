@@ -9,7 +9,7 @@ const workercode = () => {
                 postMessage(this.responseText)
             }
         };
-        xhttp.open("GET", "http://localhost:5000/cart_products", true);
+        xhttp.open("GET", "http://10.7.20.68:5000/cart_products", true);
         xhttp.send();
         
 

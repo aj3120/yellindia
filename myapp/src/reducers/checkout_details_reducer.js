@@ -4,6 +4,8 @@ const checkout_details_reducer = (state = {}, action) => {
                 return ({ ...state, address: action.data });
           case "PAYMENT_DETAILS_ADD":
                 return({...state, payment_details: action.data })
+          case "PAYMENT_MODE":
+            return ({...state,payment_mode:action.data})      
           default:
                 return (state);
     }
