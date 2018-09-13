@@ -1,0 +1,218 @@
+.Review-Content {
+    width: 95%;
+    margin: auto;
+}
+
+@media only screen and (min-width:768px){
+    
+.Review-Content-Right {
+    width: 49%;
+    float: left;
+    background-color: #f8fafb;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding-bottom: 27px;
+}
+
+.Review-Content-Left {
+    margin: auto;
+    margin-top: 20px;
+    width: 80%;
+}
+.Review-Data {
+    width: 49%;
+    box-sizing: border-box;
+    background-color: #f8fafb;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    float: right;
+    padding: 30px;
+}
+.Order-Confirmation{
+    width:80%;
+    padding:10px;
+    margin:auto;
+}
+#Order-Confirmation-Heading{
+    font-family: "NunitoSans", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #78909c;
+}
+}
+@media only screen and (max-width:768px){
+
+  
+    .Review-Content-Left {
+        margin: auto;
+        margin-top: 20px;
+        width: 90%;
+    }
+    .Review-Content-Right{
+        display: none;
+    }
+    .Review-Content .Shopping-Cart-Dropdown-Container .Shopping-Cart-DropList {
+        position: static;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 100%;
+        background-color: white;
+        margin-top :20px;
+        border: none;
+        -webkit-box-shadow: none;
+        box-shadow:none;
+    }
+  
+    .Review-Data {
+        width: 100%;
+        margin:auto;
+        box-sizing: border-box;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+
+        padding: 10px;
+    }
+    .Order-Confirmation{
+        width:100%;
+        padding:10px;
+        margin:auto;
+    }
+    #Order-Confirmation-Heading{
+        font-size: 16px;
+        font-family: 'NunitoSans', sans-serif;
+        font-weight: bold;
+        color: #263238;
+    }
+    
+}
+
+.Shipping-Address-Heading, .Review-Payment-Heading, .Billing-Address-Heading {
+    font-size: 16px;
+    font-family: 'NunitoSans', sans-serif;
+    font-weight: bold;
+    color: #263238;
+}
+.Shipping-Address-Heading,.Review-Payment-Heading{
+    display:flex;
+    justify-content: space-between
+}
+.Review-Shipping-Address-Content, .Review-Payment-Details, .Billing-Address-Details {
+    font-family: "NunitoSans", sans-serif;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    color: #263238;
+}
+
+.Review-Payment-Details {
+    display: flex;
+    align-items: center;
+}
+
+.Review-Payment-Details span {
+    margin-left: 10px;
+}
+
+.Divider-Line-Review {
+    height: 1px;
+    background-color: rgba(38, 50, 56, 0.12);
+}
+
+.Review-Price {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.Review-Subtotal p, .Review-Shipping p, .Review-ExpectedDelivery p, .Review-Taxes p {
+    opacity: 0.64;
+    font-family: 'NunitoSans',sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: #263238;
+    float: left;
+    margin-bottom:10px;
+}
+.Review-Total p{
+    font-family: 'NunitoSans',sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: black;
+    float: left;
+    margin-bottom:10px;
+}
+
+.Review-Subtotal span, .Review-Shipping span, .Review-ExpectedDelivery span, .Review-Taxes span{
+    float: right;
+    opacity: 0.64;
+    font-family: 'NunitoSans',sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: #263238;
+    margin-bottom:10px;
+}
+.Review-Total span {
+    float: right;
+    font-family: 'NunitoSans',sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: black;
+    margin-bottom:10px;
+}
+.Review-Shipping-Address-Content-Edit-Input{
+    display:flex;
+    flex-direction: column;
+    font-family: "NunitoSans", sans-serif;
+    font-size: 14px;
+    color: #263238;
+
+}
+.Review-Shipping-Address-Content-Edit{
+
+    font-family: "NunitoSans", sans-serif;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    color: #263238;
+
+}
+.Review-Shipping-Address-Content-Edit input{
+    
+    border-left:none;
+    border-right:none;
+    border-top:none;
+    outline:none;
+    margin-bottom:10px;
+    background-color: rgb(0,0,0,0)
+
+}
+.Shipping-Change-Button{
+    margin-left:auto;
+    width:40%;
+    text-align: center;
+    color:white;
+    background: #263238;
+    height:40px;
+    padding-top:10px;
+    border-radius: 5px;
+}

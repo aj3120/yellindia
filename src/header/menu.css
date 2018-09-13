@@ -1,0 +1,124 @@
+.Menu-Items i {
+    border: solid black;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 4px;
+    margin-right: 12px;
+}
+
+.Menu-Items .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.Menu-Items  .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.Menu-Items  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+@media only screen and (min-width:768px){
+    .Menu-Items {
+        display: flex;
+        width: 90%;
+        justify-content: space-around;
+        font-family: 'Noto Sans', sans-serif;
+        padding-bottom: 60px;
+    }
+    .Menu-Window-Container #heading-arrow{
+        display:none;
+    }
+    .Menu-Window-Container {
+        width:100%;
+        
+    }
+    .Menu-Items h3{
+       
+        margin-top:0px;
+        margin-bottom: 30px;
+    }
+    .Menu-Items p{
+        padding-left:25px;
+        opacity: 0.6;
+        
+    }
+    #free-arrow-for-spacing{
+        display:none;
+    }
+}
+@media only screen and (max-width:768px){
+    .Menu-Items {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        font-family: 'Noto Sans', sans-serif;
+        padding-bottom: 60px;
+        margin:auto;
+    }
+
+    .Menu-Window-Container {
+        width:60%;
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        overflow: auto;
+    }
+    .Menu-Window-Container .Menu-Items i{
+        margin-left:32px;
+    }
+
+    .Menu-Window-Container #heading-arrow{
+        margin-left:15px;
+    }
+   
+    .Menu-Window-Container .Menu-Items h3{
+        font-size:15px;
+        margin-top:10px;
+        margin-bottom: 10px;
+        display: inline-block
+    }
+    .Menu-Window-Container .Menu-Items span{
+        font-size:11px;
+    }
+    .Menu-Items p{
+        margin-left:70px;
+        opacity: 0.6;
+        
+    }
+    #free-arrow-for-spacing{
+        visibility:hidden;
+    }
+}    
+.Menu-Window-Container {
+    position: fixed;
+    z-index: 20;
+    top:120px;
+    background-color: white;
+}
+
+.Menu-Items {
+    user-select: none;
+    width: 90%;
+    justify-content: space-around;
+    font-family: 'Noto Sans', sans-serif;
+    padding-bottom: 60px;
+}
+
+
+.Menu-Items span,.Menu-Items p {
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 3.33;
+    letter-spacing: 1px;
+    color: #33333a;
+}
+
+.Menu-Items p:hover{
+    opacity: 1;
+    
+}

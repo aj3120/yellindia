@@ -1,0 +1,149 @@
+@font-face {
+    font-family: AvenirNext;
+    src: url(../fonts/AvenirNext-Regular.ttf);
+}
+.Shop-Section{
+    width: 80%;
+    margin: auto;
+    font-family: AvenirNext;
+    display:flex;
+    flex-direction: column;
+}
+
+.Shop-Title {
+    margin-top:120px;
+    font-size: 42px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: center;
+    color: #33333a;
+    margin-bottom:27px;
+}
+.Shop-Images img{
+
+    background-color: #EDEDED
+}
+.Shop-Images>div{
+    position:relative;
+}
+.Label-Shop-Jersey,.Label-Shop-Jackets,.Label-Shop-Shirts,.Label-Shop-Tops{
+    position:absolute;
+    bottom:20%;
+    height:50px;
+    background-color: #FAFAFA;
+    width:100%;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: center;
+    color: #33333a;
+    justify-content: center;
+}
+.Shop-Button-Jersey,.Shop-Button-Jackets,.Shop-Button-Shirts,.Shop-Button-Tops{
+    cursor: pointer;
+    opacity:0;
+    text-decoration: none;
+    font-family: "AvenirNext";
+    border-radius: 2px;
+    font-size: 12px;
+    position:absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:40%;
+    height:10%;
+    top: 48%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    background-color:black;
+
+}
+
+.Shop-Jersey:hover .Shop-Button-Jersey{
+    transition:opacity 0.2s ease-in;
+    opacity: 1;
+}
+
+.Shop-Jackets:hover .Shop-Button-Jackets{
+    transition:opacity 0.2s ease-in;
+    opacity: 1;
+}
+
+.Shop-Tops:hover .Shop-Button-Tops{
+    transition:opacity 0.2s ease-in;
+    opacity: 1;
+}
+
+.Shop-Shirts:hover .Shop-Button-Shirts{
+    transition:opacity 0.2s ease-in;
+    opacity: 1;
+}
+
+.Shop-Images a{
+    color:white;
+    text-decoration: none;
+}
+@media only screen and (min-width:1600px){
+    .Shop-Images{
+        width:100%;
+        
+        display:grid;
+        grid-template-columns: auto auto auto auto;
+        grid-column-gap: 40px;
+    }
+    .Shop-Images img{
+        width:100%;
+    }
+}
+
+
+@media only screen and (min-width:1440px) and (max-width:1600px){
+    .Shop-Images{
+        width:100%;
+        display:grid;
+        grid-template-columns: auto auto auto auto;
+        grid-column-gap: 40px;
+    }
+    .Shop-Images img{
+        width:100%;
+    }
+}
+@media only screen and (min-width:1024px) and (max-width:1440px){
+    .Shop-Images{
+        width:100%;
+        display:grid;
+        grid-template-columns: auto auto auto;
+        grid-column-gap: 80px;
+        grid-row-gap: 80px;
+    }
+    .Shop-Images img{
+        width:100%;
+    }
+}
+@media only screen and (min-width:768px) and (max-width:1024px){
+    .Shop-Images{
+        width:100%;
+        display:grid;
+        grid-template-columns: auto auto;
+        grid-column-gap: 80px;
+        grid-row-gap: 80px;
+    }
+    .Shop-Images img{
+        width:100%;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .Shop-Section{
+        display: none;
+    }
+}

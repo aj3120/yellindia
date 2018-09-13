@@ -1,0 +1,190 @@
+@media only screen and (min-width:768px) {
+    .Shipping-Content {
+        width: 80%;
+        margin: auto;
+    }
+    .Shipping-Content-Right {
+        width: 49%;
+        float: right;
+        background-color: #f8fafb;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        padding-bottom: 27px;
+    }
+    .Shipping-Content-Left {
+        height: 700px;
+        float: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 49%;
+    }
+    .Shopping-Cart-Dropdown {
+        display: none;
+    }
+    .Checkout-Status-Container {
+        float: left;
+        width: 49%;
+        margin-top: 20px;
+    }
+    .Shipping-Login {
+        margin-top: 0px;
+    }
+    .Building input{
+        margin-bottom: 10px;
+    }
+    .ZipCode input, .PhoneNumber input {
+        font-weight: normal;
+        font-size: 14px;
+        color: #263238;
+        padding-left: 10px;
+        width: 35%;
+        height: 45px;
+        background-color: #ffffff;
+        border: solid 1px rgba(38, 50, 56, 0.12);
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .Shipping-Content {
+        width: 90%;
+        margin: auto;
+    }
+    .Shipping-Content-Right {
+        display: none;
+        width: 100%;
+        float: left;
+        background-color: #f8fafb;
+        margin-top: 2px;
+        margin-bottom: 30px;
+        padding-bottom: 27px;
+    }
+    .Shipping-Content-Left {
+        margin-top: 20px;
+        height: 700px;
+        float: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .Checkout-Status-Container {
+        float: left;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .Shipping-Login {
+        margin-top: 0px;
+    }
+    .ZipCode input, .PhoneNumber input {
+        font-weight: normal;
+        font-size: 14px;
+        color: #263238;
+        padding-left: 10px;
+        width: 100%;
+        height: 45px;
+        background-color: #ffffff;
+        border: solid 1px rgba(38, 50, 56, 0.12);
+    }
+}
+
+.Shipping-Login {
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+    margin-bottom: 17px;
+    margin-top: 30px;
+    height: 22px;
+    font-family: 'NunitoSans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: rgba(38, 50, 56, 0.38);
+}
+
+.FullName>p, .StreetAddress>p, .Building>p, .ZipCode>p, .PhoneNumber>p {
+    height: 18px;
+    opacity: 0.56;
+    font-family: "NunitoSans", sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #263238;
+    margin-bottom: 14px;
+}
+
+.FullName input, .StreetAddress input, .Building input {
+    font-size: 14px;
+    color: #263238;
+    padding-left: 10px;
+    width: 100%;
+    height: 45px;
+    background-color: #ffffff;
+    border: solid 1px rgba(38, 50, 56, 0.12);
+}
+.FullName input:focus{
+    outline: none;
+    border: solid 1px #2196f3;
+}
+.StreetAddress input:focus {
+    outline: none;
+    border: solid 1px #2196f3;
+}
+.Building input:focus {
+    outline: none;
+    border: solid 1px #2196f3;
+}
+.ZipCode input:focus {
+    outline: none;
+    border: solid 1px #2196f3;
+}
+.PhoneNumber input:focus {
+    outline: none;
+    border: solid 1px #2196f3;
+}
+.FullName {
+    margin-top: 90px;
+}
+
+
+
+.PhoneNumber {
+    margin-bottom: 50px;
+}
+
+.Social-Container {
+    margin: 30px 0px;
+}
+
+.Error-In-Input {
+    color: red;
+    font-size: 11px;
+    padding-left: 2px;
+    padding-top: 2px;
+    margin-bottom:7px;
+}
+
+.Shipping-Content .Social-Login {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin: auto;
+}
+
+.Shipping-Content .Social-Login div {
+    flex: 1;
+    padding-right: 20px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}

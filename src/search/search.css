@@ -1,0 +1,46 @@
+
+@media only screen and (min-width:1600px) {
+    .Search-Result  .List-Items {
+        grid-template-columns: 18%  18% 18% 18% 18%;
+    }
+  
+}
+
+@media only screen and (min-width:1440px) and (max-width:1600px) {
+    .Search-Result  .List-Items {
+        grid-template-columns: 23% 23% 23% 23%;
+    }
+   
+    
+}
+
+@media only screen and (min-width:1280px) and (max-width:1439px) {
+    .Search-Result  .List-Items {
+        grid-template-columns: 23% 23% 23% 23%;
+    }
+    
+}
+
+@media only screen and (min-width:920px) and (max-width:1280px) {
+    .Search-Result  .List-Items {
+        grid-template-columns: 31% 31% 31%;
+    }
+    
+}
+
+@media only screen and (min-width:600px) and (max-width:920px) {
+    .Search-Result  .List-Items {
+        grid-template-columns:  48%  48% ;
+    }
+  
+   
+}
+
+@media only screen and (min-width:320px) and (max-width:600px) {
+    .Search-Result  .List-Items {
+        grid-template-columns:  48%  48% ;
+        grid-row-gap: 20px;
+        grid-column-gap: 20px;
+    }
+
+}
