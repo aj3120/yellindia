@@ -31,6 +31,9 @@ class Review extends Component {
                         zipcode:this.props.checkout_details.address.zipcode,phone:this.props.checkout_details.address.phone
                     }
     }
+    componentWillMount(){
+        window.scrollTo(0,0)
+    }
     goBack = () => {
         this.props.action.go(-2);
     }

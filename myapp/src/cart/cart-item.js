@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch) => {
     return ({ action: bindActionCreators({ productCount ,push}, dispatch) })
 }
 class CartItem extends Component {
-    componentDidMount(){
+    componentWillMount(){
         window.scrollTo(0, 0)
     }
 
