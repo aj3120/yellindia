@@ -1,4 +1,4 @@
-const hostname="http://10.7.20.68:5000/"
+const hostname="https://adarsh-cart-server.herokuapp.com/"
 export const homeProductURL=hostname+"home_products"
 export const searchProductURL=hostname+"search_products"
 export const categoryProductURL=hostname+"category/"
