@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { replace, go } from 'react-router-redux';
 import './shopping-cart.css';
 import './status.css';
-import Status from './status1';
+import Status from './StatusView1';
 import SocialLogin from '../social-login';
 import { addressAction } from '../actions/address-action'
 import { totalPriceAction } from '../actions/total-price-action';
@@ -141,8 +141,7 @@ class Shipping extends Component {
         const shopping_title=this.state.showShoppingCart==='none'?"Show Cart Details":"Hide Cart Details";
         const shopping_title_img=this.state.showShoppingCart==='none'?"/assets/down_arrow.png":"/assets/up_arrow.png";
         var productPrice, subTotal = 0, totalPrice = 0;
-        const totalPriceArray = this.props.cart_products.map((product) => {
-            productPrice = parseInt(product.count, 10) * parseInt(this.props.all_products.id[product.id].price, 10)
+        const totalPriceArray = this.props.cart_products.map((product) => {productPrice = parseInt(product.count, 10) * parseInt(this.props.all_products.id[product.id].price, 10)
             return (productPrice)
         })
         totalPriceArray.forEach((num) => {
@@ -157,15 +156,9 @@ class Shipping extends Component {
         else {
             totalPrice = parseFloat(subTotal, 10) + 5.99
         }
-       
-        return (
-           
-            <div className="Checkout-Item">
-                <div className="Checkout-Title">
-                    <p>Checkout</p>
-                </div>
-
-
+       return (
+           <div className="Checkout-Item">
+                <div className="Checkout-Title"><p>Checkout</p></div>
                 <div className="Shipping-Content">
                     <div className="Checkout-Status-Container">
                         <Status />
@@ -180,9 +173,7 @@ class Shipping extends Component {
                         <ShoppingCart totalPrice={totalPrice} shipping_method={this.state.shipping_method} shippingMethodChange={this.shippingMethodChange}/>
                     </div>
                     <div className="Shipping-Content-Left">
-
-
-                        <div className="Shipping-Login">
+                         <div className="Shipping-Login">
                             <p>Login-With</p>
                             <div className="Social-Container">
                                 <SocialLogin callFrom={"shipping"} />
@@ -194,7 +185,6 @@ class Shipping extends Component {
                                 <input id="fullname_visible" ref={this.fullname_visible_ref} type="text" placeholder="Enter Your Name" onChange={this.onInpuFieldChange} onBlur={() => this.inputFieldCheck("fullname_visible")} value={this.state.fullname} />
                                 <div className="Error-In-Input" style={{ display: this.state.fullname_visible }}>Please Enter Your Name</div>
                             </div>
-
                         </div>
                         <div className="StreetAddress" >
                             <p>Street Address</p>
@@ -202,7 +192,6 @@ class Shipping extends Component {
                                 <input id="address_visible" ref={this.address_visible_ref} type="text" placeholder="Enter Your Address" onChange={this.onInpuFieldChange} onBlur={() => this.inputFieldCheck("address_visible")} required value={this.state.address} />
                                 <div className="Error-In-Input" style={{ display: this.state.address_visible }}>Please Enter Address</div>
                             </div>
-
                         </div>
                         <div className="Building" >
                             <p>Apt, Suite, Bldg (optional)</p>
@@ -216,7 +205,6 @@ class Shipping extends Component {
                                 <input id="zipcode_visible" ref={this.zipcode_visible_ref} type="number" placeholder="Enter Zipcode" required value={this.state.zipcode} onChange={this.onInpuFieldChange} onBlur={() => this.inputFieldCheck("zipcode_visible")} />
                                 <div className="Error-In-Input" style={{ display: this.state.zipcode_visible }}>Please Enter Zipcode</div>
                             </div>
-
                         </div>
                         <div className="PhoneNumber">
                             <p>Phone Number</p>
@@ -224,13 +212,9 @@ class Shipping extends Component {
                                 <input id="phone_visible" ref={this.phone_visible_ref} type="number" placeholder="Enter phone number" value={this.state.phone} onChange={this.onInpuFieldChange} onBlur={() => this.inputFieldCheck("phone_visible")} />
                                 <div className="Error-In-Input" style={{ display: this.state.phone_visible }}>Please Enter your phone number</div>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
-
-
                 <div className="Forward-Buttons">
                     <div className="Continue" onClick={this.goBack}>
                         <div>CONTINUE SHOPPING</div>

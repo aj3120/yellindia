@@ -25,6 +25,7 @@ class Item extends Component {
     this.setState({ dispQuick: 'none' })
   }
   onItemClick=(event)=>{
+    const product_link_clickspace=["Item-Image","Item-Image-Container", "Item-Brand","Item-Name","Item-Content","Item-Price"]
     if(event.target.id==="Add"){
 
       //ADD TO CART
@@ -64,7 +65,7 @@ class Item extends Component {
     else if(event.target.id==="Quick"){
       this.props.callQuickPage(this.props.id)
     } 
-    else if(event.target.id==="Item-Image" ||"Item-Image-Container" || "Item-Brand" || "Item-Name"||"Item-Content"||"Item-Price"){
+    else if(product_link_clickspace.includes(event.target.id)){
       this.props.action.push(`/product/${this.props.id}`)
     }
    

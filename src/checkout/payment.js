@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { replace, go } from 'react-router-redux';
 import './shopping-cart.css';
-import StatusView from './status2';
+import StatusView from './StatusView2';
 import './payment.css'
 import './status.css';
 import './checkout.css';
@@ -92,8 +92,8 @@ class Payment extends Component {
     }
 
     paymentMode = (event) => {
-        if (event.target.id === "card-number" || event.target.id === "card-expiry" || event.target.id === "cvc" || event.target.id === 'first-part'|| event.target.id === 'second-part'|| event.target.id === 'third-part'||
-                                        event.target.id === 'month-part1'||event.target.id === 'month-part2'||event.target.id === 'cvv') {
+        const credit_mode_check=["card-number","card-expiry","cvc",'first-part','second-part','third-part','month-part1','month-part2','cvv']
+        if (credit_mode_check.includes(event.target.id)){
             this.setState({ ...this.state, payment_mode: 'credit' })
         }
         else {
@@ -102,7 +102,7 @@ class Payment extends Component {
 
 
     }
-    paymentModeForCredit = (id) => {
+    paymentModeForCredit = () => {
         this.setState({ ...this.state, payment_mode: 'credit' })
     }
     shippingMethodChange = (id) => {

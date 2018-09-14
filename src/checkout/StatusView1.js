@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-class StatusView extends Component {
+
+class StatusView1 extends Component {
     render() {
         return (
             <div className="Checkout-Status">
@@ -8,23 +9,23 @@ class StatusView extends Component {
                 <div className="Shipping-Status">
                     <div className="Shipping-Status-Icon" style={{backgroundColor:"#0097a7"}}>
                         <div className="Shipping-Status-Check">
-                          <img src="assets/check.png" alt="check"/>
+                          1
                         </div>
                     </div>
                     <div className="Shipping-Status-Label">
                         Shipping
                         </div>
                 </div>
-                <div className="Payment-Status" >
-                    <div className="Payment-Status-Icon" style={{backgroundColor:"#0097a7"}}>
-                         <img src="assets/check.png" alt="check"/>
+                <div className="Payment-Status">
+                    <div className="Payment-Status-Icon">
+                        2
                         </div>
                     <div className="Payment-Status-Label">
                         Payment
                         </div>
                 </div>
-                <div className="Review-Status" >
-                    <div className="Review-Status-Icon" style={{backgroundColor:"#0097a7"}}>
+                <div className="Review-Status">
+                    <div className="Review-Status-Icon">
                         3
                         </div>
                     <div className="Review-Status-Label">
@@ -35,4 +36,4 @@ class StatusView extends Component {
         )
     }
 }
-export default StatusView
+export default StatusView1

@@ -71,8 +71,7 @@ function registerValidSW(swUrl) {
         };
       };
     })
-    .catch(error => {
-    });
+    .catch();
 }
 
 function checkValidServiceWorker(swUrl) {
