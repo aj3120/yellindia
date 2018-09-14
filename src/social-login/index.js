@@ -29,11 +29,12 @@ class SocailLogin extends Component {
 
   
     render() {
-            const view=this.props.callFrom==='menu'||window.innerWidth<768?{height:'36px'}:{height:'56px'}
-            const height=this.props.callFrom==='menu'||window.innerWidth<768?"36px":"100%";
-            const width=this.props.callFrom==='menu'||window.innerWidth<768?"120px":"100%";
-            const src_google=this.props.callFrom==='menu'||window.innerWidth<768?"/assets/google.jpg":"/assets/google_big.jpg";
-            const src_facebook=this.props.callFrom==='menu'||window.innerWidth<768?"/assets/facebook.svg":"/assets/facebook_big.png";
+            const check_callfrom=this.props.callFrom==='menu'||window.innerWidth<768;
+            const view=check_callfrom?{height:'36px'}:{height:'56px'}
+            const height=check_callfrom?"36px":"100%";
+            const width=check_callfrom?"120px":"100%";
+            const src_google=check_callfrom?"/assets/google.jpg":"/assets/google_big.jpg";
+            const src_facebook=check_callfrom?"/assets/facebook.svg":"/assets/facebook_big.png";
         return (
             
             <div className="Social-Login">

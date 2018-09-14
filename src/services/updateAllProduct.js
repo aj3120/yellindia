@@ -1,7 +1,7 @@
 import { allProductURL } from './apiURL';
 import { apiClient } from '../store';
-const allProductRequest = function () {
+const updateAllProduct = function () {
       return (apiClient.get(allProductURL));
 
 }
-export default allProductRequest
+export default updateAllProduct

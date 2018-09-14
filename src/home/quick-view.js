@@ -120,33 +120,24 @@ class QuickView extends Component {
                   {this.props.all_products.id[this.props.id].name}
                 </div>
                 <div className="QuickView-Price-And-Rating">
-
                   <div className="QuickView-Price">
                     ${this.props.all_products.id[this.props.id].price}
                   </div>
                   <div className="QuickView-Rating">
                     <StarRatings
-                      rating={parseFloat(this.props.all_products.id[this.props.id].rating, 10)}
-                      starRatedColor="#ff6008"
-                      numberOfStars={5}
-                      starSpacing="5px"
-                      starDimension="20px"
-                      name='rating'
+                      rating={parseFloat(this.props.all_products.id[this.props.id].rating, 10)} starRatedColor="#ff6008"
+                      numberOfStars={5} starSpacing="5px" starDimension="20px" name='rating'
                     />
                     <span>{this.props.all_products.id[this.props.id].rating} of 5</span>
                   </div>
                 </div>
-
-                <div className="QuickView-Descriptions">
-                  Description
+                <div className="QuickView-Descriptions"> Description
                 <p>
                     {this.props.all_products.id[this.props.id].description}
                   </p>
                 </div>
                 <div className="QuickView-Sizes" >
-                  <div className="Size-Label">
-                    Sizes
-                  </div>
+                  <div className="Size-Label">Sizes</div>
                   <div className="Sizes">
                     <div id="small_size" onClick={this.onSizeSelection} style={this.state.small_size==='selected'?{backgroundColor:'#263238',color:'white'}:{backgroundColor:'white',color:'#455a64'}}> S </div> 
                     <div id="medium_size" onClick={this.onSizeSelection}style={this.state.medium_size==='selected'?{backgroundColor:'#263238',color:'white'}:{backgroundColor:'white',color:'#455a64'}}> M  </div> 
@@ -163,7 +154,6 @@ class QuickView extends Component {
                     <div className="Kit-Third" id="third_kit" onClick={this.onKitSelection} style={this.state.third_kit==='selected'?{backgroundColor:'#263238',color:'white'}:{backgroundColor:'white',color:'#455a64'}}>THIRD</div>
                   </div>
                 </div>
-
                 <div className="QickView-Quandity">
                   <div className="QickView-Quandity-Label">Qty</div>
                   <div className="QuickView-Inc-And-Dec">
@@ -180,8 +170,6 @@ class QuickView extends Component {
                 <div className="QuickView-AddToCart" onClick={this.addToCart} >
                   <p>ADD TO CART</p>
                 </div>
-
-
               </div>
               <div className="QuickView-Bottom" onClick={this.changeToProductDetail} style={{display:this.props.productDetailButtonShow}}>
                  VIEW FULL PRODUCT DETAILS
@@ -190,9 +178,7 @@ class QuickView extends Component {
 
       );
     }
-    else{
-      return null
-    }
+    else{ return null }
   }
 }
 
