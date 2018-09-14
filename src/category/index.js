@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Products from '../home/products';
 import './category.css';
-import Aparels from '../header/menu-Aparels';
-import Accessories from '../header/menu-accessories';
-import Bags from '../header/menu-bags';
+import Aparels from '../header/MenuAparels';
+import Accessories from '../header/MenuAccessories';
+import Bags from '../header/Bags';
 import { category_products_action } from '../actions/category_products_action';
 import categoryProductRequest from '../services/categoryProductRequest';
 import QuickViewContainer from '../home/quick-view-container'

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import './menu.css'
-import Footwear from './menu-footwear';
-import OuterWear from './menu-outerwear';
-import Aparels from './menu-Aparels';
-import Accessories from './menu-accessories';
-import Bags from './menu-bags';
-import Care from './menu-careabout'
+import Footwear from './Footwear';
+import OuterWear from './Outerwear';
+import Aparels from './MenuAparels';
+import Accessories from './MenuAccessories';
+import Bags from './Bags';
+import Care from './Care'
 const mapStateToProps=(state)=>{
     return({
         showMenu:state.app_helper_reducer.showMenu
