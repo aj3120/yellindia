@@ -80,7 +80,7 @@ class Shipping extends Component {
         const pattern_zipcode = /^\s*?[0-9]{0,6}\s*$/
         const pattern_phone = /^\s*?[0-9]{0,10}\s*$/
         const field = event.target.id.split('_')[0]
-        if (field == 'zipcode') {
+        if (field === 'zipcode') {
             if (event.target.value === '') {
                 this.setState({ [event.target.id]: 'block', [field]: event.target.value });
             }
@@ -91,7 +91,7 @@ class Shipping extends Component {
                 this.setState({ [event.target.id]: 'none' });
             }
         }
-        else if (field == 'phone') {
+        else if (field === 'phone') {
             if (event.target.value === '') {
                 this.setState({ [event.target.id]: 'block', [field]: event.target.value });
                 
@@ -172,7 +172,7 @@ class Shipping extends Component {
                     </div>
                     <div className="Shopping-Cart-Dropdown-Container">
                         <div className="Shopping-Cart-Dropdown" onClick={this.changeShoppingCartVisibility}>
-                            <div><p>{shopping_title}</p></div><div>${totalPrice}</div><div><img src={shopping_title_img} height="20px"/></div>
+                            <div><p>{shopping_title}</p></div><div>${totalPrice}</div><div><img src={shopping_title_img} height="20px" alt="shopping title"/></div>
                         </div>
                         <ShoppingCartMobile showShoppingCart={this.state.showShoppingCart} totalPrice={totalPrice} shipping_method={this.state.shipping_method} />
                     </div>

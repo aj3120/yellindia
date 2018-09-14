@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { push, go } from 'react-router-redux';
-import CheckoutItem from './item';
 import './review.css'
 import './shopping-cart.css';
 import Status from './status3';
@@ -78,10 +77,8 @@ class Review extends Component {
         this.setState({[event.target.id]:event.target.value})
     }
     render() {
-        let shopping_title = this.state.showShoppingCart === 'none' ? "Show Cart Details" : "Hide Cart Details";
-        let shopping_title_img = this.state.showShoppingCart === 'none' ? "/assets/down_arrow.png" : "/assets/up_arrow.png";
+       
         const shopping_cart_mobile_view=window.innerWidth<768?'block':'none';
-        var checkout = this.props.cart_products.map((product, index) => <CheckoutItem id={product.id} key={index} count={product.count} />)
         var productPrice, subTotal = 0, totalPrice = 0;
         const email=this.props.login_details.email===undefined? 'aj3120@gmail.com' : this.props.login_details.email
         

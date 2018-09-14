@@ -2,26 +2,26 @@ import React, { Component } from 'react';
 class MenuAccessories extends Component {
     constructor(props) {
         super(props);
-        let show_main_flag=window.innerWidth<768?'none':'block';
+        const show_main_flag=window.innerWidth<768?'none':'block';
         this.state = { show_accessories:show_main_flag,show_necklaces: 'none', show_necklaces_opposite: 'inline-block', show_scarfs: 'none', show_carfs_opposite: 'inline-block'}
     }
     onNecklaces = () => {
-        let show = this.state.show_necklaces === 'none' ? 'inline-block' : 'none';
-        let hide = this.state.show_necklaces === 'none' ? 'none' : 'inline-block';
+        const show = this.state.show_necklaces === 'none' ? 'inline-block' : 'none';
+        const hide = this.state.show_necklaces === 'none' ? 'none' : 'inline-block';
         this.setState({ show_necklaces: show, show_necklaces_opposite: hide ,show_scarfs: 'none', show_scarfs_opposite: 'inline-block'})
     }
     onScarfs = () => {
-        let show = this.state.show_scarfs === 'none' ? 'inline-block' : 'none';
-        let hide = this.state.show_scarfs === 'none' ? 'none' : 'inline-block';
+        const show = this.state.show_scarfs === 'none' ? 'inline-block' : 'none';
+        const hide = this.state.show_scarfs === 'none' ? 'none' : 'inline-block';
         this.setState({ show_necklaces: 'none', show_necklaces_opposite: 'inline-block',show_scarfs: show, show_scarfs_opposite: hide })
     }
     showAccessories=()=>{
-        let show = this.state.show_accessories === 'none' ? 'block' : 'none';
+        const show = this.state.show_accessories === 'none' ? 'block' : 'none';
         this.setState({ show_accessories:show})
     }
     render() {
-        let show_necklaces_style=this.state.show_necklaces==='inline-block'?{opacity:'1',height: '100%', transition:'opacity 0.4s ease-in'} :{ opacity:'0',  height: '0px'}
-        let show_scarfs_style=this.state.show_scarfs==='inline-block'?{opacity:'1',height: '100%', transition:'opacity 0.4s ease-in'} :{ opacity:'0',  height: '0px'}
+        const show_necklaces_style=this.state.show_necklaces==='inline-block'?{opacity:'1',height: '100%', transition:'opacity 0.4s ease-in'} :{ opacity:'0',  height: '0px'}
+        const show_scarfs_style=this.state.show_scarfs==='inline-block'?{opacity:'1',height: '100%', transition:'opacity 0.4s ease-in'} :{ opacity:'0',  height: '0px'}
        
         return (
 

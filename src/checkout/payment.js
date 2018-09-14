@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { replace, go } from 'react-router-redux';
-import CheckoutItem from './item';
 import './shopping-cart.css';
 import StatusView from './status2';
 import './payment.css'
@@ -143,8 +142,6 @@ class Payment extends Component {
         else {
             totalPrice = parseFloat(subTotal, 10) + 5.99
         }
-
-        var checkout = this.props.cart_products.map((product, index) => <CheckoutItem id={product.id} key={index} count={product.count} />)
         return (
             <div className="Checkout-Item">
                 <div className="Checkout-Title">
@@ -157,7 +154,7 @@ class Payment extends Component {
                     </div>
                     <div className="Shopping-Cart-Dropdown-Container">
                         <div className="Shopping-Cart-Dropdown" onClick={this.changeShoppingCartVisibility}>
-                            <div><p>{shopping_title}</p></div><div><span>${totalPrice}</span><img src={shopping_title_img} height="20px" /></div>
+                            <div><p>{shopping_title}</p></div><div><span>${totalPrice}</span><img src={shopping_title_img} height="20px" alt="shopping title"/></div>
                         </div>
                         <ShoppingCartMobile showShoppingCart={this.state.showShoppingCart} totalPrice={totalPrice} shipping_method={this.state.shipping_method} />
                     </div>
@@ -242,11 +239,11 @@ class Payment extends Component {
                             <CreditCard credit_box_style={payment_mode_credit_style} paymentMode={this.paymentMode} />
                         </div>
                         <div className="Payment-Mobile-Paypal" id="paypal" onClick={this.paymentMode} style={payment_mode_paypal_style}>
-                            <div><img id="paypal" src="/assets/paypal-black.svg" height="20px" /></div>
+                            <div><img id="paypal" src="/assets/paypal-black.svg" height="20px" alt="paypal"/></div>
                             <div><p id="paypal">PAYPAL</p></div>
                         </div>
                         <div className="Payment-Mobile-ApplePay" id="applepay" onClick={this.paymentMode} style={payment_mode_apple_style}>
-                            <div><img src="/assets/apple-black.svg" id="applepay" height="20px" /></div>
+                            <div><img src="/assets/apple-black.svg" id="applepay" height="20px" alt="applepay"/></div>
                             <div><p id="applepay" >APPLE PAY</p></div>
                         </div>
                     </div>

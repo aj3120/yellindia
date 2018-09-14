@@ -15,7 +15,7 @@ class TitleImage extends Component {
                         </a>
                     </div>
                     <Carousel
-                            interval={3000} nextIcon={<img src="assets/arrow-right.svg"/>} prevIcon={<img src="assets/arrow-left.svg" alt="Pic1" />}
+                            interval={3000} nextIcon={<img src="assets/arrow-right.svg" alt="arrow right"/>} prevIcon={<img src="assets/arrow-left.svg" alt="Pic1" />}
                     >
                         <Carousel.Item>
                             <img src="assets/2.jpeg" alt="Pic1" />

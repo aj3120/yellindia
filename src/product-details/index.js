@@ -22,8 +22,8 @@ class Product extends Component {
     window.scrollTo(0,0)
   } 
   render() {
-    let idArray=this.props.routing.location.pathname.split('/')
-    let id=idArray[2];
+    const idArray=this.props.routing.location.pathname.split('/')
+    const id=idArray[2];
     return (
       <div className="Product-Container">
          <QuickView disp={'block'} id={id} callClosePage={this.props.allClosePage} productDetailButtonShow={'none'}/>
