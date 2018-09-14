@@ -45,8 +45,8 @@ class MenuBar extends Component {
         this.props.action.logoutAction({status:false})
     }
     showMenu=()=>{
-        let show = this.props.showMenu.showMenuFlag=== 'none' ? 'block' : 'none';
-        let hide = this.props.showMenu.showMenuFlag === 'none' ? 'none' : 'block';
+        const show = this.props.showMenu.showMenuFlag=== 'none' ? 'block' : 'none';
+        const hide = this.props.showMenu.showMenuFlag === 'none' ? 'none' : 'block';
         this.props.action.showMenuAction({ showMenuFlag: show, showMenuFlagOpposite: hide })
     }
 

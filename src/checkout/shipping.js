@@ -77,9 +77,9 @@ class Shipping extends Component {
             this.setState({ showShoppingCart: 'none' })
     }
     onInpuFieldChange = (event) => {
-        let pattern_zipcode = /^\s*?[0-9]{0,6}\s*$/
-        let pattern_phone = /^\s*?[0-9]{0,10}\s*$/
-        let field = event.target.id.split('_')[0]
+        const pattern_zipcode = /^\s*?[0-9]{0,6}\s*$/
+        const pattern_phone = /^\s*?[0-9]{0,10}\s*$/
+        const field = event.target.id.split('_')[0]
         if (field == 'zipcode') {
             if (event.target.value === '') {
                 this.setState({ [event.target.id]: 'block', [field]: event.target.value });
@@ -115,7 +115,7 @@ class Shipping extends Component {
 
     }
     inputFieldCheck = (id) => {
-        let field = id.split('_')[0]
+        const field = id.split('_')[0]
         if (this.state[field] === '') {
             this.setState({ [id]: 'block' });
         }
@@ -138,8 +138,8 @@ class Shipping extends Component {
     }
     
     render() {
-        let shopping_title=this.state.showShoppingCart==='none'?"Show Cart Details":"Hide Cart Details";
-        let shopping_title_img=this.state.showShoppingCart==='none'?"/assets/down_arrow.png":"/assets/up_arrow.png";
+        const shopping_title=this.state.showShoppingCart==='none'?"Show Cart Details":"Hide Cart Details";
+        const shopping_title_img=this.state.showShoppingCart==='none'?"/assets/down_arrow.png":"/assets/up_arrow.png";
         var productPrice, subTotal = 0, totalPrice = 0;
         const totalPriceArray = this.props.cart_products.map((product) => {
             productPrice = parseInt(product.count, 10) * parseInt(this.props.all_products.id[product.id].price, 10)

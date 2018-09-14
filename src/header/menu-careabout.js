@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 class Care extends Component {
     constructor(props) {
         super(props);
-        let show_main_flag=window.innerWidth<768?'none':'block';
+        const show_main_flag=window.innerWidth<768?'none':'block';
         this.state = { show_care_about:show_main_flag}
     }    
     showCareAbout=()=>{
-        let show = this.state.show_care_about === 'none' ? 'block' : 'none';
+        const show = this.state.show_care_about === 'none' ? 'block' : 'none';
         this.setState({ show_care_about:show})
     }
     render() {

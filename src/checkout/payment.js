@@ -119,13 +119,13 @@ class Payment extends Component {
     }
 
     render() {
-        let shopping_title = this.state.showShoppingCart === 'none' ? "Show Cart Details" : "Hide Cart Details";
-        let shopping_title_img = this.state.showShoppingCart === 'none' ? "/assets/down_arrow.png" : "/assets/up_arrow.png";
-        let payment_mode_paypal_style = this.state.payment_mode === 'paypal' ? { border: 'solid 1px #2196f3' } : { border: 'solid 1px #90a4ae' }
-        let payment_mode_apple_style = this.state.payment_mode === 'applepay' ? { border: 'solid 1px #2196f3' } : { border: 'solid 1px #90a4ae' }
-        let payment_mode_credit_style = this.state.payment_mode === 'credit' ? { border: 'solid 1px #2196f3' } : { border: 'solid 1px #90a4ae' }
-        let payment_mode_paypal_radio_image = this.state.payment_mode === 'paypal' ? "/assets/radio-active.svg" : "/assets/radio-inactive.svg"
-        let payment_mode_credit_radio_image = this.state.payment_mode === 'credit' ? "/assets/radio-active.svg" : "/assets/radio-inactive.svg"
+        const shopping_title = this.state.showShoppingCart === 'none' ? "Show Cart Details" : "Hide Cart Details";
+        const shopping_title_img = this.state.showShoppingCart === 'none' ? "/assets/down_arrow.png" : "/assets/up_arrow.png";
+        const payment_mode_paypal_style = this.state.payment_mode === 'paypal' ? { border: 'solid 1px #2196f3' } : { border: 'solid 1px #90a4ae' }
+        const payment_mode_apple_style = this.state.payment_mode === 'applepay' ? { border: 'solid 1px #2196f3' } : { border: 'solid 1px #90a4ae' }
+        const payment_mode_credit_style = this.state.payment_mode === 'credit' ? { border: 'solid 1px #2196f3' } : { border: 'solid 1px #90a4ae' }
+        const payment_mode_paypal_radio_image = this.state.payment_mode === 'paypal' ? "/assets/radio-active.svg" : "/assets/radio-inactive.svg"
+        const payment_mode_credit_radio_image = this.state.payment_mode === 'credit' ? "/assets/radio-active.svg" : "/assets/radio-inactive.svg"
         var productPrice, subTotal = 0, totalPrice = 0;
         const totalPriceArray = this.props.cart_products.map((product) => {
             productPrice = parseInt(product.count, 10) * parseInt(this.props.all_products.id[product.id].price, 10)

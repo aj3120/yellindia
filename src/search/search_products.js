@@ -44,7 +44,7 @@ class Search_Products extends Component {
   
   }     
   render() {
-    let tableStyle=this.state.view==='row'?{gridTemplateColumns:'auto'}:{}
+    const tableStyle=this.state.view==='row'?{gridTemplateColumns:'auto'}:{}
     if(this.props.home_products!==null && this.props.home_products!==undefined)
     {
       

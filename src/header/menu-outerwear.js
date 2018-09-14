@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 class OuterWear extends Component {
     constructor(props) {
         super(props);
-        let show_main_flag=window.innerWidth<768?'none':'block';
+        const show_main_flag=window.innerWidth<768?'none':'block';
         this.state = { show_outerwear:show_main_flag}
     }    
     showOuterWear=()=>{
-        let show = this.state.show_outerwear === 'none' ? 'block' : 'none';
+        const show = this.state.show_outerwear === 'none' ? 'block' : 'none';
         this.setState({ show_outerwear:show})
     }
     render() {

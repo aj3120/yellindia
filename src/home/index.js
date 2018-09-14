@@ -51,7 +51,7 @@ class Home extends Component {
   }
   render() {
     
-    let products=this.state.search_mode==='on'?this.props.search_products:this.props.home_products
+    const products=this.state.search_mode==='on'?this.props.search_products:this.props.home_products
     return (
       <div className="Home">
         <TitleImage />

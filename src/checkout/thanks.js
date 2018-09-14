@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch) => {
 class Thanks extends Component {
 
     render() {
-        let email=this.props.login_details.email===undefined? 'aj3120@gmail.com' : this.props.login_details.email
+        const email=this.props.login_details.email===undefined? 'aj3120@gmail.com' : this.props.login_details.email
         return (
             <div className="Thanks">
                 <div className="Thanks-Header">

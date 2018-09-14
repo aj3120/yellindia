@@ -39,14 +39,14 @@ class Item extends Component {
   
       });
       if(checkSameItem===0){
-        let cart_products_new=this.props.cart_products
+        const cart_products_new=this.props.cart_products
         cart_products_new.push({id:this.props.id,count:"1"})
         this.props.action.productCount(cart_products_new)
         cartUpdateRequest(cart_products_new)
       }
       else{
-        let cart_products_old=this.props.cart_products
-        let cart_products_new=cart_products_old.map((product)=>{
+        const cart_products_old=this.props.cart_products
+        const cart_products_new=cart_products_old.map((product)=>{
             if(product.id===this.props.id){
                product.count=parseInt(countOfSameProduct,10)+1;
                return(product)

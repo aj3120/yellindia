@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 class Footwear extends Component {
     constructor(props) {
         super(props);
-        let show_main_flag=window.innerWidth<768?'none':'block';
+        const show_main_flag=window.innerWidth<768?'none':'block';
         this.state = { show_footwear:show_main_flag}
     }    
     showFootwear=()=>{
-        let show = this.state.show_footwear === 'none' ? 'block' : 'none';
+        const show = this.state.show_footwear === 'none' ? 'block' : 'none';
         this.setState({ show_footwear:show})
     }
     render() {

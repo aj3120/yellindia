@@ -14,7 +14,7 @@ const mapStateToProps=(state)=>{
 }
 class Menu extends Component {
     render() {
-        let menu_style=this.props.showMenu.showMenuFlag==='block'?
+        const menu_style=this.props.showMenu.showMenuFlag==='block'?
                         {
                             maxHeight: '100%',
                             transition:'max-height 2s',

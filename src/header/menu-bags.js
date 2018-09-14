@@ -2,28 +2,28 @@ import React, { Component } from 'react';
 class Bags extends Component {
     constructor(props) {
         super(props);
-        let show_main_flag=window.innerWidth<768?'none':'block';
+        const show_main_flag=window.innerWidth<768?'none':'block';
         this.state = { show_bags:show_main_flag,show_house: 'none', show_house_opposite: 'inline-block', show_gifts: 'none', show_gifts_opposite: 'inline-block' }
     }
     onHouse = () => {
-        let show = this.state.show_house === 'none' ? 'inline-block' : 'none';
-        let hide = this.state.show_house === 'none' ? 'none' : 'inline-block';
+        const show = this.state.show_house === 'none' ? 'inline-block' : 'none';
+        const hide = this.state.show_house === 'none' ? 'none' : 'inline-block';
         this.setState({ show_house: show, show_house_opposite: hide, show_gifts: 'none', show_gifts_opposite: 'inline-block' })
     }
     onGifts = () => {
-        let show = this.state.show_gifts === 'none' ? 'inline-block' : 'none';
-        let hide = this.state.show_gifts === 'none' ? 'none' : 'inline-block';
+        const show = this.state.show_gifts === 'none' ? 'inline-block' : 'none';
+        const hide = this.state.show_gifts === 'none' ? 'none' : 'inline-block';
         this.setState({ show_house: 'none', show_house_opposite: 'inline-block', show_gifts: show, show_gifts_opposite: hide })
     }
     showBags=()=>{
-        let show = this.state.show_bags === 'none' ? 'block' : 'none';
+        const show = this.state.show_bags === 'none' ? 'block' : 'none';
         this.setState({ show_bags:show})
     }
     render() {
 
 
-        let show_house_style = this.state.show_house === 'inline-block' ? { opacity: '1', height: '100%', transition: 'opacity 0.4s ease-in' } : { opacity: '0', height: '0px', transition: 'all 0.2s ease-out' }
-        let show_gifts_style = this.state.show_gifts === 'inline-block' ? { opacity: '1', height: '100%', transition: 'opacity 0.4s ease-in' } : { opacity: '0', height: '0px', transition: 'all 0.2s ease-out' }
+        const show_house_style = this.state.show_house === 'inline-block' ? { opacity: '1', height: '100%', transition: 'opacity 0.4s ease-in' } : { opacity: '0', height: '0px', transition: 'all 0.2s ease-out' }
+        const show_gifts_style = this.state.show_gifts === 'inline-block' ? { opacity: '1', height: '100%', transition: 'opacity 0.4s ease-in' } : { opacity: '0', height: '0px', transition: 'all 0.2s ease-out' }
 
         return (
 

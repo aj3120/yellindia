@@ -28,27 +28,27 @@ class QuickView extends Component {
   }
 
   decrement = () => {
-    let count = this.state.count;
+    const count = this.state.count;
     if (count > 1) {
       this.setState({ addedToCart: 'none', addToCart: 'flex', count: count - 1 })
     }
   }
   increment = () => {
-    let count = this.state.count;
+    const count = this.state.count;
 
     this.setState({ addedToCart: 'none', addToCart: 'flex', count: count + 1 })
 
 
   }
   onSizeSelection=(event)=>{
-      let id=event.target.id; 
+      const id=event.target.id; 
       if(this.state[id]==='notselected'){
           this.setState({small_size:'notselected',medium_size:'notselected',large_size:'notselected',xtra_size:'notselected',
           dxtra_size:'notselected',[id]:'selected'})
       }
   }
   onKitSelection=(event)=>{
-    let id=event.target.id; 
+    const id=event.target.id; 
     if(this.state[id]==='notselected'){
         this.setState({home_kit:'notselected',away_kit:'notselected',third_kit:'notselected',[id]:'selected'})
     }
@@ -67,14 +67,14 @@ class QuickView extends Component {
     })
 
     if (product_in_cart) {
-      let cart_products_new = this.props.cart_products;
+      const cart_products_new = this.props.cart_products;
       cart_products_new[pos_of_product_incart].count = parseInt(cart_products_new[pos_of_product_incart].count, 10) + this.state.count
       this.props.action.productCount(cart_products_new);
       cartUpdateRequest(cart_products_new);
       this.props.action.push('/cart')
     }
     else {
-      let cart_products_new = this.props.cart_products;
+      const cart_products_new = this.props.cart_products;
       cart_products_new.push({ id: this.props.id, count: this.state.count });
       this.props.action.productCount(cart_products_new);
       cartUpdateRequest(cart_products_new);
@@ -105,7 +105,7 @@ class QuickView extends Component {
 
       ]
 
-      let showThumb=window.innerWidth<=768?false:true;
+      const showThumb=window.innerWidth<=768?false:true;
 
       return (
       

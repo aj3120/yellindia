@@ -12,7 +12,7 @@ class Products extends Component {
     return (productList)
   }
   render() {
-    let tableStyle = this.props.view === 'row' ? { gridTemplateColumns: 'auto',gridRowGap: '5px' } : {}
+    const tableStyle = this.props.view === 'row' ? { gridTemplateColumns: 'auto',gridRowGap: '5px' } : {}
     if (this.props.home_products !== null && this.props.home_products !== undefined) {
 
       return (

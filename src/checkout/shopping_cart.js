@@ -27,9 +27,9 @@ class ShoppingCart extends Component{
     
     render(){
         var checkout = this.props.cart_products.map((product, index) => <CheckoutItem id={product.id} key={index} count={product.count} />)
-        let questionBoxStyleFree = this.props.shipping_method === 'Free' ? this.state.shipping_style : this.state.shipping_style_opposite;
-        let questionBoxStyleThreeDay = this.props.shipping_method === 'Three-Days' ? this.state.shipping_style : this.state.shipping_style_opposite;
-        let questionBoxStyleOneDay = this.props.shipping_method === 'One-Day' ? this.state.shipping_style : this.state.shipping_style_opposite;
+        const questionBoxStyleFree = this.props.shipping_method === 'Free' ? this.state.shipping_style : this.state.shipping_style_opposite;
+        const questionBoxStyleThreeDay = this.props.shipping_method === 'Three-Days' ? this.state.shipping_style : this.state.shipping_style_opposite;
+        const questionBoxStyleOneDay = this.props.shipping_method === 'One-Day' ? this.state.shipping_style : this.state.shipping_style_opposite;
         return(
             <div className="Shopping-Cart-Continer">
                             <div className="Shipping-Items">

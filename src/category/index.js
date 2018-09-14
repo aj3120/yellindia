@@ -27,8 +27,8 @@ class Category extends Component {
     this.setState({ dispQuickView: 'none', id: null })
   }
   componentWillMount() {
-    let idArray = this.props.routing.location.pathname.split('/')
-    let id = idArray[2];
+    const idArray = this.props.routing.location.pathname.split('/')
+    const id = idArray[2];
     switch (id) {
       case "1":
         this.setState({ head_position:'10%',head_color:'white',heading_image: '/assets/apparels.jpg', heading_image_name: 'Apparels', heading_image_desc: 'White Gold began gaining popularity in the early 1900’s as an alternative to platinum. ' })
@@ -45,8 +45,8 @@ class Category extends Component {
   componentWillReceiveProps(next) {
   
       if (this.props.location.pathname !== next.location.pathname) {
-        let idArray = next.location.pathname.split('/')
-        let id = idArray[2];
+        const idArray = next.location.pathname.split('/')
+        const id = idArray[2];
         switch (id) {
           case "1":
             this.setState({ head_position:'10%',head_color:'white',heading_image: 'http://10.7.20.68:3000/assets/apparels.jpg', heading_image_name: 'Apparels', heading_image_desc: 'White Gold began gaining popularity in the early 1900’s as an alternative to platinum. ' })

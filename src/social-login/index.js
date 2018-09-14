@@ -14,7 +14,7 @@ class SocailLogin extends Component {
 
     facebookResponse = (event) => {
         if (event.id !== undefined) {
-            let login_details = { status: true, api: 'facebook', id: event.id, name: event.name, email: event.email, image: event.picture.data.url }
+            const login_details = { status: true, api: 'facebook', id: event.id, name: event.name, email: event.email, image: event.picture.data.url }
             this.props.action.loginAction(login_details);
         }
 
@@ -22,18 +22,18 @@ class SocailLogin extends Component {
 
     googleResponse = (event) => {
         if (event.profileObj !== undefined) {
-            let login_details = { status: true, api: 'google', id: event.profileObj.googleId, name: event.profileObj.name, email: event.profileObj.email, image: event.profileObj.imageUrl }
+            const login_details = { status: true, api: 'google', id: event.profileObj.googleId, name: event.profileObj.name, email: event.profileObj.email, image: event.profileObj.imageUrl }
             this.props.action.loginAction(login_details);
         }
     };
 
   
     render() {
-            let view=this.props.callFrom==='menu'||window.innerWidth<768?{height:'36px'}:{height:'56px'}
-            let height=this.props.callFrom==='menu'||window.innerWidth<768?"36px":"100%";
-            let width=this.props.callFrom==='menu'||window.innerWidth<768?"120px":"100%";
-            let src_google=this.props.callFrom==='menu'||window.innerWidth<768?"/assets/google.jpg":"/assets/google_big.jpg";
-            let src_facebook=this.props.callFrom==='menu'||window.innerWidth<768?"/assets/facebook.svg":"/assets/facebook_big.png";
+            const view=this.props.callFrom==='menu'||window.innerWidth<768?{height:'36px'}:{height:'56px'}
+            const height=this.props.callFrom==='menu'||window.innerWidth<768?"36px":"100%";
+            const width=this.props.callFrom==='menu'||window.innerWidth<768?"120px":"100%";
+            const src_google=this.props.callFrom==='menu'||window.innerWidth<768?"/assets/google.jpg":"/assets/google_big.jpg";
+            const src_facebook=this.props.callFrom==='menu'||window.innerWidth<768?"/assets/facebook.svg":"/assets/facebook_big.png";
         return (
             
             <div className="Social-Login">

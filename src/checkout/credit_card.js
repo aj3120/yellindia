@@ -95,7 +95,7 @@ class CreditCard extends Component {
     }
     render() {
         this.paymentDetailsUpdateAction();
-        let card_image = this.state.card_name_show_upto_three === 'inline-block' ? "/assets/placeholder.svg" : "/assets/visa_new.jpg"
+        const card_image = this.state.card_name_show_upto_three === 'inline-block' ? "/assets/placeholder.svg" : "/assets/visa_new.jpg"
         return (
 
             <div className="Payment-Mobile-Credit-Card">
