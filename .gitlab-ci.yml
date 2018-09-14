@@ -15,7 +15,7 @@ sonarqube:
    script:
     - sonar-runner
    only:
-    - development
+    - master
 
 
 
