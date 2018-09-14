@@ -18,7 +18,7 @@ import Review from './checkout/review';
 import Thanks from './checkout/thanks';
 import Product from './product-details';
 import CategoryPage from './category';
-import worker_script from './webworker/webworker';
+import worker_script from './webworker/worker_script';
 import {showMenuAction} from './actions/showMenuAction';
 import SearchPage from './search'
 const mapStateToProps = (state) => {
