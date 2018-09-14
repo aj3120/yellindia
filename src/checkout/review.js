@@ -4,9 +4,9 @@ import { bindActionCreators } from 'redux';
 import { push, go } from 'react-router-redux';
 import './review.css'
 import './shopping-cart.css';
-import Status from './status3';
+import Status from './StatusView3';
 import './status.css';
-import sendShoppingInformations from '../services/shopping-informations';
+import sendShoppingInformations from '../services/shoppingInfoSend';
 import { cartProductsAction } from '../actions/cart_products_action'
 import { totalPriceAction } from '../actions/total-price-action'
 import ShoppingCart from './shopping_cart';
